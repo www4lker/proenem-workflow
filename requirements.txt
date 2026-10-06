@@ -1,0 +1,5 @@
+# Dependências Python do pipeline do corpus e dos scripts da aula (Python 3.10+).
+# Instalar: python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
+pymupdf>=1.24      # extrair_prova.py (import fitz): texto e imagens dos PDFs do INEP
+pandas>=2.0        # analise_corpus.py, strip_and_parse.py, ask_batch.py
+pillow>=10.0       # recortar_questoes_inep.py (recortes PNG das questões)
