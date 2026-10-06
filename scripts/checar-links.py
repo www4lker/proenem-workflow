@@ -35,6 +35,8 @@ def quebrados_em(md):
             alvo = m.group(1).strip()
             if not alvo.startswith(PASTAS_RAIZ) or not re.match(r"^[\w.\-/]+$", alvo) or "AAAA" in alvo:
                 continue
+            if alvo.endswith((".log", ".aux", ".pdf", ".zip")) or "/build/" in alvo or "/dist/" in alvo:
+                continue  # artefatos gerados: existem só em quem compilou
             if not (RAIZ / alvo).exists() and not (md.parent / alvo).exists():
                 achados.append(f"crase `{alvo}`")
     return achados
