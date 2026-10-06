@@ -48,24 +48,24 @@ Fazer na ordem, pulando o que estiver bloqueado. Cada tarefa tem **critério de 
   `identidade/logo/logo-pro-enem-versao-latex.png`, de preferência por referência e não por cópia (se o build exigir
   cópia, que o script a faça a partir de `identidade/`). Remover as cópias soltas do logo e a versão de slides.
   Atualizar `identidade/LEIAME.md`. *Pronto:* plano, complementar e deck compilam; nenhum outro arquivo de logo no
-  repositório além de `identidade/`. Estado: aberta.
+  repositório além de `identidade/`. Estado: feita (1cb9cf5, 06/10/2026).
 - **F2 · Ambiente reproduzível.** `requirements.txt` (Python 3.10+, `pymupdf`, `pandas`), `.env.example`
   (`GEMINI_API_KEY=`), `scripts/checar-ambiente.sh` (Python, módulos, `pdftotext`, TeX Live, Node ≥ 20.11, Chromium,
-  `gemini`), e a seção "Instalação" no `README.md`. *Pronto:* o script roda na nuvem e diz o que falta. Estado: aberta.
+  `gemini`), e a seção "Instalação" no `README.md`. *Pronto:* o script roda na nuvem e diz o que falta. Estado: feita (e9c21ed, 06/10/2026).
 - **F3 · Verificação automática (GitHub Actions).** Compilar a apostila, o plano e o complementar; `deck build` e
-  `deck lint` da aula de 03/10; `python -m py_compile` em todos os `.py`. *Pronto:* workflow verde num PR. Estado: aberta.
+  `deck lint` da aula de 03/10; `python -m py_compile` em todos os `.py`. *Pronto:* workflow verde num PR. Estado: feita (c68d121, 06/10/2026).
 - **F4 · Scripts com caminho novo.** Conferir `aulas/2026-10-03-…/fontes/conferir_candidatas_inep.py` e
   `filtrar_corpus_proenem.py` (agora apontam para `pipeline/` via `Path(__file__).resolve().parents[3]`). O que
-  depender de PDF do INEP, marcar como "precisa de F9". *Pronto:* o que não depende de PDF roda. Estado: aberta.
+  depender de PDF do INEP, marcar como "precisa de F9". *Pronto:* o que não depende de PDF roda. Estado: feita (676f3b1, 06/10/2026).
 - **F5 · Arrumar a documentação.** Um `docs/workflow.md` ponta a ponta (diagnóstico → corpus → aula → apostila), com
   "como adicionar uma área". Corrigir referências quebradas da montagem (ex.: o handoff da aula cita `logs/` e
   `HANDOFF-kit.md`, que aqui são `docs/HANDOFF-kit-de-aula.md`; `decks-impress-patches.diff` ficou obsoleto e pode
   sair). Aplicar a correção mínima nº 1 de `aulas/2026-10-03-…/HANDOFF-minimos.md` (decisão D7) e marcá-la como
-  aplicada lá. Não reescrever `docs/historico/`. *Pronto:* nenhum link interno quebrado (checar com script). Estado: aberta.
+  aplicada lá. Não reescrever `docs/historico/`. *Pronto:* nenhum link interno quebrado (checar com script). Estado: feita (557a85d, 06/10/2026).
 - **F6 · Marcar a qualidade do corpus.** Em `pipeline/analise/corpus_mestre.csv`: uma coluna `area_confiavel`
   (`false` nas linhas CH de 2017, 2018, 2019 e 2025, cuja faixa 1–45 é Linguagens) e um campo de observação para os
   5 enunciados vazios e os 2 itens sem classificação. **Sem chamar o Gemini.** `analise_corpus.py` passa a ignorar as
-  não confiáveis por padrão. *Pronto:* contagens antes e depois no log. Estado: aberta.
+  não confiáveis por padrão. *Pronto:* contagens antes e depois no log. Estado: feita (93ab9a0, 06/10/2026).
 
 ### Fase 2: generalizar o pipeline
 
