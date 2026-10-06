@@ -24,6 +24,7 @@ Como trabalhar com ela: ver "Protocolo de sessão" em `CLAUDE.md`.
 | 2026-10-06 | **Incorporação (opção A):** o agente entrega por pull request; a sessão local revisa, testa e faz o merge quando os testes passam e o PR não fecha decisão do professor. Se fechar, pergunta antes. |
 | 2026-10-06 | **D6:** as linhas CH de 2017+ são marcadas como não confiáveis agora (F6), sem custo; a reextração fica para quando o professor autorizar o Gemini. |
 | 2026-10-06 | **D7:** aplicar a correção mínima nº 1 (texto alternativo da abertura de Ecologia), em F5. |
+| 2026-10-06 | Rodada 1 do Fable (F1–F11, PR #1) revisada localmente e incorporada em `658568a`. Registro: `docs/logs/2026-10-06-revisao.md`. |
 
 ## Decisões pendentes do professor
 

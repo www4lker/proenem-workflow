@@ -17,8 +17,8 @@ revisa, testa e incorpora; a próxima sessão recomeça do ponto registrado.
 1. **Abrir.** Ler `docs/FILA.md` (o que fazer), o log mais recente em `docs/logs/` (onde parou) e este arquivo.
    Para contexto, os handoffs em `docs/` (que são registro; a fila é quem manda). `git status` e `git log -5`:
    edições humanas entre sessões são a versão válida.
-2. **Branch.** Criar `fable/AAAA-MM-DD` a partir de `main` (sufixo `-2`, `-3` se houver mais de uma no dia).
-   Nunca commitar direto em `main`.
+2. **Branch.** Usar o branch que o ambiente atribuir (a sessão na nuvem só consegue enviar para ele); se puder
+   escolher, `fable/AAAA-MM-DD` a partir de `main`. Nunca commitar direto em `main`.
 3. **Trabalhar na ordem da fila**, pulando o que estiver bloqueado. Uma tarefa por commit, com o código da
    tarefa no título (ex.: `F2: adiciona requirements e checagem de ambiente`).
 4. **Registrar durante, não só no fim.** Depois de cada tarefa: atualizar o estado na `docs/FILA.md` e o log da
@@ -34,12 +34,12 @@ revisa, testa e incorpora; a próxima sessão recomeça do ponto registrado.
 
 - `pipeline/`: extração (`extrair_prova.py`), classificação via Gemini CLI (`prompts/`,
   `.claude/skills/gemini-delegate/`), corpus em `corpus_enem/`, análises em `analise/`.
-  **Área fixa em Ciências Humanas no código**; generalizar é a prioridade nº 1 do handoff.
+  A área é parâmetro (`pipeline/config/areas.yaml`); hoje só CH tem corpus classificado.
 - `aulas/AAAA-MM-DD-tema/`: uma pasta por aula. A de 03/10 é o modelo de referência.
 - `apostila/`: tem `CLAUDE.md` próprio; leia antes de editar.
 - `ferramentas/decks-impress/`: tem `CLAUDE.md` próprio. `montar.sh` da aula aponta para cá
   (sobrescrevível pela variável `DECKS_IMPRESS`).
-- `identidade/`: logo. Não há logo canônico decidido; as cópias dentro da aula ficam até a decisão.
+- `identidade/`: logo canônico (`logo/logo-pro-enem-versao-latex.png`). Os builds o leem daqui; não criar cópias.
 - `docs/historico/`: documentos e logs das fases anteriores. Consulta, não instrução.
 
 ## Regras
