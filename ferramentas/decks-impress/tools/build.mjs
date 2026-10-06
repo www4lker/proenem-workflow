@@ -84,6 +84,20 @@ ${body.map(folha).join('\n')}
 `;
 }
 
+// Copia assets/ para dist/ seguindo links simbólicos: um asset pode ser link para fora do deck
+// (ex.: o logo em identidade/, na raiz do repositório) e dist/ precisa ser autossuficiente.
+// (fs.cpSync com dereference ainda grava links em vez de arquivos.)
+function copiarAssets(src, dst) {
+  fs.mkdirSync(dst, { recursive: true });
+  for (const e of fs.readdirSync(src, { withFileTypes: true })) {
+    const s = path.join(src, e.name);
+    const d = path.join(dst, e.name);
+    const real = e.isSymbolicLink() ? fs.realpathSync(s) : s;
+    if (fs.statSync(real).isDirectory()) copiarAssets(real, d);
+    else fs.copyFileSync(real, d);
+  }
+}
+
 function build() {
   try {
     const layout = loadLayout(dir);
@@ -97,7 +111,7 @@ function build() {
     const out = path.join(dir, 'dist');
     fs.mkdirSync(path.join(out, 'vendor'), { recursive: true });
     fs.copyFileSync(path.join(ROOT, 'vendor/impress.js'), path.join(out, 'vendor/impress.js'));
-    if (fs.existsSync(path.join(dir, 'assets'))) fs.cpSync(path.join(dir, 'assets'), path.join(out, 'assets'), { recursive: true });
+    if (fs.existsSync(path.join(dir, 'assets'))) copiarAssets(path.join(dir, 'assets'), path.join(out, 'assets'));
     fs.writeFileSync(path.join(out, 'index.html'), page({ layout, debug: false }));
     fs.writeFileSync(path.join(out, 'debug.html'), page({ layout: loadLayout(dir, { mapa: true }), debug: true }));
     fs.writeFileSync(path.join(out, 'impresso.html'), printPage({ layout }));

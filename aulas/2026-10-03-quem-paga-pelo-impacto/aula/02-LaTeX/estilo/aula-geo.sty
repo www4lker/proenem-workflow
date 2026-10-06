@@ -84,8 +84,10 @@
   \fancyfoot[R]{\sffamily\footnotesize\color{fgsoft}\thepage}}
 
 % --- Bloco de título (sem capa separada) ---
-% Logo do curso: estilo/logo-pro-enem.png (limpo a partir de fontes/asset1.jpeg), à direita do título.
-\newcommand{\aulalogo}{../estilo/logo-pro-enem.png}
+% Logo do curso, à direita do título: a cópia canônica em identidade/logo/ (raiz do repositório), por referência.
+% O caminho é relativo à pasta de compilação (plano-de-aula/ ou material-complementar/). Para compilar a aula fora
+% do repositório, redefina \aulalogo no preâmbulo do documento.
+\newcommand{\aulalogo}{../../../../../identidade/logo/logo-pro-enem-versao-latex.png}
 \newcommand{\blocotitulo}{%
   \thispagestyle{plain}%
   \noindent\begin{minipage}[b]{\dimexpr\linewidth-2.3cm\relax}
