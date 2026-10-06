@@ -50,6 +50,8 @@ revisa, testa e incorpora; a próxima sessão recomeça do ponto registrado.
   `docs/higienizacao.md`.
 - Imagens marcadas "Imagem de terceiro removida" são avisos de mesmo tamanho. Só trocar pela
   original com permissão registrada em `CREDITOS.md`.
+- Auditoria: seguir `docs/auditoria.md`. Conferência de fonte só vale com prova anexada (sha256, script, diff);
+  classificação e interpretação são auditadas pelo professor, não por outro agente.
 - Fontes: seguir `docs/protocolo-de-fontes.md` (nenhum número "a verificar" chega ao aluno; síntese
   de IA nunca é citável).
 - A voz, as teses e o recorte das aulas são dos professores. O agente cura, verifica, rascunha e

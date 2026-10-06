@@ -25,6 +25,7 @@ Como trabalhar com ela: ver "Protocolo de sessão" em `CLAUDE.md`.
 | 2026-10-06 | **D6:** as linhas CH de 2017+ são marcadas como não confiáveis agora (F6), sem custo; a reextração fica para quando o professor autorizar o Gemini. |
 | 2026-10-06 | **D7:** aplicar a correção mínima nº 1 (texto alternativo da abertura de Ecologia), em F5. |
 | 2026-10-06 | Rodada 1 do Fable (F1–F11, PR #1) revisada localmente e incorporada em `658568a`. Registro: `docs/logs/2026-10-06-revisao.md`. |
+| 2026-10-06 | **Política de auditoria** (`docs/auditoria.md`): quatro classes de erro, cada uma com seu auditor (CI; agente com prova anexada; professor por amostra cega; colegas e PROENEM). A profundidade da revisão de um PR segue o risco. Critério de quando o ciclo com o Fable vira manutenção. |
 
 ## Decisões pendentes do professor
 
@@ -37,6 +38,7 @@ Cada uma traz a recomendação. O Fable **não** decide por elas: pula as tarefa
 | D3 | LaTeX da aula e da apostila | Um estilo base comum com uma camada por disciplina · estilos separados | F12 |
 | D4 | Hospedagem das aulas | Um site do PROENEM com todas as aulas (médio prazo) · um site Netlify por aula (como hoje) | F16 |
 | D5 | Teste de transmissão | Qual disciplina e qual professor adaptam o kit primeiro? | F17 |
+| D8 | Competências de CH: o prompt e `areas.yaml` usam rótulos que não são os da matriz oficial (ver `docs/auditoria.md`) | Esperar o resultado da amostra CH nº 1, então corrigir o prompt e reclassificar (custo do Gemini) · corrigir o prompt já e reclassificar junto com a reextração de 2017+ · manter e anotar a ressalva | Uso das colunas de competência e habilidade |
 
 ## Tarefas do Fable
 
@@ -105,7 +107,9 @@ Fazer na ordem, pulando o que estiver bloqueado. Cada tarefa tem **critério de 
 - Se possível, obter o logo em vetor (SVG ou PDF) com o PROENEM.
 - Se quiser o piloto de CN ou a reextração de 2017+: autorizar o custo e cadastrar a chave do Gemini como segredo do
   ambiente da nuvem (nunca em arquivo).
-- Responder D1–D5.
+- Responder D1–D5 e D8.
+- **Preencher a amostra cega CH nº 1** (`docs/auditoria/amostra-ch-01/ficha.md`; instruções no `LEIAME.md` da
+  pasta). A comparação é tarefa **Local**, depois do preenchimento.
 
 ## Fora do escopo do Fable
 
