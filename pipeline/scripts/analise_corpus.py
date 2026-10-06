@@ -1,8 +1,23 @@
+"""Junta a extração (Pass 1) e a classificação (Pass 2) em analise/corpus_mestre.csv e imprime as análises.
+
+Uso (de dentro de pipeline/): python scripts/analise_corpus.py [--incluir-nao-confiaveis]
+
+Marcação de qualidade (tarefa F6 de docs/FILA.md): cada linha recebe `area_confiavel` e `observacao`.
+Por padrão as análises usam só as linhas classificadas E confiáveis; o CSV completo sai sempre inteiro.
+"""
 import pandas as pd
 import json
 import re
+import sys
 from pathlib import Path
 from collections import Counter
+
+INCLUIR_NAO_CONFIAVEIS = '--incluir-nao-confiaveis' in sys.argv[1:]
+
+# A partir de 2017 a faixa 1–45 do caderno 1 (dia 1) é Linguagens; CH passou a ser 46–90. O extrator tomou
+# sempre 1–45, então as linhas "CH" de 2017+ são Linguagens classificadas como se fossem Humanas
+# (ver HANDOFF_corpus_2017_linguagens.md). A reextração depende de autorização do professor (decisão D6).
+PRIMEIRO_ANO_FAIXA_ERRADA = 2017
 
 # ── 1. Carregar e juntar ───────────────────────────────────────────────────
 
@@ -30,10 +45,38 @@ corpus = raw.merge(clean, on='id', how='left')
 # Anotar questões sem classificação válida
 corpus['classificado'] = corpus['parse_ok'].fillna(False).astype(bool)
 
+# ── 1b. Marcação de qualidade ─────────────────────────────────────────────
+
+faixa_errada = (corpus['area'] == 'CH') & (corpus['ano'].astype(int) >= PRIMEIRO_ANO_FAIXA_ERRADA)
+enunciado_vazio = corpus['enunciado'].isna() | (corpus['enunciado'].astype(str).str.strip() == '')
+sem_classificacao = ~corpus['classificado'] & ~enunciado_vazio
+
+corpus['area_confiavel'] = ~faixa_errada
+
+def observacao(i):
+    notas = []
+    if faixa_errada[i]:
+        notas.append('faixa 1-45 do dia 1 é Linguagens desde 2017: área real LC, classificação inválida; reextrair com 46-90')
+    if enunciado_vazio[i]:
+        notas.append('enunciado vazio na extração (Pass 1)')
+    if sem_classificacao[i]:
+        notas.append('sem classificação válida (Pass 2: JSON ausente ou malformado)')
+    return '; '.join(notas)
+
+corpus['observacao'] = [observacao(i) for i in corpus.index]
+
 print(f"\n{'='*60}")
 print(f"CORPUS MESTRE: {len(corpus)} questões totais")
 print(f"  Classificadas: {corpus['classificado'].sum()}")
 print(f"  Sem classificação: {(~corpus['classificado']).sum()}")
+print(f"  Área não confiável (CH de {PRIMEIRO_ANO_FAIXA_ERRADA}+ = Linguagens): {(~corpus['area_confiavel']).sum()}")
+print(f"  Enunciado vazio: {enunciado_vazio.sum()}")
+usaveis = corpus['classificado'] & corpus['area_confiavel']
+print(f"  Classificadas e confiáveis: {usaveis.sum()}")
+if INCLUIR_NAO_CONFIAVEIS:
+    print("  (análises abaixo INCLUEM as linhas não confiáveis: --incluir-nao-confiaveis)")
+else:
+    print("  (análises abaixo usam só as classificadas e confiáveis; --incluir-nao-confiaveis para tudo)")
 
 
 # ── 2. ANÁLISE A — Distribuição geral de ancoragens ───────────────────────
@@ -42,11 +85,11 @@ print(f"\n{'='*60}")
 print("ANÁLISE A — DISTRIBUIÇÃO DE ANCORAGENS")
 print(f"{'='*60}")
 
-df = corpus[corpus['classificado']].copy()
+df = corpus[corpus['classificado'] & (corpus['area_confiavel'] | INCLUIR_NAO_CONFIAVEIS)].copy()
 
 # Global
 anc_global = df['ancoragem'].value_counts()
-print("\nGlobal (348 questões):")
+print(f"\nGlobal ({len(df)} questões):")
 for anc, n in anc_global.items():
     pct = n / len(df) * 100
     print(f"  {anc:20s}: {n:3d} ({pct:.1f}%)")
@@ -250,6 +293,6 @@ export[export_cols].to_csv(
 
 print(f"\n{'='*60}")
 print("OUTPUTS SALVOS:")
-print(f"  analise/corpus_mestre.csv — corpus completo com classificações")
+print(f"  analise/corpus_mestre.csv — corpus completo com classificações, area_confiavel e observacao")
 print(f"  analise/geopolitica_aula_04_07.csv — questões para 04/07")
 print(f"{'='*60}")
