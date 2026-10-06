@@ -1,0 +1,78 @@
+# Verificação automática (tarefa F3 de docs/FILA.md): tudo o que o repositório gera precisa continuar gerando.
+# Roda em todo pull request e em push para main. Não chama nenhuma API paga.
+name: verificar
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  python:
+    name: Python compila
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: py_compile em todos os .py
+        run: |
+          find . -name '*.py' -not -path './.git/*' -not -path '*/node_modules/*' -print0 \
+            | xargs -0 python3 -m py_compile
+      - name: Checagem de ambiente (só informativa)
+        run: bash scripts/checar-ambiente.sh || true
+
+  latex:
+    name: Apostila, plano e complementar compilam
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: TeX Live
+        run: |
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+            texlive-luatex texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese \
+            texlive-plain-generic tex-gyre fonts-texgyre latexmk
+          luaotfload-tool -u > /dev/null
+      - name: Apostila (pdflatex)
+        working-directory: apostila/latex
+        run: latexmk -pdf -interaction=nonstopmode main.tex
+      - name: Plano de aula (lualatex)
+        working-directory: aulas/2026-10-03-quem-paga-pelo-impacto/aula/02-LaTeX/plano-de-aula
+        run: latexmk -r latexmkrc -interaction=nonstopmode plano-de-aula.tex
+      - name: Material complementar (lualatex)
+        working-directory: aulas/2026-10-03-quem-paga-pelo-impacto/aula/02-LaTeX/material-complementar
+        run: latexmk -r latexmkrc -interaction=nonstopmode material-complementar.tex
+      - name: Guardar os PDFs para revisão
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdfs
+          path: |
+            apostila/latex/main.pdf
+            aulas/2026-10-03-quem-paga-pelo-impacto/aula/02-LaTeX/plano-de-aula/build/plano-de-aula.pdf
+            aulas/2026-10-03-quem-paga-pelo-impacto/aula/02-LaTeX/material-complementar/build/material-complementar.pdf
+          retention-days: 14
+
+  deck:
+    name: Deck da aula de 03/10 (build e lint)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: ferramentas/decks-impress/package-lock.json
+      - name: Dependências do decks-impress
+        working-directory: ferramentas/decks-impress
+        run: npm ci
+      - name: Chromium do Playwright (para o lint no navegador)
+        working-directory: ferramentas/decks-impress
+        run: npx playwright install --with-deps chromium
+      - name: deck build
+        working-directory: aulas/2026-10-03-quem-paga-pelo-impacto
+        run: ../../ferramentas/decks-impress/deck build aula/03-slides
+      - name: deck lint
+        working-directory: aulas/2026-10-03-quem-paga-pelo-impacto
+        run: ../../ferramentas/decks-impress/deck lint aula/03-slides
