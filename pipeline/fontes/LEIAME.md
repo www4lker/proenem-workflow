@@ -1,7 +1,7 @@
 # Provas e gabaritos do INEP
 
 Os PDFs não são versionados (`pipeline/.gitignore`): ficam em `pipeline/<ano>/` na máquina de quem roda o
-pipeline. `MANIFESTO.csv` diz o que o corpus usa e de onde vem; `scripts/baixar_provas.py` baixa e confere.
+pipeline. `MANIFESTO.csv` diz o que o corpus usa e de onde vem; `pipeline/scripts/baixar_provas.py` baixa e confere.
 
 | Coluna | Significado |
 |---|---|

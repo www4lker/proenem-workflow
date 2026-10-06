@@ -1,0 +1,9 @@
+{
+  "meta": { "title": "Título da aula" },
+  "steps": [
+    { "id": "titulo", "x": 0, "y": 0, "scale": 1, "why": "origem (0,0): a pergunta-guia abre a aula" },
+    { "id": "bloco-1", "x": 2000, "y": 0, "scale": 1, "why": "primeiro bloco do argumento, à direita do título (leitura esquerda→direita)" },
+    { "id": "questao-1", "x": 4000, "y": 0, "scale": 1, "why": "questão do ENEM que fecha o bloco; recorte à esquerda, comando à direita" },
+    { "id": "fechamento", "x": 6000, "y": 0, "scale": 1, "why": "volta à pergunta-guia" }
+  ]
+}

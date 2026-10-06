@@ -50,6 +50,10 @@ jobs:
       - name: Material complementar (lualatex)
         working-directory: aulas/2026-10-03-quem-paga-pelo-impacto/aula/02-LaTeX/material-complementar
         run: latexmk -r latexmkrc -interaction=nonstopmode material-complementar.tex
+      - name: Modelo vazio de aula (plano e complementar)
+        run: |
+          (cd aulas/_modelo/aula/02-LaTeX/plano-de-aula && latexmk -r latexmkrc -interaction=nonstopmode plano-de-aula.tex)
+          (cd aulas/_modelo/aula/02-LaTeX/material-complementar && latexmk -r latexmkrc -interaction=nonstopmode material-complementar.tex)
       - name: Guardar os PDFs para revisão
         uses: actions/upload-artifact@v4
         with:
@@ -82,3 +86,8 @@ jobs:
       - name: deck lint
         working-directory: aulas/2026-10-03-quem-paga-pelo-impacto
         run: ../../ferramentas/decks-impress/deck lint aula/03-slides
+      - name: deck do modelo vazio (build e lint)
+        working-directory: aulas/_modelo
+        run: |
+          ../../ferramentas/decks-impress/deck build aula/03-slides
+          ../../ferramentas/decks-impress/deck lint aula/03-slides
