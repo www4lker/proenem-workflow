@@ -1,0 +1,33 @@
+ano,dia,caderno,cor,tipo,url_oficial,status_url,nome_esperado,sha256,usado_por
+2013,1,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2013_PV_impresso_D1_CD1.pdf,a verificar,dia1_caderno1_azul.pdf,,corpus atual (CH)
+2013,1,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2013_GB_impresso_D1_CD1.pdf,a verificar,dia1_azul.pdf,4cb7841b8558f813c98cfeba36cf78c1d1695efae91cdb2f1a38cfca12d4b6fc,corpus atual (CH)
+2013,2,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2013_PV_impresso_D2_CD1.pdf,a verificar,2013_PV_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2013,2,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2013_GB_impresso_D2_CD1.pdf,a verificar,2013_GB_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2014,1,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2014_PV_impresso_D1_CD1.pdf,a verificar,2014_PV_impresso_D1_CD1.pdf,,corpus atual (CH)
+2014,1,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2014_GB_impresso_D1_CD1.pdf,a verificar,CADERNO_1_AZUL_SABADO.pdf,,corpus atual (CH)
+2014,2,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2014_PV_impresso_D2_CD1.pdf,a verificar,2014_PV_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2014,2,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2014_GB_impresso_D2_CD1.pdf,a verificar,2014_GB_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2015,1,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2015_PV_impresso_D1_CD1.pdf,a verificar,2015_PV_impresso_D1_CD1.pdf,,corpus atual (CH)
+2015,1,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2015_GB_impresso_D1_CD1.pdf,a verificar,CADERNO_1_AZUL_SABADO.pdf,,corpus atual (CH)
+2015,2,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2015_PV_impresso_D2_CD1.pdf,a verificar,2015_PV_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2015,2,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2015_GB_impresso_D2_CD1.pdf,a verificar,2015_GB_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2016,1,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2016_PV_impresso_D1_CD1.pdf,a verificar,2016_PV_impresso_D1_CD1.pdf,,corpus atual (CH)
+2016,1,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2016_GB_impresso_D1_CD1.pdf,a verificar,GAB_ENEM_2016_DIA_1_01_AZUL.pdf,,corpus atual (CH)
+2016,2,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2016_PV_impresso_D2_CD1.pdf,a verificar,2016_PV_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2016,2,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2016_GB_impresso_D2_CD1.pdf,a verificar,2016_GB_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2017,1,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2017_PV_impresso_D1_CD1.pdf,a verificar,2017_PV_impresso_D1_CD1.pdf,,corpus atual (CH)
+2017,1,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2017_GB_impresso_D1_CD1.pdf,a verificar,cad_1_gabarito_azul_5112017.pdf,,corpus atual (CH)
+2017,2,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2017_PV_impresso_D2_CD1.pdf,a verificar,2017_PV_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2017,2,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2017_GB_impresso_D2_CD1.pdf,a verificar,2017_GB_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2018,1,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2018_PV_impresso_D1_CD1.pdf,a verificar,2018_PV_impresso_D1_CD1.pdf,,corpus atual (CH)
+2018,1,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2018_GB_impresso_D1_CD1.pdf,a verificar,GAB_ENEM_2018_DIA_1_AZUL.pdf,,corpus atual (CH)
+2018,2,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2018_PV_impresso_D2_CD1.pdf,a verificar,2018_PV_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2018,2,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2018_GB_impresso_D2_CD1.pdf,a verificar,2018_GB_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2019,1,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2019_PV_impresso_D1_CD1.pdf,a verificar,2019_PV_impresso_D1_CD1.pdf,,corpus atual (CH)
+2019,1,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2019_GB_impresso_D1_CD1.pdf,a verificar,gabarito_1_dia_caderno_1_azul_aplicacao_regular.pdf,,corpus atual (CH)
+2019,2,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2019_PV_impresso_D2_CD1.pdf,a verificar,2019_PV_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2019,2,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2019_GB_impresso_D2_CD1.pdf,a verificar,2019_GB_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2025,1,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D1_CD1.pdf,a verificar,2025_PV_impresso_D1_CD1.pdf,,corpus atual (CH)
+2025,1,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D1_CD1.pdf,a verificar,2025_GB_impresso_D1_CD1.pdf,,corpus atual (CH)
+2025,2,1,azul,prova,https://download.inep.gov.br/enem/provas_e_gabaritos/2025_PV_impresso_D2_CD1.pdf,a verificar,2025_PV_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
+2025,2,1,azul,gabarito,https://download.inep.gov.br/enem/provas_e_gabaritos/2025_GB_impresso_D2_CD1.pdf,a verificar,2025_GB_impresso_D2_CD1.pdf,,piloto CN (2017+) / LC+MT; ainda não usado
