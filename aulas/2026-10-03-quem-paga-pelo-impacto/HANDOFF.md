@@ -1,5 +1,7 @@
 # Handoff: aula "Quem paga pelo impacto?" (Geografia e Natureza)
 
+> **Registro (06/10/2026).** Os itens abertos deste documento foram levados para [`docs/FILA.md`](../../docs/FILA.md), que passa a ser a fonte única do que falta fazer. Este arquivo fica como contexto.
+
 Estado em 02/10/2026, no branch `v3-tres-professores` (saiu de `ementa-geo-natureza`). Este arquivo tem só o estado e os próximos passos. O que aconteceu, e
 por quê, está em `logs/` (sessão de hoje: `logs/2026-10-02-sessao.md`). A aula é em **3/10/2026**.
 

@@ -1,5 +1,7 @@
 # HANDOFF: linhas "CH" de 2017+ são Linguagens (achado de 30/09/2026)
 
+> **Registro (06/10/2026).** Os itens abertos deste documento foram levados para [`docs/FILA.md`](../docs/FILA.md), que passa a ser a fonte única do que falta fazer. Este arquivo fica como contexto.
+
 Achado feito de fora, durante o projeto `aula-geo-natureza` (aula sobre data centers). **Nada
 neste repositório foi alterado** por essa sessão, exceto este arquivo (novo, não rastreado).
 Sem commit. Antes de tudo: `git status --short --branch` (AGENTS.md).

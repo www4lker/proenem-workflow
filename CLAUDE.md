@@ -9,11 +9,26 @@ Acervo do workflow docente do PROENEM reunido a partir de quatro projetos que na
 pendente é a unificação; o plano está em `docs/HANDOFF-construcao.md` (leia inteiro antes de mexer
 na estrutura).
 
-## Ao iniciar uma sessão
+## Protocolo de sessão
 
-1. Ler `README.md`, `docs/HANDOFF-construcao.md` e, para a etapa aula, `docs/HANDOFF-kit-de-aula.md`.
-2. `git status` e `git log -5`: edições humanas entre sessões são a versão válida.
-3. Ao encerrar: registrar o que foi feito no handoff correspondente e fazer commit.
+O trabalho anda em rodadas: uma sessão do agente executa a fila; depois o autor (com uma sessão local)
+revisa, testa e incorpora; a próxima sessão recomeça do ponto registrado.
+
+1. **Abrir.** Ler `docs/FILA.md` (o que fazer), o log mais recente em `docs/logs/` (onde parou) e este arquivo.
+   Para contexto, os handoffs em `docs/` (que são registro; a fila é quem manda). `git status` e `git log -5`:
+   edições humanas entre sessões são a versão válida.
+2. **Branch.** Criar `fable/AAAA-MM-DD` a partir de `main` (sufixo `-2`, `-3` se houver mais de uma no dia).
+   Nunca commitar direto em `main`.
+3. **Trabalhar na ordem da fila**, pulando o que estiver bloqueado. Uma tarefa por commit, com o código da
+   tarefa no título (ex.: `F2: adiciona requirements e checagem de ambiente`).
+4. **Registrar durante, não só no fim.** Depois de cada tarefa: atualizar o estado na `docs/FILA.md` e o log da
+   sessão, commitar e fazer push. Se a sessão for interrompida (créditos, tempo), o registro já está salvo.
+5. **Decisão que não é sua** (pedagógica, de direitos, de custo, de arquitetura difícil de desfazer): não
+   decidir. Registrar em "Decisões pendentes" da fila no formato pergunta → opções → recomendação, e seguir com
+   outra tarefa.
+6. **Fechar.** Log em `docs/logs/AAAA-MM-DD-fable.md` com: tarefas feitas (com commit), **como cada uma foi
+   verificada**, o que não foi testado, decisões novas para o professor e o próximo passo. Abrir um pull request
+   para `main` com o resumo. Não fazer o merge: ele é feito depois da revisão.
 
 ## Mapa
 

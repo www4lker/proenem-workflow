@@ -1,5 +1,7 @@
 # Handoff: kit de aulas reprodutível (prancheta)
 
+> **Registro (06/10/2026).** Os itens abertos deste documento foram levados para [`docs/FILA.md`](FILA.md), que passa a ser a fonte única do que falta fazer. Este arquivo fica como contexto.
+
 Aberto em 02/10/2026, véspera da aula "Quem paga pelo impacto?". **Estado: prancheta.** Nada daqui foi construído. Este
 documento registra o problema, o que já existe, os riscos que dá para antecipar e as decisões que cabem ao professor.
 Quem assumir este trabalho deve começar por aqui. O trabalho começa **depois da aula de 3/10**.

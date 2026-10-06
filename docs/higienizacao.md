@@ -42,4 +42,3 @@ A lista item a item do que ficou de fora está em [`_excluidos.tsv`](_excluidos.
 
 - Restaurar nomes reais de colegas que consentirem.
 - Obter permissões das imagens removidas ou substituí-las.
-- Definir o logo canônico.

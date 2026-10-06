@@ -1,5 +1,7 @@
 # HANDOFF — Preparar o legado dos projetos ao PROENEM
 
+> **Registro (06/10/2026).** Os itens abertos deste documento foram levados para [`docs/FILA.md`](FILA.md), que passa a ser a fonte única do que falta fazer. Este arquivo fica como contexto.
+
 Data: 2026-10-05
 Escopo: `proenem-enem` (este repositório) e `proenem-apostilas` (repositório irmão).
 Origem: auditoria somente leitura feita em 05/10/2026 (log em

@@ -1,5 +1,7 @@
 # Handoff de correções mínimas
 
+> **Registro (06/10/2026).** Os itens abertos deste documento foram levados para [`docs/FILA.md`](../../docs/FILA.md), que passa a ser a fonte única do que falta fazer. Este arquivo fica como contexto.
+
 Ajustes pequenos, achados depois da conclusão dos slides e da página on-line. Nenhum foi aplicado: cada um espera o visto
 do professor. Depois da aplicação, refazer o build, o `montar.sh` e o `publicar.zip`.
 

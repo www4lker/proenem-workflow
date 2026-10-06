@@ -1,5 +1,7 @@
 # Handoff da frente de slides (sessão paralela)
 
+> **Registro (06/10/2026).** Os itens abertos deste documento foram levados para [`docs/FILA.md`](../../../../docs/FILA.md), que passa a ser a fonte única do que falta fazer. Este arquivo fica como contexto.
+
 > **02/10/26, branch `ementa-geo-natureza`:** o deck foi refeito como "Quem paga pelo impacto?" (ementa
 > Geografia e Natureza). O esqueleto vigente é `argumento.md` v3; o estado está no `HANDOFF.md` da raiz. O que segue
 > abaixo descreve o deck de data centers (no `master` e na tag `v3-data-centers`) e fica como histórico.

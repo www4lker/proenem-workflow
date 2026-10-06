@@ -22,11 +22,12 @@ diagnóstico da turma → corpus ENEM (seleção de questões) → plano de aula
 | Aula (anterior) | [`aulas/2026-07-04-trabalho-e-tecnologia/`](aulas/2026-07-04-trabalho-e-tecnologia/) | Curadoria de questões e kit de ensaio | Primeira versão do processo |
 | Apostila | [`apostila/`](apostila/) | Protótipo Word → LaTeX/Overleaf | Protótipo em avaliação pela equipe |
 | Ferramenta | [`ferramentas/decks-impress/`](ferramentas/decks-impress/) | Gerador de slides (impress.js) usado pela aula modelo | Funciona (Node 20.11+) |
-| Identidade | [`identidade/`](identidade/) | Logo do PROENEM | Logo canônico a decidir |
+| Identidade | [`identidade/`](identidade/) | Logo do PROENEM | Logo canônico definido (versão LaTeX) |
 | Documentação | [`docs/`](docs/) | Handoffs, plano de produto, protocolos, histórico | — |
 
 ## Por onde começar
 
+0. **O que falta fazer:** [`docs/FILA.md`](docs/FILA.md), a fonte única das tarefas abertas.
 1. **Professor de outra área** (Física, Biologia…): leia [`docs/HANDOFF-kit-de-aula.md`](docs/HANDOFF-kit-de-aula.md)
    e abra a aula modelo. O processo vale para qualquer disciplina; o pipeline do corpus ainda não.
 2. **Quem vai construir o projeto unificado** (pessoa ou agente): leia [`CLAUDE.md`](CLAUDE.md) e
