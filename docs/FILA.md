@@ -72,21 +72,21 @@ Fazer na ordem, pulando o que estiver bloqueado. Cada tarefa tem **critério de 
 - **F7 · Área como parâmetro.** `pipeline/config/areas.yaml` (dia e faixa de questões por ano e área: CH, CN, LC, MT;
   ver a tabela em `docs/HANDOFF-construcao.md` e `pipeline/HANDOFF_corpus_2017_linguagens.md`). `extrair_prova.py`,
   `processar_recorte.py` e `analise_corpus.py` leem dela. Corrige no código o erro de 2017+. *Pronto:* testes de
-  unidade da escolha de faixa por ano e área. Estado: aberta.
+  unidade da escolha de faixa por ano e área. Estado: feita (6dba23b, 06/10/2026).
 - **F8 · Montagem do prompt em script.** `pipeline/scripts/montar_prompts.py`, reconstruído a partir de
   `docs/historico/pipeline-logs/logs/2026-05-16.md`. *Pronto:* reproduz a coluna `prompt_completo` de
-  `batch_completo_raw.csv` numa amostra. Estado: aberta.
+  `batch_completo_raw.csv` numa amostra. Estado: feita (9295ad8, 06/10/2026).
 - **F9 · Manifesto das provas.** `pipeline/fontes/MANIFESTO.csv` (ano, dia, caderno, cor, URL oficial do INEP, nome
   esperado, sha256) e `pipeline/scripts/baixar_provas.py`. Se a nuvem não tiver acesso ao site do INEP, deixar as URLs
   com status "a verificar" e a tarefa de baixar para **Local**. *Pronto:* manifesto cobre os anos do corpus atual.
-  Estado: aberta.
+  Estado: feita na parte da nuvem (f13b22d, 06/10/2026); **Local**: conferir URLs, baixar e registrar sha256 (`pipeline/fontes/LEIAME.md`).
 - **F10 · Prompt e matriz de Ciências da Natureza.** `pipeline/prompts/` por área; matriz de CN (C1–C8, H1–H30) só com
-  fonte oficial conferida (ver `docs/protocolo-de-fontes.md`). Sem executar o Gemini. Estado: aberta.
+  fonte oficial conferida (ver `docs/protocolo-de-fontes.md`). Sem executar o Gemini. Estado: esqueleto feito (66b37cf, 06/10/2026); **Local**: preencher a matriz da fonte oficial (`pipeline/prompts/LEIAME.md`), sem acesso ao INEP na nuvem.
 
 ### Fase 3: kit de aula (depende das decisões)
 
 - **F11 · Modelo vazio de aula.** `aulas/_modelo/` com as pastas da aula de 03/10 e um `LEIAME.md` que explica a
-  cadeia (fontes e checagem → argumento → plano → roteiro → slides → complementar → página). Estado: aberta.
+  cadeia (fontes e checagem → argumento → plano → roteiro → slides → complementar → página). Estado: feita (6fbda81, 06/10/2026).
 - **F12 · Identidade única.** Um pacote LaTeX base e um `theme.css` derivados da mesma paleta e do logo canônico,
   consumidos por aula, apostila e slides. Estado: bloqueada (D3).
 - **F13 · Método.** `docs/metodo/` a partir do §2 de `docs/HANDOFF-kit-de-aula.md` e do histórico: etapas, vistos,
