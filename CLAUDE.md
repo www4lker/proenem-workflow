@@ -28,7 +28,7 @@ revisa, testa e incorpora; a próxima sessão recomeça do ponto registrado.
    outra tarefa.
 6. **Fechar.** Log em `docs/logs/AAAA-MM-DD-fable.md` com: tarefas feitas (com commit), **como cada uma foi
    verificada**, o que não foi testado, decisões novas para o professor e o próximo passo. Abrir um pull request
-   para `main` com o resumo. Não fazer o merge: ele é feito depois da revisão.
+   para `main` com o resumo. Não fazer o merge: a sessão local revisa, testa e incorpora (decisão de 06/10/2026).
 
 ## Mapa
 

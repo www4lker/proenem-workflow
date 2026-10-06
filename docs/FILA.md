@@ -21,6 +21,9 @@ Como trabalhar com ela: ver "Protocolo de sessão" em `CLAUDE.md`.
 | 2026-10-06 | Correções do decks-impress com commit na origem (`3e17e14`); a cópia em `ferramentas/` já as inclui (§7.8 do kit). |
 | 2026-10-06 | **Logo canônico: `identidade/logo/logo-pro-enem-versao-latex.png`.** A versão de slides sai de uso. |
 | 2026-10-06 | O nome do autor (Walker) permanece como crédito. |
+| 2026-10-06 | **Incorporação (opção A):** o agente entrega por pull request; a sessão local revisa, testa e faz o merge quando os testes passam e o PR não fecha decisão do professor. Se fechar, pergunta antes. |
+| 2026-10-06 | **D6:** as linhas CH de 2017+ são marcadas como não confiáveis agora (F6), sem custo; a reextração fica para quando o professor autorizar o Gemini. |
+| 2026-10-06 | **D7:** aplicar a correção mínima nº 1 (texto alternativo da abertura de Ecologia), em F5. |
 
 ## Decisões pendentes do professor
 
@@ -33,8 +36,6 @@ Cada uma traz a recomendação. O Fable **não** decide por elas: pula as tarefa
 | D3 | LaTeX da aula e da apostila | Um estilo base comum com uma camada por disciplina · estilos separados | F12 |
 | D4 | Hospedagem das aulas | Um site do PROENEM com todas as aulas (médio prazo) · um site Netlify por aula (como hoje) | F16 |
 | D5 | Teste de transmissão | Qual disciplina e qual professor adaptam o kit primeiro? | F17 |
-| D6 | Corpus de 2017 em diante (174 linhas de Linguagens rotuladas como CH) | Marcar agora como não confiáveis (F6) e reextrair depois, com custo de Gemini autorizado · reextrair já | F10 (reclassificação) |
-| D7 | Correção mínima nº 1 (texto alternativo da abertura de Ecologia, `aulas/2026-10-03-…/HANDOFF-minimos.md`) | Aplicar · não aplicar | F5 (parte) |
 
 ## Tarefas do Fable
 
@@ -59,7 +60,8 @@ Fazer na ordem, pulando o que estiver bloqueado. Cada tarefa tem **critério de 
 - **F5 · Arrumar a documentação.** Um `docs/workflow.md` ponta a ponta (diagnóstico → corpus → aula → apostila), com
   "como adicionar uma área". Corrigir referências quebradas da montagem (ex.: o handoff da aula cita `logs/` e
   `HANDOFF-kit.md`, que aqui são `docs/HANDOFF-kit-de-aula.md`; `decks-impress-patches.diff` ficou obsoleto e pode
-  sair). Não reescrever `docs/historico/`. *Pronto:* nenhum link interno quebrado (checar com script). Estado: aberta.
+  sair). Aplicar a correção mínima nº 1 de `aulas/2026-10-03-…/HANDOFF-minimos.md` (decisão D7) e marcá-la como
+  aplicada lá. Não reescrever `docs/historico/`. *Pronto:* nenhum link interno quebrado (checar com script). Estado: aberta.
 - **F6 · Marcar a qualidade do corpus.** Em `pipeline/analise/corpus_mestre.csv`: uma coluna `area_confiavel`
   (`false` nas linhas CH de 2017, 2018, 2019 e 2025, cuja faixa 1–45 é Linguagens) e um campo de observação para os
   5 enunciados vazios e os 2 itens sem classificação. **Sem chamar o Gemini.** `analise_corpus.py` passa a ignorar as
@@ -102,7 +104,7 @@ Fazer na ordem, pulando o que estiver bloqueado. Cada tarefa tem **critério de 
 - Se possível, obter o logo em vetor (SVG ou PDF) com o PROENEM.
 - Se quiser o piloto de CN ou a reextração de 2017+: autorizar o custo e cadastrar a chave do Gemini como segredo do
   ambiente da nuvem (nunca em arquivo).
-- Responder D1–D7.
+- Responder D1–D5.
 
 ## Fora do escopo do Fable
 
