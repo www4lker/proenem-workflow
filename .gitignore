@@ -18,6 +18,11 @@ dist/
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.bbl
+*.blg
+*.out
+*.toc
+apostila/latex/main.log
 apostila/latex/main.pdf
 
 # Sistema

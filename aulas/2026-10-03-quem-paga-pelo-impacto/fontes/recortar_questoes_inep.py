@@ -18,7 +18,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from conferir_candidatas_inep import ARQUIVOS, RAIZ
+from conferir_candidatas_inep import ARQUIVOS, RAIZ, exigir_pdfs
 
 AQUI = Path(__file__).resolve().parent
 SAIDA = AQUI / "provas-recortes"
@@ -156,6 +156,7 @@ def ids_selecionados():
 
 
 def main():
+    exigir_pdfs()
     import tempfile
     SAIDA.mkdir(exist_ok=True)
     ids = sys.argv[1:] or ids_selecionados()

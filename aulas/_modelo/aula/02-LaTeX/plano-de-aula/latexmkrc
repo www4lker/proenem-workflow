@@ -1,0 +1,4 @@
+# Compila com lualatex; PDF e auxiliares em build/ (fora do git). O estilo vem de ../estilo.
+$pdf_mode = 4;
+$out_dir = 'build';
+ensure_path('TEXINPUTS', '../estilo//');

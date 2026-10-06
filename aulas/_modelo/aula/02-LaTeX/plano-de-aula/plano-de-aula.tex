@@ -1,0 +1,59 @@
+% !TeX program = lualatex
+% Plano de aula: versão para a coordenação, os docentes e o arquivo. Esqueleto comum com o deck: aula/03-slides/argumento.md.
+% Compila com pdfLaTeX ou LuaLaTeX. Troque [final] por nada enquanto houver pendências (\pendente, \averificar, \figura
+% aparecem em vermelho no rascunho e viram erro no modo final).
+\documentclass[11pt]{article}
+\usepackage{aula-geo}
+\graphicspath{{../../../fontes/provas-recortes/}}
+\input{metadados}
+\definir\tipodocumento{Plano de aula}
+\definir\versao{v0}
+
+\begin{document}
+\blocotitulo
+
+\section*{Identificação}
+\begin{tabularx}{\linewidth}{@{}>{\sffamily\small\color{fgsoft}}l X@{}}
+Curso & Pro Enem (pré-vestibular para o ENEM) \\
+Área e disciplina & \pendente{área; disciplina} \\
+Turma & \pendente{turma} \\
+Data & \auladata \\
+Duração & 50 minutos \\
+Docentes & \aulaprofessor \\
+Tema & \pendente{tema da ementa} \\
+Pergunta norteadora & \pendente{pergunta-guia} \\
+Modalidade & Aula expositiva dialogada, com questões do ENEM resolvidas com a turma \\
+\end{tabularx}
+
+\section{Apresentação e justificativa}
+\pendente{por que esta aula cabe no ENEM e o que o diagnóstico da turma pede}
+
+\section{Objetivos}
+\begin{itemize}
+\item \pendente{objetivo 1}
+\end{itemize}
+
+\section{Roteiro}
+\begin{roteiro}
+0--5 & Abertura & \pendente{pergunta-guia e gancho} & slide \texttt{titulo} \\
+5--40 & Desenvolvimento & \pendente{blocos do argumento} & slides \\
+40--50 & Questões do ENEM & \pendente{4 questões conferidas} & recortes \\
+\end{roteiro}
+
+\section{Questões}
+% \questaoenem{2013_CH_001}{2013}{1}{E}   % id do recorte em fontes/provas-recortes/, ano, nº oficial, gabarito
+\begin{questaoautoral}{A}
+\pendente{enunciado autoral}
+\alternativas
+\item alternativa A
+\item alternativa B
+\item alternativa C
+\item alternativa D
+\item alternativa E
+\fimalternativas
+\end{questaoautoral}
+\imprimirgabarito
+
+\section{Referências}
+\pendente{só o que está em fontes/checagem.md com status ok}
+\end{document}

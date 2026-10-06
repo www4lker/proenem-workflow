@@ -1,15 +1,20 @@
 """
-Pass 1 — extrai uma prova ENEM (dia 1) e gera linhas de CH em questoes_raw.csv.
+Pass 1 — extrai uma prova ENEM e gera as linhas de uma área em questoes_raw.csv.
 
 Uso:
-  python extrair_prova.py 2014/2014_PV_impresso_D1_CD1.pdf
+  python extrair_prova.py 2014/2014_PV_impresso_D1_CD1.pdf              # área CH (padrão)
+  python extrair_prova.py 2019/2019_PV_impresso_D2_CD1.pdf --area CN    # outra área
+
+O dia da prova e a faixa de questões da área naquele ano vêm de config/areas.yaml
+(ver areas.py): CH é 1–45 até 2016 e 46–90 a partir de 2017, por exemplo. O script
+avisa se o nome do PDF indicar outro dia que não o da área.
 
 Pré-requisitos:
-  pip install pymupdf pandas
+  pip install -r requirements.txt (pymupdf, pandas, pyyaml)
   poppler-utils instalado (pdftotext no PATH)
 
 Convenção de gabarito:
-  Espera arquivo gabarito_dia1.pdf no MESMO diretório da prova, ou via flag
+  Espera o PDF do gabarito do mesmo dia no MESMO diretório da prova, ou via flag
   --gabarito. Se não achar, falha cedo com mensagem clara.
 
 Schema de saída (corpus_enem/questoes_raw.csv):
@@ -28,8 +33,10 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-import fitz  # PyMuPDF
+import pymupdf as fitz  # PyMuPDF (>= 1.24)
 import pandas as pd
+
+import areas
 
 
 # ---------- CONFIG ----------
@@ -238,17 +245,27 @@ def parse_gabarito(pdf_gab: Path, caderno: str = "azul") -> dict[int, str]:
     return gab
 
 
-# ---------- FILTRO CH ----------
+# ---------- FILTRO POR ÁREA ----------
 
-def detectar_intervalo_ch(texto_completo: str) -> tuple[int, int]:
-    """
-    ENEM dia 1: 1-5 línguas, 6-45 CH+LC misturados, 46-90 CN+MAT.
-    Detecta marcadores de seção. Fallback: assume 6-45 como CH+LC.
-    """
-    # Mais robusto: confiar que CH é "todas as questões que NÃO são linguagens nem CN"
-    # Na prática, dia 1 ENEM moderno: Q6-Q45 = CH+LC (mistura)
-    # Aqui retornamos 1-45; classificação fina por disciplina vem no Pass 2.
-    return 1, 45
+def detectar_dia(pdf_path: Path) -> int | None:
+    """Dia indicado no nome do arquivo (D1/D2, dia1/dia2, sábado/domingo); None se o nome não disser."""
+    norm = re.sub(r"[_\-\s]+", "", pdf_path.name.lower())
+    norm = norm.replace("á", "a")
+    # "(?<!c)d1": o "d1" de "cd1" é caderno 1, não dia 1.
+    if re.search(r"(?<!c)d1(?!\d)|dia1|sabado", norm):
+        return 1
+    if re.search(r"(?<!c)d2(?!\d)|dia2|domingo", norm):
+        return 2
+    return None
+
+
+def intervalo_da_area(area: str, ano: int, pdf_path: Path) -> tuple[int, int]:
+    """Faixa de questões da área naquele ano (config/areas.yaml); avisa se o PDF parecer de outro dia."""
+    f = areas.faixa(area, ano)
+    dia_pdf = detectar_dia(pdf_path)
+    if dia_pdf is not None and dia_pdf != f.dia:
+        print(f"  ⚠ {area} em {ano} é prova do dia {f.dia}, mas o nome do PDF indica dia {dia_pdf}")
+    return f.q_min, f.q_max
 
 
 # ---------- ESCRITA DO CSV ----------
@@ -287,7 +304,7 @@ def detectar_caderno(pdf_path: Path) -> str:
     return "azul"
 
 
-def localizar_gabarito(pdf_prova: Path, override: Path | None) -> Path:
+def localizar_gabarito(pdf_prova: Path, override: Path | None, dia: int = 1) -> Path:
     if override:
         return override
 
@@ -306,8 +323,9 @@ def localizar_gabarito(pdf_prova: Path, override: Path | None) -> Path:
         # NOVO: GB como abreviação de gabarito (2021_GB_impresso...)
         eh_gb = bool(re.search(r"\bgb\b|gb_|_gb|gbimpresso", nome))
         if eh_gb: s += 8
-        if "dia1" in norm: s += 8
-        if "sabado" in norm: s += 4
+        if detectar_dia(p) == dia: s += 8
+        if ("sabado" if dia == 1 else "domingo") in norm: s += 4
+        if detectar_dia(p) == 3 - dia: s -= 8
         if "azul" in norm: s += 3
         if "prova" in norm: s -= 8
         # MODIFICADO: 'impresso' só penaliza se NÃO houver sinal de gabarito
@@ -329,12 +347,13 @@ def localizar_gabarito(pdf_prova: Path, override: Path | None) -> Path:
     return melhor
 
 
-def processar(pdf_prova: Path, pdf_gab: Path | None = None):
+def processar(pdf_prova: Path, pdf_gab: Path | None = None, area: str = "CH"):
     ano = detectar_ano(pdf_prova)
     caderno = detectar_caderno(pdf_prova)
-    gab_path = localizar_gabarito(pdf_prova, pdf_gab)
+    faixa = areas.faixa(area, ano)
+    gab_path = localizar_gabarito(pdf_prova, pdf_gab, dia=faixa.dia)
 
-    print(f"[{pdf_prova.name}] ano={ano} caderno={caderno}")
+    print(f"[{pdf_prova.name}] ano={ano} caderno={caderno} área={area} (dia {faixa.dia})")
     print(f"  gabarito: {gab_path.name}")
 
     # 1. extrai texto ordenado
@@ -346,19 +365,19 @@ def processar(pdf_prova: Path, pdf_gab: Path | None = None):
     gabaritos = parse_gabarito(gab_path)
     print(f"  gabaritos parseados: {len(gabaritos)}")
 
-    # 3. filtro CH
-    ch_min, ch_max = detectar_intervalo_ch(texto)
-    print(f"  intervalo CH: {ch_min}-{ch_max}")
+    # 3. filtro da área (config/areas.yaml)
+    q_min, q_max = intervalo_da_area(area, ano, pdf_prova)
+    print(f"  intervalo {area}: {q_min}-{q_max}")
 
-    # 4. processa cada questão CH
+    # 4. processa cada questão da área
     ids_existentes = carregar_ids_existentes()
     linhas = []
     falhas = []
 
     for num in sorted(questoes_brutas):
-        if not (ch_min <= num <= ch_max):
+        if not (q_min <= num <= q_max):
             continue
-        qid = f"{ano}_CH_{num:03d}"
+        qid = f"{ano}_{area}_{num:03d}"
         if qid in ids_existentes:
             continue
 
@@ -376,7 +395,7 @@ def processar(pdf_prova: Path, pdf_gab: Path | None = None):
             "id": qid,
             "ano": ano,
             "caderno": caderno,
-            "area": "CH",
+            "area": area,
             "numero": num,
             "enunciado": enunciado,
             "fontes_citadas": json.dumps(fontes, ensure_ascii=False),
@@ -403,15 +422,17 @@ def processar(pdf_prova: Path, pdf_gab: Path | None = None):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("prova", type=Path, help="PDF da prova (dia 1)")
+    p.add_argument("prova", type=Path, help="PDF da prova (caderno regular)")
     p.add_argument("--gabarito", type=Path, help="PDF do gabarito (opcional)")
+    p.add_argument("--area", default="CH", choices=areas.siglas(),
+                   help="área a extrair; dia e faixa de questões vêm de config/areas.yaml (padrão: CH)")
     args = p.parse_args()
 
     if not args.prova.exists():
         print(f"ERRO: prova não encontrada: {args.prova}", file=sys.stderr)
         sys.exit(1)
 
-    processar(args.prova, args.gabarito)
+    processar(args.prova, args.gabarito, area=args.area)
 
 
 if __name__ == "__main__":

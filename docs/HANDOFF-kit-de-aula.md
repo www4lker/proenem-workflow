@@ -217,9 +217,8 @@ A primeira opção de cada pergunta é a recomendada.
 1. **Proteger o que existe.** Isso depende das decisões 7.8 e 2:
    - commitar os patches do decks-impress;
    - pôr a apostila e o SPA no git.
-   O `decks-impress.zip` da raiz é de 30/09 e **não** tem os patches. Até o commit lá, o backup é
-   `aula/03-slides/decks-impress-patches.diff`: o diff de `tools/` sobre o commit `e306bea`, gerado em 02/10. Para
-   reaplicar: `git -C ferramentas/decks-impress apply <caminho do diff>`.
+   *(06/10/2026: feito. Os patches estão na origem, commit `3e17e14`, e em `ferramentas/decks-impress/`; o backup
+   `aula/03-slides/decks-impress-patches.diff` foi removido.)*
 2. **Retrospectiva de método.** Extrair dos logs (`logs/2026-09-30-sessao.md`, `logs/2026-10-02-sessao.md`) e do
    histórico do git:
    - o processo real: etapas, tempo de cada uma, onde houve retrabalho, quais vistos mudaram o rumo;

@@ -27,7 +27,8 @@ diagnóstico da turma → corpus ENEM (seleção de questões) → plano de aula
 
 ## Por onde começar
 
-0. **O que falta fazer:** [`docs/FILA.md`](docs/FILA.md), a fonte única das tarefas abertas.
+0. **O que falta fazer:** [`docs/FILA.md`](docs/FILA.md), a fonte única das tarefas abertas. **O workflow ponta a
+   ponta**, etapa por etapa, com "como adicionar uma área": [`docs/workflow.md`](docs/workflow.md).
 1. **Professor de outra área** (Física, Biologia…): leia [`docs/HANDOFF-kit-de-aula.md`](docs/HANDOFF-kit-de-aula.md)
    e abra a aula modelo. O processo vale para qualquer disciplina; o pipeline do corpus ainda não.
 2. **Quem vai construir o projeto unificado** (pessoa ou agente): leia [`CLAUDE.md`](CLAUDE.md) e
@@ -35,21 +36,54 @@ diagnóstico da turma → corpus ENEM (seleção de questões) → plano de aula
 3. **Regras de fonte e de crédito:** [`docs/protocolo-de-fontes.md`](docs/protocolo-de-fontes.md) e
    [`CREDITOS.md`](CREDITOS.md).
 
+## Instalação
+
+Testado em Ubuntu 24.04 (é o que a sessão na nuvem e o GitHub Actions usam). O que cada parte precisa:
+
+| Parte | Precisa de |
+|---|---|
+| Pipeline do corpus (`pipeline/`) | Python 3.10+ com `requirements.txt`; `pdftotext` (poppler-utils) |
+| Apostila e PDFs da aula (LaTeX) | TeX Live com `latexmk`, `pdflatex` (apostila) e `lualatex` (aula); fontes TeX Gyre em OpenType |
+| Slides (`ferramentas/decks-impress`) | Node 20.11+; Chromium para o lint no navegador, capturas e PDF |
+| Classificação das questões (opcional, **paga**) | Gemini CLI e uma chave própria em `.env` (modelo em `.env.example`) |
+
+```bash
+# Ubuntu/Debian
+sudo apt-get install -y --no-install-recommends python3-venv poppler-utils \
+  texlive-luatex texlive-latex-extra texlive-fonts-recommended texlive-lang-portuguese \
+  texlive-plain-generic tex-gyre fonts-texgyre latexmk
+
+# Python
+python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
+
+# Slides (uma vez)
+(cd ferramentas/decks-impress && npm ci)
+
+# O que falta?
+bash scripts/checar-ambiente.sh
+```
+
+`scripts/checar-ambiente.sh` lista o que está instalado e o que falta, sem instalar nada. Se o Chromium não
+estiver no PATH, aponte-o em `CHROMIUM_PATH` (o Chromium do Playwright também serve).
+
 ## Compilar o que já existe
 
 ```bash
-# Apostila (TeX Live)
+# Apostila (pdflatex)
 cd apostila/latex && latexmk -pdf main.tex
 
-# PDFs da aula modelo
-cd aulas/2026-10-03-quem-paga-pelo-impacto/aula/02-LaTeX/plano-de-aula && latexmk plano-de-aula.tex
+# PDFs da aula modelo (lualatex; saída em build/)
+cd aulas/2026-10-03-quem-paga-pelo-impacto/aula/02-LaTeX/plano-de-aula && latexmk -r latexmkrc plano-de-aula.tex
+cd aulas/2026-10-03-quem-paga-pelo-impacto/aula/02-LaTeX/material-complementar && latexmk -r latexmkrc material-complementar.tex
 
-# Slides da aula modelo (Node 20.11+; uma vez: npm i em ferramentas/decks-impress)
-cd aulas/2026-10-03-quem-paga-pelo-impacto && ../../ferramentas/decks-impress/deck build aula/03-slides
+# Slides da aula modelo
+cd aulas/2026-10-03-quem-paga-pelo-impacto
+../../ferramentas/decks-impress/deck build aula/03-slides
+../../ferramentas/decks-impress/deck lint aula/03-slides
 ```
 
-O pipeline do corpus precisa de ambiente Python próprio (PyMuPDF) e do Gemini CLI com chave
-**própria**; ver `pipeline/` e o handoff. Nenhuma chave está neste repositório.
+O logo que os três usam é o de `identidade/` (ver `identidade/LEIAME.md`). O pipeline do corpus precisa da chave
+**própria** do Gemini só na etapa de classificação; nenhuma chave está neste repositório.
 
 ## Privacidade
 

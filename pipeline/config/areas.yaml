@@ -1,0 +1,72 @@
+# Áreas do ENEM: dia de prova e faixa de questões por período, disciplinas e prompt de classificação.
+# Lido por pipeline/areas.py (extrair_prova.py, processar_recorte.py e scripts/analise_corpus.py).
+#
+# Numeração do caderno regular (1–90 no dia 1, 91–180 no dia 2). Até 2016 o dia 1 era CH + CN e o dia 2,
+# LC + MT; desde 2017 o dia 1 é LC + CH (com a redação) e o dia 2, CN + MT. Cada período diz como foi
+# conferido ("conferido"); o que ainda não foi confirmado contra o caderno oficial está marcado "a conferir"
+# e não deve virar questão de aula sem a conferência (docs/protocolo-de-fontes.md).
+#
+# "anos: [inicio, fim]" é inclusivo; "fim: null" quer dizer "em diante".
+
+areas:
+  CH:
+    nome: Ciências Humanas e suas Tecnologias
+    disciplinas: [geografia, historia, sociologia, filosofia]
+    prompt: prompts/classificar_questao.txt
+    competencias:   # Matriz de Referência CH (rótulos curtos usados nas análises)
+      1: Linguagens/espaço-tempo
+      2: Território/diversidade cultural
+      3: Autonomia/projeto de vida
+      4: Produção/apropriação do espaço
+      5: Indivíduo/sociedade/natureza
+      6: Geopolítica/mundialização
+    periodos:
+      - anos: [2009, 2016]
+        dia: 1
+        questoes: [1, 45]
+        conferido: "2013–2016: gabarito do corpus bate com o oficial em 175/175 (aulas/2026-10-03-…/fontes/conferir_candidatas_inep.py)"
+      - anos: [2017, null]
+        dia: 1
+        questoes: [46, 90]
+        conferido: "2017, 2018, 2019 e 2025: a faixa 1–45 é Linguagens no caderno (HANDOFF_corpus_2017_linguagens.md); 46–90 a conferir na reextração"
+
+  CN:
+    nome: Ciências da Natureza e suas Tecnologias
+    disciplinas: [biologia, fisica, quimica]
+    prompt: null        # esqueleto em prompts/classificar_questao_CN.txt; vira ativo quando a matriz for preenchida da fonte oficial (prompts/LEIAME.md)
+    competencias: {}
+    periodos:
+      - anos: [2009, 2016]
+        dia: 1
+        questoes: [46, 90]
+        conferido: "a conferir no caderno oficial (fonte: docs/HANDOFF-construcao.md)"
+      - anos: [2017, null]
+        dia: 2
+        questoes: [91, 135]
+        conferido: "a conferir no caderno oficial (fonte: docs/HANDOFF-construcao.md)"
+
+  LC:
+    nome: Linguagens, Códigos e suas Tecnologias
+    disciplinas: [portugues, literatura, artes, educacao_fisica, lingua_estrangeira]
+    prompt: null
+    competencias: {}
+    periodos:
+      - anos: [2009, 2016]
+        dia: 2
+        questoes: [91, 135]
+        conferido: "a conferir no caderno oficial"
+      - anos: [2017, null]
+        dia: 1
+        questoes: [1, 45]
+        conferido: "2017, 2018, 2019 e 2025: o corpus extraído em 1–45 é Linguagens (HANDOFF_corpus_2017_linguagens.md)"
+
+  MT:
+    nome: Matemática e suas Tecnologias
+    disciplinas: [matematica]
+    prompt: null
+    competencias: {}
+    periodos:
+      - anos: [2009, null]
+        dia: 2
+        questoes: [136, 180]
+        conferido: "a conferir no caderno oficial"

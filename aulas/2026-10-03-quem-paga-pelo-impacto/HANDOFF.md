@@ -3,7 +3,9 @@
 > **Registro (06/10/2026).** Os itens abertos deste documento foram levados para [`docs/FILA.md`](../../docs/FILA.md), que passa a ser a fonte única do que falta fazer. Este arquivo fica como contexto.
 
 Estado em 02/10/2026, no branch `v3-tres-professores` (saiu de `ementa-geo-natureza`). Este arquivo tem só o estado e os próximos passos. O que aconteceu, e
-por quê, está em `logs/` (sessão de hoje: `logs/2026-10-02-sessao.md`). A aula é em **3/10/2026**.
+por quê, estava em `logs/` (sessão de 02/10). A aula é em **3/10/2026**.
+> *(06/10/2026: os logs da aula ficaram fora do repositório unificado, ver `docs/higienizacao.md`; o processo está em
+> `docs/HANDOFF-kit-de-aula.md`. Também ficaram fora `impar-aulas/`, `fontes/aulas-texto/` e o `.docx` do roteiro.)*
 
 ## 1. Estado
 
@@ -78,8 +80,8 @@ por quê, está em `logs/` (sessão de hoje: `logs/2026-10-02-sessao.md`). A aul
 2. Aplicar ou não o `HANDOFF-minimos.md`.
 3. Se ficar borrada no projetor, refotografar a p. 330 (`residuos.jpg`).
 4. **Kit reprodutível (prancheta):** levar a aula para outras disciplinas. O estado, os riscos e as decisões pendentes
-   estão em `HANDOFF-kit.md`. Começa depois da aula, pelas decisões do §7. Backup dos patches do framework:
-   `aula/03-slides/decks-impress-patches.diff`.
+   estão em `docs/HANDOFF-kit-de-aula.md`. Começa depois da aula, pelas decisões do §7. Os patches do framework já
+   estão em `ferramentas/decks-impress/` (o `decks-impress-patches.diff` saiu em 06/10/2026).
 5. Depois da aula:
    - decidir como manter as duas versões (`master` data centers × `ementa-geo-natureza`);
    - decidir se os patches do framework viram commit lá.

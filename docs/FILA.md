@@ -48,45 +48,45 @@ Fazer na ordem, pulando o que estiver bloqueado. Cada tarefa tem **critério de 
   `identidade/logo/logo-pro-enem-versao-latex.png`, de preferência por referência e não por cópia (se o build exigir
   cópia, que o script a faça a partir de `identidade/`). Remover as cópias soltas do logo e a versão de slides.
   Atualizar `identidade/LEIAME.md`. *Pronto:* plano, complementar e deck compilam; nenhum outro arquivo de logo no
-  repositório além de `identidade/`. Estado: aberta.
+  repositório além de `identidade/`. Estado: feita (1cb9cf5, 06/10/2026).
 - **F2 · Ambiente reproduzível.** `requirements.txt` (Python 3.10+, `pymupdf`, `pandas`), `.env.example`
   (`GEMINI_API_KEY=`), `scripts/checar-ambiente.sh` (Python, módulos, `pdftotext`, TeX Live, Node ≥ 20.11, Chromium,
-  `gemini`), e a seção "Instalação" no `README.md`. *Pronto:* o script roda na nuvem e diz o que falta. Estado: aberta.
+  `gemini`), e a seção "Instalação" no `README.md`. *Pronto:* o script roda na nuvem e diz o que falta. Estado: feita (e9c21ed, 06/10/2026).
 - **F3 · Verificação automática (GitHub Actions).** Compilar a apostila, o plano e o complementar; `deck build` e
-  `deck lint` da aula de 03/10; `python -m py_compile` em todos os `.py`. *Pronto:* workflow verde num PR. Estado: aberta.
+  `deck lint` da aula de 03/10; `python -m py_compile` em todos os `.py`. *Pronto:* workflow verde num PR. Estado: feita (c68d121, 06/10/2026).
 - **F4 · Scripts com caminho novo.** Conferir `aulas/2026-10-03-…/fontes/conferir_candidatas_inep.py` e
   `filtrar_corpus_proenem.py` (agora apontam para `pipeline/` via `Path(__file__).resolve().parents[3]`). O que
-  depender de PDF do INEP, marcar como "precisa de F9". *Pronto:* o que não depende de PDF roda. Estado: aberta.
+  depender de PDF do INEP, marcar como "precisa de F9". *Pronto:* o que não depende de PDF roda. Estado: feita (676f3b1, 06/10/2026).
 - **F5 · Arrumar a documentação.** Um `docs/workflow.md` ponta a ponta (diagnóstico → corpus → aula → apostila), com
   "como adicionar uma área". Corrigir referências quebradas da montagem (ex.: o handoff da aula cita `logs/` e
   `HANDOFF-kit.md`, que aqui são `docs/HANDOFF-kit-de-aula.md`; `decks-impress-patches.diff` ficou obsoleto e pode
   sair). Aplicar a correção mínima nº 1 de `aulas/2026-10-03-…/HANDOFF-minimos.md` (decisão D7) e marcá-la como
-  aplicada lá. Não reescrever `docs/historico/`. *Pronto:* nenhum link interno quebrado (checar com script). Estado: aberta.
+  aplicada lá. Não reescrever `docs/historico/`. *Pronto:* nenhum link interno quebrado (checar com script). Estado: feita (557a85d, 06/10/2026).
 - **F6 · Marcar a qualidade do corpus.** Em `pipeline/analise/corpus_mestre.csv`: uma coluna `area_confiavel`
   (`false` nas linhas CH de 2017, 2018, 2019 e 2025, cuja faixa 1–45 é Linguagens) e um campo de observação para os
   5 enunciados vazios e os 2 itens sem classificação. **Sem chamar o Gemini.** `analise_corpus.py` passa a ignorar as
-  não confiáveis por padrão. *Pronto:* contagens antes e depois no log. Estado: aberta.
+  não confiáveis por padrão. *Pronto:* contagens antes e depois no log. Estado: feita (93ab9a0, 06/10/2026).
 
 ### Fase 2: generalizar o pipeline
 
 - **F7 · Área como parâmetro.** `pipeline/config/areas.yaml` (dia e faixa de questões por ano e área: CH, CN, LC, MT;
   ver a tabela em `docs/HANDOFF-construcao.md` e `pipeline/HANDOFF_corpus_2017_linguagens.md`). `extrair_prova.py`,
   `processar_recorte.py` e `analise_corpus.py` leem dela. Corrige no código o erro de 2017+. *Pronto:* testes de
-  unidade da escolha de faixa por ano e área. Estado: aberta.
+  unidade da escolha de faixa por ano e área. Estado: feita (6dba23b, 06/10/2026).
 - **F8 · Montagem do prompt em script.** `pipeline/scripts/montar_prompts.py`, reconstruído a partir de
   `docs/historico/pipeline-logs/logs/2026-05-16.md`. *Pronto:* reproduz a coluna `prompt_completo` de
-  `batch_completo_raw.csv` numa amostra. Estado: aberta.
+  `batch_completo_raw.csv` numa amostra. Estado: feita (9295ad8, 06/10/2026).
 - **F9 · Manifesto das provas.** `pipeline/fontes/MANIFESTO.csv` (ano, dia, caderno, cor, URL oficial do INEP, nome
   esperado, sha256) e `pipeline/scripts/baixar_provas.py`. Se a nuvem não tiver acesso ao site do INEP, deixar as URLs
   com status "a verificar" e a tarefa de baixar para **Local**. *Pronto:* manifesto cobre os anos do corpus atual.
-  Estado: aberta.
+  Estado: feita na parte da nuvem (f13b22d, 06/10/2026); **Local**: conferir URLs, baixar e registrar sha256 (`pipeline/fontes/LEIAME.md`).
 - **F10 · Prompt e matriz de Ciências da Natureza.** `pipeline/prompts/` por área; matriz de CN (C1–C8, H1–H30) só com
-  fonte oficial conferida (ver `docs/protocolo-de-fontes.md`). Sem executar o Gemini. Estado: aberta.
+  fonte oficial conferida (ver `docs/protocolo-de-fontes.md`). Sem executar o Gemini. Estado: esqueleto feito (66b37cf, 06/10/2026); **Local**: preencher a matriz da fonte oficial (`pipeline/prompts/LEIAME.md`), sem acesso ao INEP na nuvem.
 
 ### Fase 3: kit de aula (depende das decisões)
 
 - **F11 · Modelo vazio de aula.** `aulas/_modelo/` com as pastas da aula de 03/10 e um `LEIAME.md` que explica a
-  cadeia (fontes e checagem → argumento → plano → roteiro → slides → complementar → página). Estado: aberta.
+  cadeia (fontes e checagem → argumento → plano → roteiro → slides → complementar → página). Estado: feita (6fbda81, 06/10/2026).
 - **F12 · Identidade única.** Um pacote LaTeX base e um `theme.css` derivados da mesma paleta e do logo canônico,
   consumidos por aula, apostila e slides. Estado: bloqueada (D3).
 - **F13 · Método.** `docs/metodo/` a partir do §2 de `docs/HANDOFF-kit-de-aula.md` e do histórico: etapas, vistos,
