@@ -28,7 +28,7 @@ areas:
       - anos: [2017, null]
         dia: 1
         questoes: [46, 90]
-        conferido: "2017, 2018, 2019 e 2025: a faixa 1–45 é Linguagens no caderno (HANDOFF_corpus_2017_linguagens.md); 46–90 a conferir na reextração"
+        conferido: "2017, 2018, 2019 e 2025: conferido no caderno oficial em 06/10/2026 (título da seção e faixa, pipeline/fontes/MANIFESTO.csv). O corpus atual dessas edições extraiu 1–45 (Linguagens): reextrair"
 
   CN:
     nome: Ciências da Natureza e suas Tecnologias
@@ -39,11 +39,11 @@ areas:
       - anos: [2009, 2016]
         dia: 1
         questoes: [46, 90]
-        conferido: "a conferir no caderno oficial (fonte: docs/HANDOFF-construcao.md)"
+        conferido: "2013–2016: conferido no caderno oficial em 06/10/2026 (título da seção e faixa, pipeline/fontes/MANIFESTO.csv); em 2014 o título da seção é imagem, conferido pelo conteúdo. 2009–2012 a conferir"
       - anos: [2017, null]
         dia: 2
         questoes: [91, 135]
-        conferido: "a conferir no caderno oficial (fonte: docs/HANDOFF-construcao.md)"
+        conferido: "2017, 2018, 2019 e 2025: conferido no caderno oficial em 06/10/2026 (título da seção e faixa, pipeline/fontes/MANIFESTO.csv)"
 
   LC:
     nome: Linguagens, Códigos e suas Tecnologias
@@ -54,11 +54,11 @@ areas:
       - anos: [2009, 2016]
         dia: 2
         questoes: [91, 135]
-        conferido: "a conferir no caderno oficial"
+        conferido: "2013–2016: conferido no caderno oficial em 06/10/2026 (título da seção e faixa, pipeline/fontes/MANIFESTO.csv) (91–95 = língua estrangeira). 2009–2012 a conferir"
       - anos: [2017, null]
         dia: 1
         questoes: [1, 45]
-        conferido: "2017, 2018, 2019 e 2025: o corpus extraído em 1–45 é Linguagens (HANDOFF_corpus_2017_linguagens.md)"
+        conferido: "2017, 2018, 2019 e 2025: conferido no caderno oficial em 06/10/2026 (título da seção e faixa, pipeline/fontes/MANIFESTO.csv) (1–5 = língua estrangeira)"
 
   MT:
     nome: Matemática e suas Tecnologias
@@ -69,4 +69,4 @@ areas:
       - anos: [2009, null]
         dia: 2
         questoes: [136, 180]
-        conferido: "a conferir no caderno oficial"
+        conferido: "2013–2019 e 2025: conferido no caderno oficial em 06/10/2026 (título da seção e faixa, pipeline/fontes/MANIFESTO.csv). 2009–2012 a conferir"

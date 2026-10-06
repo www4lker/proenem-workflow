@@ -5,20 +5,27 @@ pipeline. `MANIFESTO.csv` diz o que o corpus usa e de onde vem; `pipeline/script
 
 | Coluna | Significado |
 |---|---|
-| `ano`, `dia`, `caderno`, `cor`, `tipo` | Caderno regular azul (caderno 1); `tipo` = prova ou gabarito |
-| `url_oficial` | URL padronizada do INEP (`download.inep.gov.br/enem/provas_e_gabaritos/<ano>_PV|GB_impresso_D<dia>_CD1.pdf`) |
-| `status_url` | `a verificar` (ninguém conferiu ainda) · `conferida AAAA-MM-DD` · `inválida: <nota>` |
-| `nome_esperado` | Nome que os scripts procuram em `pipeline/<ano>/` (os de 2013 e os gabaritos antigos vêm de downloads anteriores, com nomes da época) |
-| `sha256` | Do arquivo baixado; vazio até a primeira conferência. Com ele, `baixar_provas.py` recusa arquivo diferente |
+| `ano`, `dia`, `caderno`, `cor`, `tipo` | Caderno regular azul: **caderno 1 no dia 1, caderno 7 no dia 2** (a numeração do dia 2 recomeça em 5; o azul é o 7). `tipo` = prova ou gabarito |
+| `url_oficial` | Link copiado da página de cada ano em gov.br/inep (Provas e Gabaritos). Não há padrão único: até 2019 os arquivos ficam em `educacao_basica/enem/provas/<ano>/` e `.../gabaritos/<ano>/`, com nomes da época; a partir de 2025, em `enem/provas_e_gabaritos/` |
+| `status_url` | `a verificar` · `conferida AAAA-MM-DD` (baixada do INEP nessa data) · `inválida: <nota>` |
+| `nome_esperado` | Nome do arquivo em `pipeline/<ano>/`; é o mesmo do link oficial |
+| `sha256` | Do arquivo oficial baixado. `baixar_provas.py` recusa arquivo com sha diferente |
 | `usado_por` | Dia 1 = corpus atual (CH); dia 2 = piloto CN de 2017+ (ainda não usado) |
 
-**Estado (06/10/2026):** a sessão na nuvem não alcança o site do INEP, então nenhuma URL foi conferida e nenhum
-sha256 foi registrado. Tarefa para a sessão **local**, que tem os PDFs:
+**Estado (06/10/2026, sessão local):** as 32 linhas (2013–2019 e 2025, dias 1 e 2, prova e gabarito) foram
+baixadas do INEP e têm sha256 registrado. Os PDFs do dia 1 que já estavam na máquina do autor, de onde saiu o
+corpus, são idênticos byte a byte aos oficiais, exceto a prova de 2025: o INEP republicou o arquivo em 09/07/2026
+(muda a data de modificação do PDF); o texto extraído é idêntico, então o corpus não muda.
+
+O servidor do INEP não envia o certificado intermediário da cadeia TLS; `fontes/inep-ca-intermediaria.pem`
+(RNP ICPEdu GR46 OV TLS CA 2025, válido até 2030, obtido da GlobalSign) é somado às autoridades do sistema
+pelo script. A verificação de certificado continua ligada.
 
 ```bash
 cd pipeline
-python scripts/baixar_provas.py --so-conferir        # compara os arquivos locais com o manifesto e preenche sha256
-python scripts/baixar_provas.py --anos 2019          # baixa o que falta de um ano (e confere o sha, se houver)
+python scripts/baixar_provas.py                      # baixa o que falta e confere o sha256 de tudo
+python scripts/baixar_provas.py --so-conferir        # só confere os arquivos locais
+python scripts/baixar_provas.py --anos 2019 --dias 2 # um recorte
 ```
 
 Uso dos materiais do INEP: provas e gabaritos são documentos públicos; o repositório guarda só o texto extraído

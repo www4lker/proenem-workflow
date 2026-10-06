@@ -141,8 +141,8 @@ def main():
     out = [
         "---", f"gerado: {date.today().isoformat()}",
         "script: fontes/conferir_candidatas_inep.py",
-        "fonte da conferência: PDFs de prova e gabarito guardados no PROENEM (nome de arquivo indica INEP; "
-        "origem não verificada por hash)",
+        "fonte da conferência: PDFs oficiais do INEP em pipeline/<ano>/, conferidos por sha256 "
+        "(pipeline/fontes/MANIFESTO.csv)",
         "status: conferência AUTOMÁTICA. Questões com figura/mapa pedem olhar humano antes de virar slide.",
         "---", "", "# Conferência das candidatas de geografia contra as provas oficiais", "",
         "Numeração: CH = 1–45 até 2016 e 46–90 a partir de 2017. “Enunciado” = fração de trechos de "

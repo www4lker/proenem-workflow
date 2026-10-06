@@ -13,6 +13,7 @@ Uso (de dentro de pipeline/):
 import argparse
 import csv
 import hashlib
+import ssl
 import sys
 import urllib.error
 import urllib.request
@@ -21,6 +22,16 @@ from pathlib import Path
 
 PIPELINE = Path(__file__).resolve().parents[1]
 MANIFESTO = PIPELINE / "fontes" / "MANIFESTO.csv"
+# O servidor do INEP não envia o certificado intermediário (RNP ICPEdu, emitido pela GlobalSign Root R46).
+# Ele vai junto ao repositório e é somado às autoridades do sistema; a verificação continua ligada.
+CA_INTERMEDIARIA = PIPELINE / "fontes" / "inep-ca-intermediaria.pem"
+
+
+def contexto_tls() -> ssl.SSLContext:
+    ctx = ssl.create_default_context()
+    if CA_INTERMEDIARIA.exists():
+        ctx.load_verify_locations(cafile=CA_INTERMEDIARIA)
+    return ctx
 
 
 def sha256(caminho: Path) -> str:
@@ -34,7 +45,7 @@ def sha256(caminho: Path) -> str:
 def baixar(url: str, destino: Path) -> None:
     destino.parent.mkdir(parents=True, exist_ok=True)
     req = urllib.request.Request(url, headers={"User-Agent": "proenem-workflow/baixar_provas"})
-    with urllib.request.urlopen(req, timeout=60) as r, open(destino, "wb") as f:
+    with urllib.request.urlopen(req, timeout=60, context=contexto_tls()) as r, open(destino, "wb") as f:
         tipo = r.headers.get("Content-Type", "")
         if "pdf" not in tipo and "octet-stream" not in tipo:
             raise ValueError(f"resposta não é PDF ({tipo})")

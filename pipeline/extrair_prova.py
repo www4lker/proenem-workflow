@@ -3,7 +3,7 @@ Pass 1 — extrai uma prova ENEM e gera as linhas de uma área em questoes_raw.c
 
 Uso:
   python extrair_prova.py 2014/2014_PV_impresso_D1_CD1.pdf              # área CH (padrão)
-  python extrair_prova.py 2019/2019_PV_impresso_D2_CD1.pdf --area CN    # outra área
+  python extrair_prova.py 2019/2019_PV_impresso_D2_CD7.pdf --area CN    # outra área
 
 O dia da prova e a faixa de questões da área naquele ano vêm de config/areas.yaml
 (ver areas.py): CH é 1–45 até 2016 e 46–90 a partir de 2017, por exemplo. O script
