@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Uso: deck <build|dev|lint|shots|pdf|impresso> <pasta-do-deck> [opções]
+# Roda as ferramentas do framework sobre um deck em qualquer lugar do disco,
+# a partir de qualquer diretório. Ex.: ~/…/decks-impress/deck lint aula/03-slides --json
+set -euo pipefail
+FW="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+cmd="${1:-}"; deck="${2:-}"
+if [[ -z "$cmd" || -z "$deck" ]]; then
+  sed -n '2,4p' "$0" | sed 's/^# \{0,1\}//'; exit 2
+fi
+shift 2
+deck="$(readlink -f "$deck")"
+case "$cmd" in
+  build) exec node "$FW/tools/build.mjs" "$deck" "$@" ;;
+  dev)   exec node "$FW/tools/build.mjs" "$deck" --watch "$@" ;;
+  lint)  exec node "$FW/tools/lint.mjs" "$deck" "$@" ;;
+  shots) exec node "$FW/tools/capture.mjs" "$deck" "$@" ;;
+  pdf)   exec node "$FW/tools/capture.mjs" "$deck" --pdf "$@" ;;
+  impresso) exec node "$FW/tools/capture.mjs" "$deck" --impresso "$@" ;;
+  *) echo "comando desconhecido: $cmd (use build, dev, lint, shots, pdf ou impresso)" >&2; exit 2 ;;
+esac

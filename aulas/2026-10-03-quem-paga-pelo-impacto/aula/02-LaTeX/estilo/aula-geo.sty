@@ -1,0 +1,178 @@
+% aula-geo.sty — estilo comum do plano de aula e do material complementar.
+% Não é ABNT: é um estilo de apostila limpo, A4, lualatex. Cores iguais às do deck (impress.js).
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{aula-geo}[2026/09/30 estilo da aula data centers no Brasil]
+
+% Opção "final": marcas de pendência viram ERRO de compilação (nada "a verificar" sai impresso).
+\newif\ifaulafinal \aulafinalfalse
+\DeclareOption{final}{\aulafinaltrue}
+\ProcessOptions\relax
+
+% --- Idioma e fontes (TeX Gyre: vem com o TeX Live, compila em qualquer máquina) ---
+% Compila com lualatex (preferido) e também com pdflatex, o padrão do TeXstudio e do Kile.
+\RequirePackage[brazilian]{babel}
+\RequirePackage{iftex}
+\ifPDFTeX
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage[utf8]{inputenc}
+  \RequirePackage{tgpagella}
+  \RequirePackage{tgheros}
+\else
+  \RequirePackage{fontspec}
+  \setmainfont{TeX Gyre Pagella}
+  \setsansfont{TeX Gyre Heros}
+\fi
+\RequirePackage[protrusion=true]{microtype}
+\RequirePackage{csquotes}
+
+% --- Página ---
+\RequirePackage[a4paper,top=2.2cm,bottom=2.2cm,left=2.2cm,right=2.2cm,headheight=14pt]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\linespread{1.08}
+
+% --- Cores (tokens do theme.css do deck) ---
+\RequirePackage{xcolor}
+\definecolor{fg}{HTML}{1D1D1F}
+\definecolor{fgsoft}{HTML}{55524B}
+\definecolor{acento}{HTML}{8A3B12}
+\definecolor{acento2}{HTML}{1F4E79}
+\definecolor{regua}{HTML}{D8D2C4}
+\definecolor{papel}{HTML}{F6F3EC}
+\definecolor{alerta}{HTML}{B00020}
+
+% --- Pacotes de uso geral ---
+\RequirePackage{graphicx}
+\RequirePackage{booktabs,tabularx,array}
+\RequirePackage{enumitem}
+\setlist{itemsep=0.2em,topsep=0.3em}
+\RequirePackage{multicol}
+\RequirePackage{needspace}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{etoolbox}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+\RequirePackage[hidelinks]{hyperref}
+
+% --- Metadados (preenchidos em estilo/metadados.tex e no preâmbulo de cada documento) ---
+\newcommand*{\aulatitulo}{}
+\newcommand*{\aulasubtitulo}{}
+\newcommand*{\aulapublico}{}
+\newcommand*{\auladata}{}
+\newcommand*{\aulaprofessor}{}
+\newcommand*{\tipodocumento}{}
+\newcommand*{\versao}{}
+\newcommand{\definir}[2]{\renewcommand*{#1}{#2}}
+
+% --- Títulos ---
+\titleformat{\section}{\sffamily\Large\bfseries\color{acento}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\sffamily\large\bfseries\color{fg}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\sffamily\normalsize\bfseries\color{fgsoft}}{}{0em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.5em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.3em}
+
+% --- Cabeçalho e rodapé ---
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{regua}\hrule height \headrulewidth}
+\fancyhead[L]{\sffamily\footnotesize\color{fgsoft}\aulatitulo}
+\fancyhead[R]{\sffamily\footnotesize\color{fgsoft}\tipodocumento}
+\fancyfoot[L]{\sffamily\footnotesize\color{fgsoft}\ifaulafinal\else rascunho \versao\fi}
+\fancyfoot[R]{\sffamily\footnotesize\color{fgsoft}\thepage}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[R]{\sffamily\footnotesize\color{fgsoft}\thepage}}
+
+% --- Bloco de título (sem capa separada) ---
+% Logo do curso: estilo/logo-pro-enem.png (limpo a partir de fontes/asset1.jpeg), à direita do título.
+\newcommand{\aulalogo}{../estilo/logo-pro-enem.png}
+\newcommand{\blocotitulo}{%
+  \thispagestyle{plain}%
+  \noindent\begin{minipage}[b]{\dimexpr\linewidth-2.3cm\relax}
+  {\sffamily\small\color{acento}\MakeUppercase{\tipodocumento}\par}
+  \vspace{0.2em}
+  {\sffamily\huge\bfseries\color{fg}\aulatitulo\par}
+  \ifdefempty{\aulasubtitulo}{}{\vspace{0.2em}{\large\color{fgsoft}\aulasubtitulo\par}}
+  \vspace{0.6em}
+  {\sffamily\small\color{fgsoft}%
+    \aulapublico\ifdefempty{\auladata}{}{\ \textbullet\ \auladata}%
+    \ifdefempty{\aulaprofessor}{}{\ \textbullet\ \aulaprofessor}\par}
+  \end{minipage}\hfill
+  \IfFileExists{\aulalogo}{\includegraphics[height=2.5cm]{\aulalogo}}{}\par
+  \vspace{0.3em}{\color{regua}\rule{\linewidth}{0.8pt}}\par
+}
+
+% --- Marcas de pendência (visíveis no rascunho; erro no modo final) ---
+% \averificar{9}   -> número ainda "a verificar" em fontes/checagem.md
+% \pendente{texto} -> trecho a escrever/decidir
+% \figura{texto}   -> figura a produzir ou recortar
+\newcommand{\marca}[1]{\textsf{\small\bfseries\color{alerta}[#1]}}
+\newcommand{\averificar}[1]{%
+  \ifaulafinal\PackageError{aula-geo}{Número \#\detokenize{#1} ainda a verificar}{Confira em fontes/checagem.md}\fi
+  \marca{\##1 a verificar}}
+\newcommand{\pendente}[1]{%
+  \ifaulafinal\PackageError{aula-geo}{Pendência no texto: \detokenize{#1}}{}\fi
+  \marca{PENDENTE: #1}}
+\newcommand{\figura}[1]{%
+  \ifaulafinal\PackageError{aula-geo}{Figura pendente: \detokenize{#1}}{}\fi
+  \par\noindent\fcolorbox{alerta}{white}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+    \centering\vspace{1.5em}\marca{FIGURA: #1}\vspace{1.5em}}}\par}
+
+% --- Fonte de dado ou citação ---
+\newcommand{\fonte}[1]{{\par\footnotesize\color{fgsoft}Fonte: #1\par}}
+\newcommand{\checagem}[1]{{\footnotesize\color{fgsoft}(checagem \##1)}}
+\newcommand{\autoral}{\textsf{\small\color{acento2}(autoral)}}
+
+% --- Caixas ---
+\newtcolorbox{destaque}[1][]{enhanced,breakable,colback=papel,colframe=regua,
+  boxrule=0.6pt,arc=2pt,left=8pt,right=8pt,top=6pt,bottom=6pt,
+  fonttitle=\sffamily\bfseries\color{acento},coltitle=acento,colbacktitle=papel,
+  attach title to upper={\ },#1}
+\newtcolorbox{redacao}[1][Para a redação]{enhanced,breakable,colback=white,
+  colframe=acento2,boxrule=0.8pt,arc=2pt,left=8pt,right=8pt,
+  fonttitle=\sffamily\bfseries,colbacktitle=acento2,title={#1}}
+\newtcolorbox{notaprofessor}[1][Nota do professor]{enhanced,breakable,colback=white,
+  colframe=acento,boxrule=0pt,leftrule=3pt,arc=0pt,sharp corners,left=8pt,
+  fonttitle=\sffamily\small\bfseries\color{acento},coltitle=acento,colbacktitle=white,
+  title={#1}}
+
+% --- Questões ---
+% Questão real do ENEM (recorte da prova oficial, PNG em fontes/provas-recortes/):
+%   \questaoenem{<id do recorte>}{<ano>}{<número>}{<gabarito>}
+% Guarda o gabarito para \imprimirgabarito. Caderno azul, 1º dia (ver fontes/enem-25-selecionadas.md).
+\newcounter{questao}
+\newcommand*{\gabaritolista}{}
+\newcommand{\questaoenem}[4]{%
+  \stepcounter{questao}%
+  \par\noindent\begin{minipage}{\linewidth}% número e recorte nunca se separam
+  {\sffamily\bfseries\color{acento}\thequestao.}\hfill
+  {\sffamily\footnotesize\color{fgsoft}ENEM #2 \textbullet\ prova: questão #3}\par
+  \vspace{0.2em}\includegraphics[width=\linewidth]{#1}\end{minipage}\par\bigskip
+  \xappto\gabaritolista{\thequestao & ENEM #2 / #3 & #4 \noexpand\\}%
+}
+% Questão autoral (texto escrito aqui; alternativas em enumerate [label=\Alph*)]):
+%   \begin{questaoautoral}{<gabarito>} ... \end{questaoautoral}
+\newenvironment{questaoautoral}[1]{%
+  \stepcounter{questao}%
+  \xappto\gabaritolista{\thequestao & autoral & #1 \noexpand\\}%
+  \needspace{6\baselineskip}%
+  \par\noindent{\sffamily\bfseries\color{acento}\thequestao.}\hfill\autoral\par}
+  {\par\medskip}
+\newcommand{\alternativas}{\begin{enumerate}[label=\Alph*),leftmargin=2em]}
+\newcommand{\fimalternativas}{\end{enumerate}}
+\newcommand{\imprimirgabarito}{%
+  \begin{center}\sffamily\small
+  \begin{tabular}{rll}\toprule
+  \textbf{Nº} & \textbf{Origem} & \textbf{Gabarito}\\\midrule
+  \gabaritolista
+  \bottomrule\end{tabular}\end{center}}
+
+% --- Tabela de roteiro (plano de aula) ---
+% \begin{roteiro} min & momento & conteúdo & recurso \\ \end{roteiro}
+\newenvironment{roteiro}{%
+  \par\small\noindent\tabularx{\linewidth}{@{}l>{\raggedright\arraybackslash}p{2.6cm}
+    >{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.2cm}@{}}\toprule
+  \textsf{\bfseries Min} & \textsf{\bfseries Momento} & \textsf{\bfseries Conteúdo} & \textsf{\bfseries Recurso}\\\midrule}
+  {\bottomrule\endtabularx\par}
+
+\endinput

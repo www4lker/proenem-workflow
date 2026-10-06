@@ -1,0 +1,159 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{estilo-proenem}[2026/08/15 Prototipo editorial ProENEM]
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+\RequirePackage[a4paper,top=1.8cm,bottom=1.8cm,left=2cm,right=2cm,headheight=22pt]{geometry}
+\RequirePackage[table]{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.misc}
+\RequirePackage{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage{caption}
+\RequirePackage{natbib}
+\RequirePackage{url}
+\RequirePackage{hyperref}
+
+\definecolor{petroleo}{HTML}{0F4C5C}
+\definecolor{petroleoescuro}{HTML}{12343B}
+\definecolor{azulclaro}{HTML}{EAF4F6}
+\definecolor{ouro}{HTML}{C58C2B}
+\definecolor{ouroclaro}{HTML}{FFF5DF}
+\definecolor{verde}{HTML}{3B6B4A}
+\definecolor{verdeclaro}{HTML}{EDF6EF}
+\definecolor{vermelho}{HTML}{A63D40}
+\definecolor{vermelhoclaro}{HTML}{FBEDEE}
+\definecolor{cinza}{HTML}{5E6870}
+\definecolor{cinzaclaro}{HTML}{F2F4F5}
+\definecolor{tinta}{HTML}{1F2933}
+
+\color{tinta}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4.5pt plus 1pt minus 1pt}
+\setlist[itemize]{leftmargin=1.25em,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=2.5pt,topsep=4pt}
+\raggedbottom
+
+\titleformat{\section}
+  {\Large\bfseries\color{petroleo}}
+  {\thesection.}{0.55em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{petroleoescuro}}
+  {\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{16pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\bfseries\color{cinza} ProENEM 2026 \;|\; Geografia}
+\fancyhead[R]{\footnotesize\color{cinza} Material complementar \;|\; protótipo v0.1}
+\fancyfoot[R]{\footnotesize\color{cinza} p. \thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{cinza!35}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0pt}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=petroleo,
+  citecolor=petroleo,
+  urlcolor=petroleo,
+  pdftitle={Tempo, tecnologia e trabalho},
+  pdfauthor={Equipe de Geografia do ProENEM}
+}
+\urlstyle{same}
+\captionsetup{font=small,labelfont={bf,color=petroleoescuro},skip=4pt}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Quadro}
+\renewcommand{\refname}{Referências e fontes}
+
+\newcommand{\abresubcapitulo}[3]{%
+  \begin{tcolorbox}[
+      enhanced,
+      colback=white,
+      colframe=white,
+      boxrule=0pt,
+      left=0pt,right=0pt,top=4pt,bottom=7pt,
+      borderline south={1.2pt}{0pt}{petroleo}]
+    {\fontsize{23}{26}\selectfont\bfseries\color{petroleoescuro}#1\par}
+    \vspace{2pt}
+    {\large\color{cinza}#2\par}
+    \vspace{8pt}
+    {\footnotesize\bfseries\color{petroleo}#3}
+  \end{tcolorbox}
+}
+
+\newtcolorbox{questaocentral}{
+  enhanced,breakable,
+  colback=ouroclaro,colframe=ouro,
+  boxrule=0pt,borderline west={3pt}{0pt}{ouro},
+  left=9pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=7pt,after skip=8pt
+}
+
+\newtcolorbox{conceito}{
+  enhanced,breakable,
+  colback=azulclaro,colframe=petroleo,
+  boxrule=0pt,borderline west={3pt}{0pt}{petroleo},
+  left=9pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=7pt,after skip=8pt
+}
+
+\newtcolorbox{frasechave}{
+  enhanced,breakable,
+  colback=verdeclaro,colframe=verde,
+  boxrule=0pt,borderline west={3pt}{0pt}{verde},
+  left=9pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=7pt,after skip=8pt
+}
+
+\newtcolorbox{exemploconcreto}{
+  enhanced,breakable,
+  colback=cinzaclaro,colframe=cinza,
+  boxrule=0pt,borderline west={3pt}{0pt}{cinza},
+  left=9pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=7pt,after skip=8pt
+}
+
+\newtcolorbox{atividade}{
+  enhanced,breakable,
+  colback=ouroclaro,colframe=ouro,
+  boxrule=.5pt,arc=1.5mm,
+  left=9pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=7pt,after skip=8pt
+}
+
+\newtcolorbox{questao}{
+  enhanced,breakable,
+  colback=azulclaro,colframe=petroleo,
+  boxrule=.5pt,arc=1.5mm,
+  left=9pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=7pt,after skip=5pt
+}
+
+\newtcolorbox{resolucao}{
+  enhanced,breakable,
+  colback=verdeclaro,colframe=verde,
+  boxrule=.5pt,arc=1.5mm,
+  left=9pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=5pt,after skip=8pt
+}
+
+\newtcolorbox{notaeditorial}{
+  enhanced,breakable,
+  colback=vermelhoclaro,colframe=vermelho,
+  boxrule=.5pt,arc=1.5mm,
+  left=9pt,right=8pt,top=7pt,bottom=7pt,
+  before skip=7pt,after skip=8pt
+}
+
+\newcommand{\fontefigura}[1]{\par{\footnotesize\color{cinza}Fonte: #1\par}}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}

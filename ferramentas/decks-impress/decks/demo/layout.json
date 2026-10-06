@@ -1,0 +1,14 @@
+{
+  "meta": { "title": "Deck de exemplo" },
+  "steps": [
+    { "id": "titulo", "x": 0, "y": 0, "scale": 1, "why": "origem (0,0): ponto de partida da leitura" },
+    { "id": "visao-geral", "fit": "*", "pad": 300 },
+    { "id": "problema", "x": 2000, "y": 0, "scale": 1, "why": "à direita do título: segue a leitura esquerda→direita" },
+    { "id": "grupo-conceitos", "fit": ["conceito-a", "conceito-b"], "pad": 200 },
+    { "id": "conceito-a", "x": 4000, "y": -600, "scale": 1, "why": "primeiro conceito derivado do problema; acima porque se opõe a B" },
+    { "id": "conceito-b", "x": 4000, "y": 600, "scale": 1, "why": "segundo conceito; abaixo de A (oposição vertical)" },
+    { "id": "figura", "x": 6000, "y": 0, "scale": 1, "why": "síntese visual dos dois conceitos, de volta ao eixo central" },
+    { "id": "midia", "x": 8000, "y": 0, "scale": 1, "media": { "autoplay": true, "autostop": true }, "why": "vídeo que toca ao entrar no passo" },
+    { "id": "fechamento", "x": 10000, "y": 0, "scale": 1, "why": "fim do eixo central" }
+  ]
+}

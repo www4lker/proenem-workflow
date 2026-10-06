@@ -1,0 +1,18 @@
+*.pdf
+*.pptx~
+.~lock.*
+# gerados pelo decks-impress
+aula/03-slides/dist/
+aula/03-slides/shots/
+aula/02-LaTeX/*/build/
+aula/02-LaTeX/*/*.log
+aula/02-LaTeX/*/*.aux
+aula/02-LaTeX/*/*.out
+aula/02-LaTeX/*/*.fls
+aula/02-LaTeX/*/*.fdb_latexmk
+aula/02-LaTeX/*/*.toc
+aula/02-LaTeX/*/*.synctex.gz
+# fotos do WhatsApp (livro); só as páginas usadas vão para fontes/crawford-exemplar/
+fontes/*WhatsApp*.zip
+aula/04-online/publicar/
+aula/04-online/publicar.zip

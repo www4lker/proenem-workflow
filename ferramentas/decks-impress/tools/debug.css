@@ -1,0 +1,19 @@
+/* Somente debug.html. Os tamanhos são locais ao passo: o passo já é escalado por data-scale, então uma moldura
+   de escala 6 com rótulo de 30px aparece com ~30px na tela quando a câmera está nela. No mapa, passos de escala 1
+   aparecem ~6x menores, por isso o rótulo deles é 110px. */
+body.debug .step { outline: 8px dashed #d6336c; outline-offset: -4px; }
+body.debug .step::before {
+  content: attr(id); position: absolute; top: 0; left: 0; z-index: 50;
+  font: 700 30px ui-monospace, Menlo, Consolas, monospace;
+  background: #ffd43b; color: #000; padding: 0.1em 0.5em;
+}
+body.debug .frame { opacity: 0.35 !important; outline-color: #1c7ed6; background: rgba(28, 126, 214, 0.06); }
+body.mapa .step { opacity: 1; }
+body.mapa .step:not(.frame)::before { font-size: 110px; }
+body.mapa .frame::before { background: #74c0fc; }
+#hud {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+  font: 600 20px ui-monospace, Menlo, Consolas, monospace;
+  background: rgba(0, 0, 0, 0.82); color: #ffd43b; padding: 8px 16px;
+}
+#__mapa::before { display: none; }

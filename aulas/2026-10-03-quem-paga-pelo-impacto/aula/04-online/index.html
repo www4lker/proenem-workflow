@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quem paga pelo impacto?</title>
+<meta name="description" content="Material complementar da aula de Geografia e Natureza do Pro Enem: resumo, questões com correção, repertório para a redação e slides.">
+<style>
+@font-face { font-family: "Inter"; src: url("slides/assets/fonts/Inter-Regular.woff2") format("woff2"); font-weight: 400; }
+@font-face { font-family: "Inter"; src: url("slides/assets/fonts/Inter-SemiBold.woff2") format("woff2"); font-weight: 600; }
+@font-face { font-family: "Inter"; src: url("slides/assets/fonts/Inter-Bold.woff2") format("woff2"); font-weight: 700; }
+@font-face { font-family: "Source Serif 4"; src: url("slides/assets/fonts/SourceSerif4-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("slides/assets/fonts/SourceSerif4-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("slides/assets/fonts/SourceSerif4-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+
+:root {
+  --bg: #f6f3ec; --papel: #fffdf8; --fg: #1d1d1f; --soft: #55524b; --rule: #d8d2c4;
+  --accent: #8a3b12; --accent-2: #1f4e79; --ok: #2e6b3a; --ok-bg: #e6f0e3; --erro: #9b2c2c; --erro-bg: #f6e3e0;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1a18; --papel: #24221f; --fg: #ece8df; --soft: #b5afa3; --rule: #3d3a34;
+    --accent: #e08a5a; --accent-2: #8db8e0; --ok: #8fcf98; --ok-bg: #1f3323; --erro: #f0a39a; --erro-bg: #3a2220;
+  }
+  :root:not([data-theme="light"]) .questao img { background: #fff; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.6 var(--serif); }
+h1, h2, h3, h4, nav, button, .rotulo, .placar { font-family: var(--sans); }
+h1, h2, h3, h4 { line-height: 1.2; }
+a { color: var(--accent-2); }
+img { max-width: 100%; height: auto; }
+.coluna { max-width: 820px; margin: 0 auto; padding: 0 16px; }
+
+/* Cabeçalho */
+.topo { padding: 48px 0 32px; border-bottom: 1px solid var(--rule); }
+.topo .rotulo { color: var(--soft); font-size: 15px; letter-spacing: .02em; margin: 0 0 8px; }
+.topo h1 { font-size: clamp(34px, 6vw, 52px); margin: 0 0 8px; letter-spacing: -0.01em; }
+.topo .sub { margin: 0 0 24px; color: var(--soft); }
+.botoes { display: flex; flex-wrap: wrap; gap: 12px; }
+.botao { display: inline-block; padding: 12px 20px; border-radius: 6px; font: 600 16px var(--sans); text-decoration: none; border: 2px solid var(--accent); }
+.botao.cheio { background: var(--accent); color: #fff; }
+.botao.vazado { color: var(--accent); background: transparent; }
+.botao:hover { filter: brightness(1.08); }
+.dica { font-size: 15px; color: var(--soft); margin: 12px 0 0; }
+
+/* Navegação fixa */
+nav.indice { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--rule); }
+nav.indice .coluna { display: flex; align-items: center; gap: 4px 20px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+nav.indice a { font-size: 15px; font-weight: 600; text-decoration: none; color: var(--fg); }
+nav.indice a:hover { color: var(--accent); }
+.placar { margin-left: auto; font-size: 14px; color: var(--soft); white-space: nowrap; }
+.placar strong { color: var(--fg); }
+
+section { padding: 40px 0 8px; }
+section > .coluna > h2 { font-size: 30px; margin: 0 0 8px; }
+.intro { color: var(--soft); margin-top: 0; }
+
+/* Resumo */
+.pergunta-guia { border-left: 4px solid var(--accent); padding: 4px 0 4px 20px; margin: 24px 0; font-size: 20px; }
+.eixo { background: var(--papel); border: 1px solid var(--rule); border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+.eixo h3 { margin: 0 0 8px; font-size: 22px; color: var(--accent-2); }
+.eixo h3 span { color: var(--soft); font-weight: 400; font-size: 16px; }
+.eixo p, .eixo ul, .eixo ol { margin: 8px 0; }
+.eixo li { margin: 4px 0; }
+.fonte { font-size: 14px; color: var(--soft); line-height: 1.45; }
+blockquote { margin: 12px 0; padding: 0 0 0 16px; border-left: 3px solid var(--rule); font-style: italic; }
+.par { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 4px; }
+.par figure { margin: 0; }
+.par figcaption { font: 600 14px var(--sans); color: var(--soft); margin-top: 4px; }
+@media (max-width: 560px) { .par { grid-template-columns: 1fr; } }
+.etapas { counter-reset: e; list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.etapas li { counter-increment: e; border: 1px solid var(--rule); border-radius: 6px; padding: 8px 12px; font-size: 16px; }
+.etapas li::before { content: counter(e) ". "; font: 700 15px var(--sans); color: var(--accent); }
+@media (max-width: 560px) { .etapas { grid-template-columns: 1fr 1fr; } }
+.caso { border-color: var(--accent); }
+
+/* Questões */
+.questao { background: var(--papel); border: 1px solid var(--rule); border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+.questao header { display: flex; gap: 16px; align-items: baseline; margin-bottom: 12px; }
+.questao .num { font: 700 22px var(--sans); color: var(--accent); min-width: 1.5em; }
+.questao h3 { margin: 0; font-size: 18px; }
+.questao .tema { margin: 2px 0 0; font: 14px var(--sans); color: var(--soft); }
+.questao figure { margin: 0 0 16px; }
+.questao img { display: block; margin: 0 auto; border-radius: 4px; }
+.questao ol.alts { list-style: upper-alpha; padding-left: 1.6em; margin: 12px 0 16px; }
+.opcoes { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.opcoes .pede { font: 14px var(--sans); color: var(--soft); margin-right: 4px; }
+.opcoes button { width: 48px; height: 44px; border-radius: 6px; border: 1px solid var(--rule); background: var(--bg); color: var(--fg); font-weight: 600; font-size: 17px; cursor: pointer; }
+.opcoes button:hover:not(:disabled) { border-color: var(--accent-2); }
+.opcoes button:disabled { cursor: default; }
+.opcoes button.certa { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
+.opcoes button.errada { background: var(--erro-bg); border-color: var(--erro); color: var(--erro); text-decoration: line-through; }
+.retorno { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.retorno .veredito { font: 600 16px var(--sans); margin: 0 0 6px; }
+.retorno .veredito.ok { color: var(--ok); }
+.retorno .veredito.nao { color: var(--erro); }
+.retorno p { margin: 6px 0; }
+.grupo-titulo { font-size: 20px; margin: 36px 0 0; }
+.resultado { background: var(--papel); border: 1px solid var(--rule); border-radius: 8px; padding: 20px 24px; margin: 28px 0; }
+.resultado h3 { margin: 0 0 8px; font-size: 20px; }
+.resultado table { border-collapse: collapse; width: 100%; font: 15px var(--sans); }
+.resultado td, .resultado th { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); }
+.resultado td:last-child, .resultado th:last-child { text-align: right; }
+.recomecar { margin-top: 12px; font: 600 14px var(--sans); background: none; border: 1px solid var(--rule); border-radius: 6px; padding: 8px 14px; color: var(--soft); cursor: pointer; }
+details.gabarito { margin: 16px 0; font-family: var(--sans); font-size: 15px; }
+details.gabarito summary { cursor: pointer; color: var(--soft); }
+
+/* Redação */
+.repertorio { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .repertorio { grid-template-columns: 1fr; } }
+.repertorio .eixo { margin: 0; }
+.repertorio h3 { font-size: 18px; }
+.cinco { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.cinco li { font: 600 15px var(--sans); border: 1px solid var(--accent); color: var(--accent); border-radius: 999px; padding: 4px 14px; }
+
+/* Referências e rodapé */
+.refs { font-size: 15px; line-height: 1.5; padding-left: 0; list-style: none; }
+.refs li { margin: 0 0 10px; padding-left: 1.5em; text-indent: -1.5em; }
+footer { border-top: 1px solid var(--rule); margin-top: 40px; padding: 24px 0 48px; font-size: 14px; color: var(--soft); }
+@media print { nav.indice, .botoes, .opcoes, .recomecar { display: none; } .retorno[hidden] { display: block !important; } }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="coluna">
+    <p class="rotulo">PRO ENEM · GEOGRAFIA · MATERIAL COMPLEMENTAR</p>
+    <h1>Quem paga pelo impacto?</h1>
+    <p class="sub">Geografia e Natureza: questões e impactos ambientais, sustentabilidade, resíduos sólidos e ecologia. Aula de 3 de outubro de 2026, com Professor A, Professora B e Professora C.</p>
+    <div class="botoes">
+      <a class="botao cheio" href="slides/index.html">Ver os slides</a>
+      <a class="botao vazado" href="slides-quem-paga-pelo-impacto.pdf" download>Baixar PDF dos slides</a>
+    </div>
+    <p class="dica">Nos slides: setas do teclado ou espaço para avançar; no celular, deslize para o lado e deixe o aparelho na horizontal.</p>
+  </div>
+</header>
+
+<nav class="indice" aria-label="Seções">
+  <div class="coluna">
+    <a href="#resumo">Resumo</a>
+    <a href="#questoes">Questões</a>
+    <a href="#redacao">Redação</a>
+    <a href="#referencias">Referências</a>
+    <span class="placar" aria-live="polite">Questões: <strong id="p-resp">0</strong> de <span id="p-total">11</span> · acertos: <strong id="p-acertos">0</strong></span>
+  </div>
+</nav>
+
+<main>
+
+<section id="resumo">
+  <div class="coluna">
+    <h2>Resumo da aula</h2>
+    <p class="intro">Quatro eixos da ementa e um estudo de caso, todos atravessados pela mesma pergunta.</p>
+    <p class="pergunta-guia"><strong>Quem paga pelo impacto?</strong> O impacto tem lugar e tem gente. A sustentabilidade pergunta “para quem”. O resíduo vai para algum lugar. E o ecossistema não termina na cerca.</p>
+
+    <div class="eixo">
+      <h3>Ecologia <span>· o ambiente é um sistema</span></h3>
+      <ul>
+        <li><strong>Ecossistema:</strong> seres vivos e meio físico (água, solo, clima) trocando matéria e energia.</li>
+        <li><strong>Biodiversidade:</strong> a variedade da vida, em espécies, genes e ecossistemas.</li>
+        <li><strong>Bacia hidrográfica:</strong> a área que drena para um mesmo rio. O que acontece rio acima chega rio abaixo; por isso o planejamento ambiental usa a bacia como unidade de estudo.</li>
+      </ul>
+      <p>Na aula, comparamos o mesmo trecho de um assentamento no Vale do Paraíba (SP) em 2004 e em 2023. O que mudou nas margens do rio?</p>
+      <div class="par">
+        <figure><img src="slides/assets/img/ge-2004.jpg" alt="Imagem de satélite de 2004: rio sinuoso, estrada de terra e pastos abertos, com pouca vegetação nas margens" loading="lazy"><figcaption>2004</figcaption></figure>
+        <figure><img src="slides/assets/img/ge-2023.jpg" alt="Imagem de satélite de 2023 do mesmo trecho: mais vegetação nas margens do rio e nos morros, e as áreas de sistemas agroflorestais" loading="lazy"><figcaption>2023</figcaption></figure>
+      </div>
+      <p class="fonte">Assentamento Egídio Brunetto (MST), Lagoinha (SP), bacia do rio Paraitinga. Google Earth (imagens Maxar Technologies e Airbus), 2004 e 2023; elaboração: OLIVEIRA; DANTAS, 2024.</p>
+    </div>
+
+    <div class="eixo">
+      <h3>Questões e impactos ambientais <span>· toda ação humana muda o ambiente</span></h3>
+      <p><strong>Impacto ambiental</strong> é a alteração do ambiente causada pela ação humana. Ele pode ser negativo ou positivo; local, regional ou global; reversível ou irreversível. Antes de uma obra grande, faz-se a Avaliação de Impacto Ambiental (AIA), com o Estudo de Impacto Ambiental (EIA).</p>
+      <p><strong>Impacto não é só destruição.</strong> A hipótese do estudo no assentamento é a de uma <em>intervenção antrópica benéfica</em>: agroecologia e sistemas agroflorestais (SAFs) ajudam a recuperar áreas degradadas e a proteger rios e matas ciliares.</p>
+      <p><strong>Quem paga?</strong> Três perguntas para qualquer caso:</p>
+      <ul>
+        <li><em>Quem recebe?</em> Em Cuiabá, a foz poluída do Córrego do Barbado alimenta famílias ribeirinhas (aula de Água e Solo).</li>
+        <li><em>Quem decide?</em> Onde vai a obra, a represa, o lixão? Raramente quem mora ao lado.</li>
+        <li><em>Quem resiste?</em> Os Anacé, em Caucaia (CE), exigem consulta livre, prévia e informada.</li>
+      </ul>
+      <p>Quando o impacto cai sempre sobre os mesmos grupos, fala-se em <strong>racismo ambiental</strong>.</p>
+      <p class="fonte">OLIVEIRA; DANTAS, 2024; VILA NOVA; FALCADI, 2026.</p>
+    </div>
+
+    <div class="eixo">
+      <h3>Sustentabilidade <span>· necessidades de quem, em que lugar?</span></h3>
+      <blockquote>O desenvolvimento sustentável é aquele que atende às necessidades do presente sem comprometer a capacidade de as gerações futuras atenderem às suas próprias necessidades.</blockquote>
+      <p class="fonte">COMISSÃO das Nações Unidas sobre Meio Ambiente e Desenvolvimento, 1988 (Relatório Brundtland).</p>
+      <p>Planejar o ambiente é um ciclo em seis etapas (SANTOS, 2004); o monitoramento realimenta o inventário:</p>
+      <ol class="etapas">
+        <li>Inventário</li><li>Diagnóstico</li><li>Prognóstico</li>
+        <li>Planejamento</li><li>Implementação</li><li>Monitoramento</li>
+      </ol>
+      <p><strong>Energia “limpa” em relação a quê?</strong> A matriz elétrica brasileira foi <strong>88,2%</strong> renovável em 2024, mas as maiores emissões brasileiras vêm do <strong>desmatamento</strong>, não da energia. Sustentável não é só a fonte da energia: é também o uso da terra.</p>
+      <p class="fonte">EPE, Balanço Energético Nacional 2025, p. 38; VICTER, 2026.</p>
+    </div>
+
+    <div class="eixo">
+      <h3>Resíduos sólidos <span>· o lixo não some</span></h3>
+      <p>A <strong>Política Nacional de Resíduos Sólidos</strong> (Lei 12.305/2010) distingue <strong>resíduo</strong>, o que se descarta e ainda pode ser reutilizado, reciclado ou tratado, de <strong>rejeito</strong>, o que sobra depois de esgotadas todas as possibilidades de tratamento e recuperação. Só o rejeito deve ir para a disposição final (art. 3º).</p>
+      <p>A lei fixa uma <strong>ordem de prioridade</strong>: não geração, redução, reutilização, reciclagem, tratamento e, por último, disposição final ambientalmente adequada dos rejeitos (art. 9º). É a versão legal dos 4R (recusar, repensar, reutilizar, reciclar).</p>
+      <p>Pela <strong>logística reversa</strong>, quem fabrica, importa, distribui e vende pilhas, pneus, lâmpadas e eletroeletrônicos, entre outros, tem de organizar a volta do produto depois do uso (art. 33).</p>
+      <p>Mesmo assim, em 2023, treze anos depois da lei, ainda havia municípios com lixão em todas as regiões do país (IBGE, MUNIC 2023). E a pergunta que ficou para casa: <strong>para onde vai o lixo de Cuiabá?</strong></p>
+      <p class="fonte">BRASIL, 2010; IBGE, MUNIC 2023.</p>
+    </div>
+
+    <div class="eixo caso">
+      <h3>Estudo de caso <span>· onde fica a nuvem?</span></h3>
+      <blockquote>A nuvem, que é a espinha dorsal da indústria da inteligência artificial, é formada por pedras, salmouras de lítio e petróleo bruto.</blockquote>
+      <p class="fonte">CRAWFORD, 2025, p. 43.</p>
+      <p>Os data centers da “nuvem” ficam no chão: usam água, energia e terra num lugar concreto (o impacto na entrada) e seus chips, de vida útil curta, viram lixo eletrônico (o resíduo na saída).</p>
+      <p><strong>Eldorado do Sul (RS)</strong>, onde a Scala planeja um complexo de data centers, junta os quatro eixos num lugar só:</p>
+      <ul>
+        <li>R$ 3 bilhões de investimento inicial, segundo a empresa;</li>
+        <li>o data center da empresa em Porto Alegre ficou 68 dias fora do ar na enchente de 2024;</li>
+        <li>8 em cada 10 moradores do município foram diretamente atingidos pela enchente;</li>
+        <li>a aldeia Tekoa Pekuruty (Mbyá-Guarani), vizinha ao terreno, não foi consultada.</li>
+      </ul>
+      <p class="fonte">MARTINS, 2025; SETTI, 2024; IPEA, 2024; STEIBEL, 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section id="questoes">
+  <div class="coluna">
+    <h2>Questões</h2>
+    <p class="intro">Escolha uma alternativa: a correção e um comentário aparecem logo abaixo. As respostas ficam guardadas neste aparelho e o placar fica no alto da página. As questões do ENEM são do caderno azul, 1º dia (Ciências Humanas), com o gabarito oficial do INEP.</p>
+
+    <h3 class="grupo-titulo">Da aula</h3>
+
+    <article class="questao" id="q1" data-gab="B" data-eixo="Impactos">
+      <header><span class="num">1</span><div><h3>ENEM 2014 · questão 3</h3><p class="tema">Impactos · Mar de Aral</p></div></header>
+      <figure><img src="questoes/2014_CH_003.png" loading="lazy" alt="ENEM 2014, questão 3. Texto de Tundisi (2003): o desvio dos rios Amurdarya e Sydarya para irrigar o algodão reduziu o Mar de Aral e criou um novo deserto na Ásia Central. Pergunta: a área desértica surgiu em decorrência da: A erosão; B salinização; C laterização; D compactação; E sedimentação."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>Os rios foram desviados para irrigar o algodão, o mar encolheu e deixou exposto um fundo carregado de sal; a irrigação intensiva também acumula sais no solo. O deserto nasce da <strong>salinização</strong>. Erosão e compactação existem, mas o texto liga o deserto à perda de água do mar.</p></div>
+    </article>
+
+    <article class="questao" id="q2" data-gab="E" data-eixo="Ecologia">
+      <header><span class="num">2</span><div><h3>ENEM 2016 · questão 30</h3><p class="tema">Ecologia · Cerrado</p></div></header>
+      <figure><img src="questoes/2016_CH_030.png" loading="lazy" alt="ENEM 2016, questão 30. Texto: o Cerrado é um dos 25 hotspots de biodiversidade do mundo, áreas prioritárias para conservação porque estão muito ameaçadas por ações humanas. Pergunta: a necessidade dessa ação tem como causa a: A intensificação da atividade turística; B implantação de parques ecológicos; C exploração dos recursos minerais; D elevação do extrativismo vegetal; E expansão da fronteira agrícola."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p><em>Hotspot</em> é uma área de muita biodiversidade sob forte ameaça humana. No Cerrado, o bioma de Cuiabá, a grande ameaça é a troca da vegetação nativa por lavouras e pastagens: a <strong>expansão da fronteira agrícola</strong>. Parques ecológicos (B) protegem; não são a causa da ameaça.</p></div>
+    </article>
+
+    <article class="questao" id="q3" data-gab="E" data-eixo="Ecologia">
+      <header><span class="num">3</span><div><h3>ENEM 2015 · questão 32</h3><p class="tema">Ecologia · veredas</p></div></header>
+      <figure><img src="questoes/2015_CH_032.png" loading="lazy" alt="ENEM 2015, questão 32. Notícia de 2014: as veredas estão secando no norte e no noroeste de Minas Gerais e perdem a capacidade de ser a caixa-d'água do sertão. Pergunta: as veredas são fundamentais para o equilíbrio hidrológico do Cerrado, pois: A colaboram para a formação de vegetação xerófila; B formam os leques aluviais nas planícies das bacias; C fornecem sumidouro para as águas de recarga da bacia; D contribuem para o aprofundamento dos talvegues à jusante; E constituem um sistema represador da água na chapada."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>As veredas funcionam como reservatórios: retêm a água que se infiltra nas chapadas e a liberam aos poucos para os cursos d’água, inclusive na seca. É a “caixa-d’água” do texto, um <strong>sistema represador</strong>. Quando secam, quem está rio abaixo perde água: o ecossistema não termina na cerca.</p></div>
+    </article>
+
+    <article class="questao" id="q4" data-gab="D" data-eixo="Sustentabilidade">
+      <header><span class="num">4</span><div><h3>ENEM 2016 · questão 18</h3><p class="tema">Sustentabilidade · Protocolo de Quioto</p></div></header>
+      <figure><img src="questoes/2016_CH_018.png" loading="lazy" alt="ENEM 2016, questão 18. Texto de Becker (2009): pelo Protocolo de Quioto, países industrializados deveriam reduzir emissões; o comércio de créditos de carbono permite a quem reduz abaixo da meta vender créditos a quem não consegue. Pergunta: as posições contrárias a essa compensação relacionam-se à ideia de que ela promove: A retração nos atuais níveis de consumo; B surgimento de conflitos de caráter diplomático; C diminuição dos lucros na produção de energia; D desigualdade na distribuição do impacto ecológico; E decréscimo dos índices de desenvolvimento econômico."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>Com o crédito de carbono, quem polui mais pode comprar o direito de continuar poluindo, pagando a quem emite menos. A crítica é que a poluição continua onde já estava e o esforço vai para outros lugares: <strong>desigualdade na distribuição do impacto</strong>. É a pergunta da aula: quem paga pelo impacto?</p></div>
+    </article>
+
+    <article class="questao" id="q5" data-gab="B" data-eixo="Resíduos sólidos">
+      <header><span class="num">5</span><div><h3>Questão autoral</h3><p class="tema">Resíduos sólidos · lixo eletrônico</p></div></header>
+      <p>Chips e servidores de data centers têm vida útil curta e viram lixo eletrônico. Uma ação de acordo com a gestão integrada de resíduos, proposta pela Política Nacional de Resíduos Sólidos, é</p>
+      <ol class="alts">
+        <li>queimar os equipamentos velhos em terrenos longe das cidades.</li>
+        <li>devolver os equipamentos ao fabricante, que reaproveita e recicla as peças.</li>
+        <li>depositar os equipamentos em lixões e cobri-los com terra.</li>
+        <li>exportar o lixo eletrônico para países mais pobres.</li>
+        <li>guardar os equipamentos velhos no próprio data center.</li>
+      </ol>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>Devolver ao fabricante para reaproveitar e reciclar é a <strong>logística reversa</strong>, um instrumento da PNRS. Queimar, enterrar em lixão, exportar ou guardar só mudam o lixo de lugar, e alguém, em algum lugar, paga por ele.</p></div>
+    </article>
+
+    <h3 class="grupo-titulo">Para treinar</h3>
+
+    <article class="questao" id="q6" data-gab="A" data-eixo="Impactos">
+      <header><span class="num">6</span><div><h3>ENEM 2015 · questão 1</h3><p class="tema">Impactos · biomas</p></div></header>
+      <figure><img src="questoes/2015_CH_001.png" loading="lazy" alt="ENEM 2015, questão 1. Mapa dos biomas brasileiros (Amazônia, Caatinga, Cerrado, Mata Atlântica, Pampa, Pantanal) com uma área de problema ambiental hachurada no interior do Nordeste. Pergunta: o problema ambiental destacado no mapa indica: A desertificação das áreas afetadas; B poluição dos rios temporários; C queimadas dos remanescentes vegetais; D desmatamento das matas ciliares; E contaminação das águas subterrâneas."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>A área destacada fica no semiárido, na Caatinga. Ali, o desmatamento e o uso intensivo do solo, somados às secas, degradam as terras secas: é a <strong>desertificação</strong>. As outras alternativas falam de rios, matas ou águas subterrâneas; o mapa destaca uma área de terra no semiárido.</p></div>
+    </article>
+
+    <article class="questao" id="q7" data-gab="C" data-eixo="Impactos">
+      <header><span class="num">7</span><div><h3>ENEM 2014 · questão 34</h3><p class="tema">Impactos · energia</p></div></header>
+      <figure><img src="questoes/2014_CH_034.png" loading="lazy" alt="ENEM 2014, questão 34. Mapa do Brasil com três pontos: no Pará, em Rondônia e no litoral do Rio de Janeiro. Pergunta: a imagem indica pontos com ativo uso de tecnologia, correspondentes a que processo de intervenção no espaço? A expansão das áreas agricultáveis; B recuperação de águas eutrofizadas; C ampliação da capacidade de geração de energia, com alteração do ecossistema local; D impermeabilização do solo pela construção civil; E criação recente de grandes parques industriais."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>Os três pontos marcam grandes obras de geração de energia: no Pará e em Rondônia, hidrelétricas em rios amazônicos; no litoral do Rio de Janeiro, a usina nuclear. Elas aumentam a <strong>capacidade de geração</strong> e alteram o ecossistema do lugar. A energia vai para longe; o impacto fica ali.</p></div>
+    </article>
+
+    <article class="questao" id="q8" data-gab="C" data-eixo="Impactos">
+      <header><span class="num">8</span><div><h3>ENEM 2013 · questão 37</h3><p class="tema">Impactos · Amazônia Legal</p></div></header>
+      <figure><img src="questoes/2013_CH_037.png" loading="lazy" alt="ENEM 2013, questão 37. Texto de Santos e Silveira (2004) sobre acréscimos técnicos que renovam a materialidade do território. Pergunta: na última década, alterações significativas no território, com impactos sobre comunidades locais e maior intensidade na Amazônia Legal, ocorreram com a: A reforma e ampliação de aeroportos nas capitais; B ampliação de estádios de futebol; C construção de usinas hidrelétricas sobre os rios Tocantins, Xingu e Madeira; D instalação de cabos para uma rede informatizada; E formação de uma infraestrutura de torres de comunicação móvel."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>“Acréscimos técnicos” são objetos que mudam o território. Na Amazônia Legal, as grandes <strong>usinas hidrelétricas</strong> alagam áreas, mudam o regime dos rios e afetam quem vive deles. Aeroportos, estádios e torres também são acréscimos técnicos, mas não com essa intensidade sobre comunidades locais da região.</p></div>
+    </article>
+
+    <article class="questao" id="q9" data-gab="C" data-eixo="Sustentabilidade">
+      <header><span class="num">9</span><div><h3>ENEM 2013 · questão 43</h3><p class="tema">Sustentabilidade · energia eólica</p></div></header>
+      <figure><img src="questoes/2013_CH_043.png" loading="lazy" alt="ENEM 2013, questão 43. Notícia de 2012: empresa vai fornecer 230 turbinas para o Complexo Eólico Alto Sertão, no sudeste da Bahia. Pergunta: a opção tecnológica retratada proporciona qual consequência para o sistema energético brasileiro? A redução da utilização elétrica; B ampliação do uso bioenergético; C expansão das fontes renováveis; D contenção da demanda urbano-industrial; E intensificação da dependência geotérmica."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>O vento é fonte renovável: o complexo eólico amplia a participação das <strong>fontes renováveis</strong> na matriz. Para lembrar da aula: renovável não quer dizer sem impacto. O parque eólico ocupa terra num lugar concreto, e a pergunta “limpa em relação a quê?” continua valendo.</p></div>
+    </article>
+
+    <article class="questao" id="q10" data-gab="E" data-eixo="Sustentabilidade">
+      <header><span class="num">10</span><div><h3>ENEM 2014 · questão 38</h3><p class="tema">Sustentabilidade · água subterrânea</p></div></header>
+      <figure><img src="questoes/2014_CH_038.png" loading="lazy" alt="ENEM 2014, questão 38. Mapa do Aquífero Alter do Chão, na Amazônia, com a informação de que teria mais água que o Aquífero Guarani. Pergunta: a preservação da sustentabilidade do recurso natural exposto pressupõe: A impedir a perfuração de poços; B coibir o uso pelo setor residencial; C substituir as leis ambientais vigentes; D reduzir o contingente populacional na área; E introduzir a gestão participativa entre os municípios."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>O aquífero passa por baixo de vários municípios: a água subterrânea é de todos e não respeita limites. Proibir poços ou reduzir a população não é viável. O caminho sustentável é decidir junto, com <strong>gestão participativa</strong> entre os municípios.</p></div>
+    </article>
+
+    <article class="questao" id="q11" data-gab="C" data-eixo="Sustentabilidade">
+      <header><span class="num">11</span><div><h3>ENEM 2016 · questão 36</h3><p class="tema">Sustentabilidade · água potável</p></div></header>
+      <figure><img src="questoes/2016_CH_036.png" loading="lazy" alt="ENEM 2016, questão 36. Mapa-múndi da capacidade de dessalinização das águas por país, com destaque para Arábia Saudita, Emirados Árabes Unidos, Estados Unidos, Espanha, Kuwait e Japão. Pergunta: a área de concentração das usinas de dessalinização é explicada pelo(a): A pioneirismo tecnológico; B condição hidropedológica; C escassez de água potável; D efeito das mudanças climáticas; E busca da sustentabilidade ambiental."></figure>
+      <div class="opcoes"></div>
+      <div class="retorno" hidden><p class="veredito"></p><p>A maior concentração está no Oriente Médio (Arábia Saudita, Emirados, Kuwait), região de clima desértico e pouca água doce. Dessalinizar é caro e gasta muita energia: compensa onde falta <strong>água potável</strong>.</p></div>
+    </article>
+
+    <div class="resultado" id="resultado">
+      <h3>Seu resultado por eixo</h3>
+      <table>
+        <thead><tr><th>Eixo</th><th>Questões</th><th>Acertos entre as respondidas</th></tr></thead>
+        <tbody id="por-eixo"></tbody>
+      </table>
+      <button class="recomecar" type="button" id="recomecar">Apagar respostas e recomeçar</button>
+    </div>
+
+    <details class="gabarito">
+      <summary>Ver o gabarito de todas as questões</summary>
+      <p>1 B · 2 E · 3 E · 4 D · 5 B · 6 A · 7 C · 8 C · 9 C · 10 E · 11 C</p>
+    </details>
+  </div>
+</section>
+
+<section id="redacao">
+  <div class="coluna">
+    <h2>Para a redação</h2>
+    <p class="intro">Se o tema da redação for ambiental, a aula oferece um eixo de tese e repertório legitimado.</p>
+    <p class="pergunta-guia"><strong>Eixo de tese:</strong> quem paga pelo impacto? Mostre que o impacto ambiental tem lugar e tem gente, e que ele não se distribui por igual.</p>
+    <div class="repertorio">
+      <div class="eixo">
+        <h3>Relatório Brundtland (1988)</h3>
+        <p>Define desenvolvimento sustentável como o que atende ao presente sem comprometer as gerações futuras. Use para perguntar: necessidades de quem, em que lugar?</p>
+      </div>
+      <div class="eixo">
+        <h3>Política Nacional de Resíduos Sólidos</h3>
+        <p>Lei 12.305/2010: a diferença entre resíduo e rejeito (art. 3º), a ordem de prioridade da não geração à disposição final (art. 9º) e a logística reversa (art. 33). Boa base para a proposta de intervenção sobre lixo.</p>
+      </div>
+      <div class="eixo">
+        <h3>Kate Crawford, <em>Atlas da I. A.</em> (2025)</h3>
+        <p>A “nuvem” é material: “pedras, salmouras de lítio e petróleo bruto” (p. 43). Use para mostrar que o digital também tem impacto ambiental.</p>
+      </div>
+      <div class="eixo">
+        <h3>Consulta livre, prévia e informada</h3>
+        <p>Direito dos povos indígenas e tradicionais de serem consultados antes de obras que os afetem, previsto na Convenção 169 da OIT. Exemplos da aula: os Anacé (CE) e a Tekoa Pekuruty (RS).</p>
+      </div>
+    </div>
+    <p>A proposta de intervenção do ENEM tem cinco elementos:</p>
+    <ul class="cinco"><li>agente</li><li>ação</li><li>meio ou modo</li><li>finalidade</li><li>detalhamento</li></ul>
+  </div>
+</section>
+
+<section id="referencias">
+  <div class="coluna">
+    <h2>Referências</h2>
+    <ul class="refs">
+      <li>BRASIL. Lei nº 12.305, de 2 de agosto de 2010. Institui a Política Nacional de Resíduos Sólidos. <em>Diário Oficial da União</em>, Brasília, 3 ago. 2010. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12305.htm. Acesso em: 2 out. 2026.</li>
+      <li>IBGE. <em>Pesquisa de Informações Básicas Municipais</em>: MUNIC 2023. Rio de Janeiro: IBGE. Mapa “Existência de vazadouro a céu aberto (lixão) ou em áreas alagadas ou alagáveis, por município”, Agência IBGE Notícias.</li>
+      <li>COMISSÃO das Nações Unidas sobre Meio Ambiente e Desenvolvimento. <em>Nosso futuro comum</em> [Relatório Brundtland]. Rio de Janeiro: Fundação Getúlio Vargas, 1988.</li>
+      <li>CRAWFORD, Kate. <em>Atlas da I. A.</em>: poder, política e os custos planetários da inteligência artificial. Tradução de Humberto do Amaral. São Paulo: Edições Sesc São Paulo, 2025.</li>
+      <li>EPE – EMPRESA DE PESQUISA ENERGÉTICA. <em>Balanço Energético Nacional 2025</em>: relatório síntese, ano-base 2024. Rio de Janeiro: EPE, 2025.</li>
+      <li>EPE – EMPRESA DE PESQUISA ENERGÉTICA. <em>WebMap EPE</em>: sistema de informações geográficas do setor energético brasileiro. Rio de Janeiro: EPE. Acesso em: 30 set. 2026.</li>
+      <li>GILMAR. [Charge “Vamos ter que mudar? Sim. Os nossos hábitos!”]. Instagram: @cartunista_das_cavernas, [s.d.]. Reproduzida nos slides, com fins didáticos.</li>
+      <li>INEP. <em>Exame Nacional do Ensino Médio</em>: provas de 2013 a 2016, caderno azul, 1º dia, e gabaritos oficiais. Brasília: INEP.</li>
+      <li>IPEA. <em>Uma estimativa da população atingida pelas enchentes do Rio Grande do Sul em 2024</em>. Brasília: Ipea, 2024. (Nota Técnica CGDTI, n. 2). DOI 10.38116/ntcgdti2.</li>
+      <li>O LIVRO da ecologia. Prefácio de Tony Juniper; colaboração de Júlia Schroeder et al.; tradução de Flávia Souto Maior. 1. ed. Rio de Janeiro: Globo Livros, 2020. 352 p. (As grandes ideias de todos os tempos). ISBN 978-65-5567-020-2. Ilustrações das páginas 134, 156, 231, 248, 262, 317, 330 e 331 reproduzidas nos slides, com fins didáticos.</li>
+      <li>MARTINS, Laís. Eldorado do Sul abre portas para projeto bilionário de data center que esconde impactos e ignora população. <em>Intercept Brasil</em>, 23 jun. 2025.</li>
+      <li>OLIVEIRA, Heder Arruda de; DANTAS, Professor A. <em>A luta nunca acaba</em>: ensaio de um planejamento ambiental no microcosmo do Vale do Paraíba (SP). Relatório (Planejamento Ambiental II) – Universidade Federal de Mato Grosso, Cuiabá, 2024.</li>
+      <li>SANTOS, Rozely Ferreira dos. <em>Planejamento ambiental</em>: teoria e prática. São Paulo: Oficina de Textos, 2004.</li>
+      <li>SETTI, Rennan. Depois da tragédia, a inteligência artificial: Scala terá “cidade de data centers” no RS, com investimento inicial de R$ 3 bilhões. <em>O Globo</em>, Rio de Janeiro, 11 set. 2024. Blog Capital.</li>
+      <li>STEIBEL, Fabro. Aula 1. In: ITS RIO. <em>Data Center e Desenvolvimento Nacional</em>. Rio de Janeiro: ITS Rio, 14 set. 2026. Curso on-line.</li>
+      <li>VICTER, Francisco Abreu. Aula 1. In: ITS RIO. <em>Data Center e Desenvolvimento Nacional</em>. Rio de Janeiro: ITS Rio, 14 set. 2026. Curso on-line.</li>
+      <li>VILA NOVA, Larissa; FALCADI, Domênica. Data center e sociedade. Aula 2. In: ITS RIO. <em>Data Center e Desenvolvimento Nacional</em>. Rio de Janeiro: ITS Rio, 2026. Curso on-line.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="coluna">
+    Pro Enem · Geografia. Material de estudo da aula “Quem paga pelo impacto?”, de 3 de outubro de 2026. As respostas que você marca ficam só neste aparelho.
+  </div>
+</footer>
+
+<script>
+(function () {
+  var CHAVE = 'pro-enem-geo-natureza-2026-10-03';
+  var LETRAS = ['A', 'B', 'C', 'D', 'E'];
+  var questoes = Array.prototype.slice.call(document.querySelectorAll('.questao'));
+  var respostas = {};
+  try { respostas = JSON.parse(localStorage.getItem(CHAVE)) || {}; } catch (e) { respostas = {}; }
+
+  function salvar() {
+    try { localStorage.setItem(CHAVE, JSON.stringify(respostas)); } catch (e) { /* sem armazenamento: segue só na sessão */ }
+  }
+
+  function mostrar(q) {
+    var marcada = respostas[q.id];
+    var gab = q.dataset.gab;
+    var botoes = q.querySelectorAll('.opcoes button');
+    for (var i = 0; i < botoes.length; i++) {
+      var b = botoes[i];
+      b.classList.remove('certa', 'errada');
+      b.disabled = !!marcada;
+      b.setAttribute('aria-pressed', b.dataset.letra === marcada ? 'true' : 'false');
+      if (marcada && b.dataset.letra === gab) b.classList.add('certa');
+      if (marcada && b.dataset.letra === marcada && marcada !== gab) b.classList.add('errada');
+    }
+    var ret = q.querySelector('.retorno');
+    var ver = q.querySelector('.veredito');
+    if (!marcada) { ret.hidden = true; return; }
+    ret.hidden = false;
+    if (marcada === gab) { ver.className = 'veredito ok'; ver.textContent = 'Certo: ' + gab + '.'; }
+    else { ver.className = 'veredito nao'; ver.textContent = 'Você marcou ' + marcada + '. A resposta é ' + gab + '.'; }
+  }
+
+  function placar() {
+    var resp = 0, acertos = 0, eixos = {}, ordem = [];
+    questoes.forEach(function (q) {
+      var e = q.dataset.eixo;
+      if (!eixos[e]) { eixos[e] = { total: 0, resp: 0, ok: 0 }; ordem.push(e); }
+      eixos[e].total++;
+      var m = respostas[q.id];
+      if (m) { resp++; eixos[e].resp++; if (m === q.dataset.gab) { acertos++; eixos[e].ok++; } }
+    });
+    document.getElementById('p-resp').textContent = resp;
+    document.getElementById('p-total').textContent = questoes.length;
+    document.getElementById('p-acertos').textContent = acertos;
+    function celula(ok, r) { return r ? ok + ' de ' + r : '–'; }
+    var linhas = ordem.map(function (e) {
+      var x = eixos[e];
+      return '<tr><td>' + e + '</td><td>' + x.total + '</td><td>' + celula(x.ok, x.resp) + '</td></tr>';
+    });
+    linhas.push('<tr><th>Total</th><th>' + questoes.length + '</th><th>' + celula(acertos, resp) + '</th></tr>');
+    document.getElementById('por-eixo').innerHTML = linhas.join('');
+  }
+
+  questoes.forEach(function (q) {
+    var caixa = q.querySelector('.opcoes');
+    caixa.setAttribute('role', 'group');
+    caixa.setAttribute('aria-label', 'Sua resposta para a questão ' + q.querySelector('.num').textContent);
+    var pede = document.createElement('span');
+    pede.className = 'pede';
+    pede.textContent = 'Sua resposta:';
+    caixa.appendChild(pede);
+    LETRAS.forEach(function (l) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = l;
+      b.dataset.letra = l;
+      b.addEventListener('click', function () {
+        if (respostas[q.id]) return;
+        respostas[q.id] = l;
+        salvar();
+        mostrar(q);
+        placar();
+      });
+      caixa.appendChild(b);
+    });
+    mostrar(q);
+  });
+  placar();
+
+  document.getElementById('recomecar').addEventListener('click', function () {
+    if (!confirm('Apagar todas as respostas marcadas neste aparelho?')) return;
+    respostas = {};
+    salvar();
+    questoes.forEach(mostrar);
+    placar();
+    document.getElementById('q1').scrollIntoView();
+  });
+})();
+</script>
+</body>
+</html>

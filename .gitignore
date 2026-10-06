@@ -1,0 +1,25 @@
+# Segredos
+.env
+.env.*
+.claude/settings.local.json
+
+# Ambientes e dependências
+.venv/
+venv/
+__pycache__/
+*.pyc
+node_modules/
+
+# Artefatos gerados
+*.zip
+build/
+dist/
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+apostila/latex/main.pdf
+
+# Sistema
+.DS_Store
+*~

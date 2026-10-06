@@ -1,0 +1,165 @@
+\abresubcapitulo
+  {Tempo, tecnologia e trabalho}
+  {Redes técnicas, produtividade e disputa pelo tempo na escala $6\times1$}
+  {GEOGRAFIA \;\textbullet\; MATERIAL COMPLEMENTAR \;\textbullet\; ENSINO MÉDIO / ENEM}
+
+\begin{questaocentral}
+\textbf{QUESTÃO CENTRAL:} Se as tecnologias permitem produzir mais em menos tempo, por que esse aumento de produtividade não se transforma automaticamente em redução da jornada e ampliação do tempo livre?
+\end{questaocentral}
+
+\subsection*{Objetivos de aprendizagem}
+
+Ao final deste subcapítulo, você deverá ser capaz de:
+
+\begin{itemize}
+  \item interpretar uma paisagem urbana como expressão de desigualdades sociais e econômicas;
+  \item compreender, de maneira introdutória, o Meio Técnico-Científico-Informacional;
+  \item reconhecer a distribuição desigual do comando, dos ganhos e dos riscos nas redes produtivas;
+  \item explicar por que a redução da jornada não decorre automaticamente do desenvolvimento tecnológico.
+\end{itemize}
+
+\section{Da paisagem à rede geográfica}
+
+\begin{exemploconcreto}
+\textbf{SITUAÇÃO INICIAL -- AVENIDA PAULISTA:} Imagine um trabalhador sob chuva, cercado por sedes empresariais, bancos, redes de comunicação e intensa circulação de mercadorias. Ele afirma que trabalha muito, mas não consegue transformar seu esforço em segurança ou expectativa estável de futuro. O contraste não é apenas social: ele aparece materializado na própria paisagem urbana.
+\end{exemploconcreto}
+
+A paisagem reúne, no mesmo lugar, posições muito diferentes dentro da economia. A proximidade espacial entre riqueza e precariedade não significa que todos tenham o mesmo poder sobre as redes que atravessam a cidade. Para compreender essa desigualdade, precisamos olhar além dos aparelhos e observar o conjunto de infraestruturas, empresas, informações e trabalhadores que permite à atividade econômica funcionar.
+
+\begin{conceito}
+\textbf{CONCEITO-CHAVE -- MEIO TÉCNICO-CIENTÍFICO-INFORMACIONAL:} forma de organização do espaço geográfico marcada pela integração entre técnica, ciência, informação, infraestruturas, empresas e ações humanas. Um aplicativo, por exemplo, só funciona porque está conectado a redes de comunicação, pagamentos, GPS, vias urbanas, estabelecimentos e trabalhadores \citep{santos}.
+\end{conceito}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=11mm and 15mm,
+  box/.style={rounded corners=2pt,draw=petroleo,thick,minimum width=3cm,minimum height=9mm,align=center,font=\small\bfseries},
+  flow/.style={<->,>=Stealth,semithick,draw=cinza},
+  label/.style={font=\scriptsize,color=cinza,align=center}
+]
+  \node[box,fill=azulclaro] (consumidor) {Consumidor};
+  \node[box,fill=petroleo,text=white,right=of consumidor] (plataforma) {Plataforma};
+  \node[box,fill=ouroclaro,above right=8mm and 28mm of plataforma] (estabelecimento) {Estabelecimento};
+  \node[box,fill=verdeclaro,below right=8mm and 28mm of plataforma] (trabalhador) {Trabalhador};
+
+  \draw[flow] (consumidor) -- node[label,above]{pedido · pagamento · dados} (plataforma);
+  \draw[flow] (plataforma) -- node[label,above,sloped]{demanda · informação} (estabelecimento);
+  \draw[flow] (plataforma) -- node[label,below,sloped]{preço · avaliação} (trabalhador);
+
+  \node[draw=cinza!35,fill=cinzaclaro,rounded corners=2pt,font=\scriptsize,text=petroleoescuro,
+        below=18mm of plataforma,minimum width=12.4cm,minimum height=8mm]
+        {Infraestruturas: internet · GPS · pagamentos · vias · transporte};
+\end{tikzpicture}
+\caption{Rede simplificada do trabalho organizado por plataforma.}
+\fontefigura{elaboração didática para este protótipo.}
+\end{figure}
+
+\begin{frasechave}
+\textbf{FRASE-CHAVE:} A rede funciona digitalmente, mas depende de corpos trabalhando em lugares concretos.
+\end{frasechave}
+
+\begin{atividade}
+\textbf{LEITURA DO ESQUEMA:} Quais elementos materiais são indispensáveis para que essa rede aparentemente ``digital'' funcione? Quem pode definir preços e critérios? Quem permanece mais exposto aos riscos do trânsito e da espera?
+\end{atividade}
+
+\section{Tecnologia também reorganiza o tempo}
+
+As inovações técnicas ampliam possibilidades, mas não determinam previamente como elas serão utilizadas. A iluminação artificial permitiu que fábricas, lojas e serviços prolongassem suas atividades para além do tempo natural do dia. Em vez de reduzir automaticamente a jornada, uma tecnologia pode ampliar o período disponível para produzir.
+
+\begin{conceito}
+\textbf{PRODUTIVIDADE:} relação entre os resultados obtidos e os recursos ou o tempo empregados. Um aumento de produtividade permite produzir mais no mesmo intervalo, mas não define quem receberá os ganhos nem quanto tempo será destinado ao descanso.
+\end{conceito}
+
+\subsection*{Questão de fixação}
+
+\begin{questao}
+\textbf{QUESTÃO AUTORAL:} A difusão da iluminação artificial ampliou o funcionamento noturno de fábricas e estabelecimentos. Do ponto de vista das relações entre técnica e trabalho, esse processo demonstra que:
+
+\begin{enumerate}[label=\Alph*),leftmargin=2em]
+  \item a inovação tecnológica elimina conflitos em torno da duração da jornada.
+  \item o desenvolvimento técnico conduz necessariamente ao aumento do tempo livre.
+  \item a técnica possui efeitos idênticos para todos os grupos sociais.
+  \item o uso social de uma tecnologia pode ampliar o tempo disponível para a produção.
+  \item a organização do trabalho independe das relações políticas e econômicas.
+\end{enumerate}
+\end{questao}
+
+\begin{resolucao}
+\textbf{RESOLUÇÃO COMENTADA -- D:} a iluminação artificial cria a possibilidade de estender a atividade produtiva. A duração da jornada, porém, depende de relações sociais, direitos e decisões políticas; não é consequência automática da tecnologia.
+\end{resolucao}
+
+\begin{notaeditorial}
+\textbf{NOTA DO PROTÓTIPO:} o plano original menciona ``ENEM 2015, questão 02'' na sequência didática e ``Questão 03'' nas referências. A equipe deverá conferir o caderno antes de reproduzir a questão oficial. Esta caixa existe para demonstrar o tratamento de uma pendência editorial e será removida da edição destinada aos estudantes.
+\end{notaeditorial}
+
+\section{Divisão territorial do trabalho}
+
+\begin{exemploconcreto}
+\textbf{ESTUDO DE CASO -- RANA PLAZA:} Em 2013, o desabamento do edifício Rana Plaza, em Bangladesh, matou 1.134 pessoas. O prédio abrigava fábricas de roupas integradas a cadeias internacionais. A tragédia tornou visível uma geografia na qual marcas e mercados consumidores podiam estar distantes dos locais onde o trabalho e o risco se concentravam \citep{oxfam}.
+\end{exemploconcreto}
+
+\begin{conceito}
+\textbf{DIVISÃO TERRITORIAL DO TRABALHO:} distribuição das atividades e funções econômicas entre diferentes lugares e posições de uma mesma rede. Alguns espaços concentram comando, tecnologia, informação e lucros; outros concentram execução, remunerações menores e exposição mais direta aos riscos.
+\end{conceito}
+
+\begin{frasechave}
+\textbf{FRASE-CHAVE:} A mesma rede que conecta os lugares também distribui de forma desigual comando, ganhos, trabalho e risco.
+\end{frasechave}
+
+\section{Cadeias globais e plataformas digitais}
+
+Uma cadeia global de roupas e o trabalho organizado por plataformas não são fenômenos equivalentes. A comparação serve para localizar uma questão comum: quem controla aspectos centrais da rede e quem assume diretamente seus custos e riscos?
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\textwidth}{>{\bfseries}Y Y Y}
+\toprule
+\rowcolor{petroleo}
+\color{white}Pergunta & \color{white}\bfseries Cadeia global de roupas & \color{white}\bfseries Trabalho por plataformas \\
+\midrule
+Quem controla aspectos centrais? & Marcas, contratantes e gestores da cadeia & Empresa proprietária da plataforma \\
+\rowcolor{cinzaclaro}
+Quem executa o trabalho? & Trabalhadores das fábricas & Entregadores e motoristas \\
+Quem assume custos e riscos diretos? & Trabalhadores e fornecedores locais & Trabalhador \\
+\bottomrule
+\end{tabularx}
+\caption{Comparação analítica entre duas formas distintas de organização do trabalho.}
+\end{table}
+
+\begin{conceito}
+\textbf{TRANSFERÊNCIA DE RISCOS:} processo pelo qual uma empresa mantém controle sobre aspectos centrais da atividade, mas desloca parte dos custos e riscos para trabalhadores ou fornecedores. No trabalho por plataformas, isso pode incluir veículo, combustível, manutenção, tempo de espera e risco de acidente.
+\end{conceito}
+
+\begin{atividade}
+\textbf{COMPARE SEM IGUALAR:} identifique uma semelhança e uma diferença entre a cadeia global de roupas e o trabalho por plataformas. Sua resposta deve mencionar comando, execução ou risco.
+\end{atividade}
+
+\section{Produtividade e escala \texorpdfstring{$6\times1$}{6x1}}
+
+Tecnologias podem acelerar a circulação, conectar lugares e ampliar a capacidade de produzir. Nenhuma dessas possibilidades decide, por si mesma, quem receberá os ganhos de produtividade, quantos dias serão trabalhados ou quanto tempo será destinado ao descanso.
+
+\begin{frasechave}
+\textbf{A escala $6\times1$ não é uma necessidade criada pela tecnologia.} Ela é uma forma social e política de organizar e distribuir o tempo de trabalho.
+\end{frasechave}
+
+\section*{Síntese}
+
+\begin{questaocentral}
+\textbf{RETOMANDO A QUESTÃO CENTRAL:} a tecnologia modifica a produção e reorganiza o espaço e o tempo, mas a transformação dos ganhos de produtividade em segurança, descanso ou redução da jornada depende de direitos, decisões políticas, organização coletiva e relações de poder.
+\end{questaocentral}
+
+\begin{atividade}
+\textbf{EM UMA FRASE:} complete: ``A tecnologia modifica a produção, mas o tempo livre depende de...'' Depois, justifique sua resposta com um exemplo do subcapítulo.
+\end{atividade}
+
+\subsection*{Vocabulário de revisão}
+
+\begin{itemize}[label={},leftmargin=0pt,itemsep=4pt]
+  \item \textbf{\color{petroleoescuro}Meio Técnico-Científico-Informacional:} integração entre técnica, ciência, informação, infraestruturas e ações na organização do espaço.
+  \item \textbf{\color{petroleoescuro}Divisão territorial do trabalho:} distribuição de funções econômicas entre diferentes lugares e posições de uma rede.
+  \item \textbf{\color{petroleoescuro}Transferência de riscos:} deslocamento de custos e riscos para participantes com menor controle sobre a atividade.
+  \item \textbf{\color{petroleoescuro}Produtividade:} relação entre resultados produzidos e recursos ou tempo empregados.
+\end{itemize}

@@ -1,0 +1,16 @@
+{
+  "name": "decks-impress",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20.11" },
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "node tools/build.mjs --watch",
+    "lint": "node tools/lint.mjs",
+    "shots": "node tools/capture.mjs",
+    "pdf": "node tools/capture.mjs --pdf"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}

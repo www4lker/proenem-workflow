@@ -1,0 +1,64 @@
+/* TOKENS — o gosto visual mora aqui e é do pesquisador. O agente usa estes valores e não inventa outros.
+   Tamanho do passo = 1920x1080 = tela cheia; 1px de CSS = 1px na tela em 1080p. */
+:root {
+  --bg: #f6f3ec;
+  --fg: #1d1d1f;
+  --fg-soft: #55524b;
+  --accent: #8a3b12;
+  --accent-2: #1f4e79;
+  --rule: #d8d2c4;
+
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-head: "Inter", "Helvetica Neue", Arial, sans-serif;
+  /* Para fontes locais: coloque .woff2 em decks/<nome>/assets/fonts/ e declare @font-face em decks/<nome>/theme.css */
+
+  --fs-h1: 112px;
+  --fs-h2: 76px;
+  --fs-body: 44px;
+  --fs-small: 32px;
+  --fs-source: 24px; /* só para .fonte; mínimo permitido pelo lint: 22px */
+  --pad: 96px;
+  --gap: 32px;
+}
+
+html, body { margin: 0; height: 100%; background: #111; }
+body { font-family: var(--font-body); color: var(--fg); font-size: var(--fs-body); line-height: 1.35; }
+body.impress-enabled { overflow: hidden; }
+
+/* Passo */
+.step {
+  width: 1920px; height: 1080px; box-sizing: border-box; overflow: hidden;
+  background: var(--bg); opacity: 0.2; transition: opacity 1s;
+}
+.step.active, .step.lit { opacity: 1; }
+.step-inner {
+  box-sizing: border-box; width: 100%; height: 100%; padding: var(--pad);
+  display: flex; flex-direction: column; justify-content: center; gap: var(--gap);
+}
+.step-inner > * { margin: 0; }
+
+/* Moldura (passo só de câmera): invisível */
+.frame { background: transparent; opacity: 0 !important; pointer-events: none; }
+
+/* Tipografia */
+h1, h2 { font-family: var(--font-head); line-height: 1.08; letter-spacing: -0.01em; }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); color: var(--accent-2); }
+p, li { font-size: var(--fs-body); }
+ul, ol { padding-left: 1.1em; }
+li + li { margin-top: 0.4em; }
+.pequeno { font-size: var(--fs-small); color: var(--fg-soft); }
+.fonte { font-size: var(--fs-source); color: var(--fg-soft); font-style: normal; }
+blockquote { border-left: 8px solid var(--accent); padding-left: 40px; font-style: italic; }
+cite.fonte { display: block; margin-top: 16px; }
+strong { color: var(--accent); }
+
+/* Versão só da tela ou só do papel (dist/impresso.html) */
+.so-impresso { display: none; }
+
+/* Layout utilitário */
+.centro { text-align: center; align-items: center; }
+.cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+figure { margin: 0; }
+figure img, figure video { max-width: 100%; max-height: 640px; display: block; margin: 0 auto; }
+figcaption { margin-top: 16px; }

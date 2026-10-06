@@ -1,0 +1,2342 @@
+id,prompt_completo,classificacao
+2013_CH_017,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2013_CH_017"", ""enunciado"": ""Modelo 1\n\nFornecedor\nEstoque\nProdução\nEstoque\nCliente\n\nModelo 2\n\nRequisição\n\nRequisição\n\nEntrega\n\nEntrega\n\nCliente\nProdução\nFornecedor\n\nDisponível em: http://ensino.univates.br. Acesso em: 11 maio 2013 (adaptado). \n\nNa imagem, estão representados dois modelos \nde produção. A possibilidade de uma crise de \nsuperprodução é distinta entre eles em função do \nseguinte fator:"", ""alternativas"": {""A"": ""Origem da matéria-prima."", ""B"": ""Qualificação da mão de obra."", ""C"": ""Velocidade de processamento."", ""D"": ""Necessidade de armazenamento."", ""E"": ""Amplitude do mercado consumidor.""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2013_CH_017"",
+  ""disciplina_principal"": ""geografia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""Geografia Econômica > Modelos de Produção"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""aplicacao"",
+  ""competencia"": 4,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""artefato_visual""
+}
+```"
+2013_CH_020,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2013_CH_020"", ""enunciado"": ""PSD - \nPTB - \nUDN\nPSP - \nPDC - \nMTR\nPTN - \nPST - \nPSB\nPRP -  PR -  PL -   PRT\n\nFinados\n\nFORTUNA. Correio da Manhã, ano 65, n. 22 264, 2 nov. 1965.\n\nA imagem foi publicada no jornal Correio da Manhã, no dia \nde Finados de 1965. Sua relação com os direitos políticos \nexistentes no período revela a"", ""alternativas"": {""A"": ""extinção dos partidos nanicos."", ""B"": ""retomada dos partidos estaduais."", ""C"": ""adoção do bipartidarismo regulado."", ""D"": ""superação do fisiologismo tradicional."", ""E"": ""valorização da representação parlamentar. Um gigante da indústria da internet, em gesto simbólico, mudou o tratamento que conferia à sua página palestina. O site de buscas alterou sua página quando acessada da Cisjordânia. Em vez de “territórios palestinos”, a empresa escreve agora “Palestina” logo abaixo do logotipo.""}, ""gabarito"": ""C""}",
+2013_CH_022,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2013_CH_022"", ""enunciado"": ""Na canção, ressalta-se a coexistência, no contexto \ninternacional atual, das seguintes situações:"", ""alternativas"": {""A"": ""Acirramento do controle alfandegário e estímulo ao capital especulativo."", ""B"": ""Ampliação das trocas econômicas e seletividade dos fluxos populacionais."", ""C"": ""Intensificação do controle informacional e adoção de barreiras fitossanitárias."", ""D"": ""Aumento da circulação mercantil e desregulamentação do sistema financeiro."", ""E"": ""Expansão do protecionismo comercial e descaracterização de identidades nacionais.""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2013_CH_022"",
+  ""disciplina_principal"": ""geografia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""geopolitica > economia global"",
+  ""tema_secundario"": ""globalização > impactos sociais"",
+  ""tipo_cognitivo"": ""aplicacao"",
+  ""competencia"": 6,
+  ""habilidade"": ""H28"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2014_CH_028,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2014_CH_028"", ""enunciado"": ""A Comissão Nacional da Verdade (CNV) reuniu \nrepresentantes de comissões estaduais e de várias \ninstituições para apresentar um balanço dos trabalhos \nfeitos e assinar termos de cooperação com quatro \norganizações. O coordenador da CNV estima que, até \no momento, a comissão examinou, “por baixo”, cerca de \n30 milhões de páginas de documentos e fez centenas \nde entrevistas.\n\nDisponível em: www.jb.com.br. Acesso em: 2 mar. 2013 (adaptado).\n\nA notícia descreve uma iniciativa do Estado que resultou \nda ação de diversos movimentos sociais no Brasil diante \nde eventos ocorridos entre 1964 e 1988. O objetivo dessa \niniciativa é"", ""alternativas"": {""A"": ""anular a anistia concedida aos chefes militares."", ""B"": ""rever as condenações judiciais aos presos políticos."", ""C"": ""perdoar os crimes atribuídos aos militantes esquerdistas."", ""D"": ""comprovar o apoio da sociedade aos golpistas anticomunistas."", ""E"": ""esclarecer as circunstâncias de violações aos direitos humanos.""}, ""gabarito"": ""E""}","```json
+{
+  ""id"": ""2014_CH_028"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""historia do brasil > ditadura militar > comissão da verdade"",
+  ""tema_secundario"": ""direitos humanos"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo""
+}
+```"
+2014_CH_029,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2014_CH_029"", ""enunciado"": ""A filosofia encontra-se escrita neste grande livro \nque continuamente se abre perante nossos olhos \n(isto é, o universo), que não se pode compreender \nantes de entender a língua e conhecer os caracteres \ncom os quais está escrito. Ele está escrito em \nlíngua matemática, os caracteres são triângulos, \ncircunferências e outras figuras geométricas, sem \ncujos meios é impossível entender humanamente as \npalavras; sem eles, vagamos perdidos dentro de um \nobscuro labirinto.\n\nGALILEI, G. O ensaiador. Os pensadores. São Paulo: Abril Cultural, 1978.\n\nNo contexto da Revolução Científica do século XVII, \nassumir a posição de Galileu significava defender a"", ""alternativas"": {""A"": ""continuidade do vínculo entre ciência e fé dominante na Idade Média."", ""B"": ""necessidade de o estudo linguístico ser acompanhado do exame matemático."", ""C"": ""oposição da nova física quantitativa aos pressupostos da filosofia escolástica."", ""D"": ""importância da independência da investigação científica pretendida pela Igreja."", ""E"": ""inadequação da matemática para elaborar uma explicação racional da natureza.""}, ""gabarito"": ""C""}","```json
+{
+  ""id"": ""2014_CH_029"",
+  ""disciplina_principal"": ""filosofia"",
+  ""disciplinas_secundarias"": [""historia""],
+  ""tema_principal"": ""filosofia da ciencia > revolucao cientifica"",
+  ""tema_secundario"": ""metodologia cientifica"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2014_CH_032,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2014_CH_032"", ""enunciado"": ""Em 1879, cerca de cinco mil pessoas reuniram-se\npara solicitar a D. Pedro II a revogação de uma taxa \nde 20 réis, um vintém, sobre o transporte urbano. \nO vintém era a moeda de menor valor da época. A \npolícia não permitiu que a multidão se aproximasse do \npalácio. Ao grito de “Fora o vintém!”, os manifestantes \nespancaram condutores, esfaquearam mulas, viraram \nbondes e arrancaram trilhos. Um oficial ordenou fogo \ncontra a multidão. As estatísticas de mortos e feridos são \nimprecisas. Muitos interesses se fundiram nessa revolta, \nde grandes e de políticos, de gente miúda e de simples \ncidadãos. Desmoralizado, o ministério caiu. Uma grande \nexplosão social, detonada por um pobre vintém.\n\nDisponível em: www.revistadehistoria.com.br. Acesso em: 4 abr. 2014 (adaptado).\n\nA leitura do trecho indica que a coibição violenta das \nmanifestações representou uma tentativa de"", ""alternativas"": {""A"": ""capturar os ativistas radicais."", ""B"": ""proteger o patrimônio privado."", ""C"": ""salvaguardar o espaço público."", ""D"": ""conservar o exercício do poder."", ""E"": ""sustentar o regime democrático.""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2014_CH_032"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""Historia do Brasil > Segundo Reinado > Revoltas urbanas e poder"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo""
+}
+```"
+2014_CH_042,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2014_CH_042"", ""enunciado"": ""TEXTO I\nO presidente do jornal de maior circulação do país \ndestacava também os avanços econômicos obtidos \nnaqueles vinte anos, mas, ao justificar sua adesão aos \nmilitares em 1964, deixava clara sua crença de que a \nintervenção fora imprescindível para a manutenção da \ndemocracia.\n\nDisponível em: http://oglobo.globo.com. Acesso em: 1 set. 2013 (adaptado). \n\nTEXTO II\nNada pode ser colocado em compensação à \nperda das liberdades individuais. Não existe nada de bom \nquando se aceita uma solução autoritária.\n\nFICO, C. A educação e o golpe de 1964. Disponível em: www.brasilrecente.com. \nAcesso em: 4 abr. 2014 (adaptado).\n\nEmbora enfatizem a defesa da democracia, as visões do \nmovimento político-militar de 1964 divergem ao focarem, \nrespectivamente:"", ""alternativas"": {""A"": ""Razões de Estado — Soberania popular."", ""B"": ""Ordenação da Nação — Prerrogativas religiosas."", ""C"": ""Imposição das Forças Armadas — Deveres sociais."", ""D"": ""Normatização do Poder Judiciário — Regras morais."", ""E"": ""Contestação do sistema de governo — Tradições culturais.""}, ""gabarito"": ""A""}","```json
+{
+  ""id"": ""2014_CH_042"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""historia do brasil > ditadura militar > golpe de 1964"",
+  ""tema_secundario"": ""ciencias politicas > regimes politicos"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2015_CH_009,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2015_CH_009"", ""enunciado"": ""Voz do sangue \n\nPalpitam-me \nos sons do batuque \ne os ritmos melancólicos do blue.\n\nÓ negro esfarrapado \ndo Harlem \nó dançarino de Chicago\nó negro servidor do South\n\nÓ negro da África\nnegros de todo o mundo\n\nEu junto \nao vosso magnífico canto\na minha pobre voz\nos meus humildes ritmos.\n\nEu vos acompanho\npelas emaranhadas áfricas \ndo nosso Rumo. \n\nEu vos sinto\nnegros de todo o mundo\neu vivo a nossa história\nmeus irmãos.\n\nDisponível em: www.agostinhoneto.org. Acesso em: 30 jun. 2015.\n\nNesse poema, o líder angolano Agostinho Neto, na \ndécada de 1940, evoca o pan-africanismo com o \nobjetivo de"", ""alternativas"": {""A"": ""incitar a luta por políticas de ações afirmativas na América e na África."", ""B"": ""reconhecer as desigualdades sociais entre os negros de Angola e dos Estados Unidos."", ""C"": ""descrever o quadro de pobreza após os processos de independência no continente africano."", ""D"": ""solicitar o engajamento dos negros estadunidenses na luta armada pela independência em Angola."", ""E"": ""conclamar as populações negras de diferentes países a apoiar as lutas por igualdade e independência.""}, ""gabarito"": ""E""}","```json
+{
+  ""id"": ""2015_CH_009"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""historia africana > pan-africanismo e lutas por independência"",
+  ""tema_secundario"": ""movimentos sociais > identidade negra"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 6,
+  ""habilidade"": ""H16"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2015_CH_019,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2015_CH_019"", ""enunciado"": ""ZIRALDO. 20 anos de prontidão. In: LEMOS, R. (Org.). Uma história do Brasil através da \ncaricatura (1840-2001). Rio de Janeiro: Letras & Expressões, 2001.\n\nNo período de 1964 a 1985, a estratégia do Regime Militar \nabordada na charge foi caracterizada pela"", ""alternativas"": {""A"": ""priorização da segurança nacional."", ""B"": ""captação de financiamentos estrangeiros."", ""C"": ""execução de cortes nos gastos públicos."", ""D"": ""nacionalização de empresas multinacionais."", ""E"": ""promoção de políticas de distribuição de renda.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2015_CH_019"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""historia do brasil > regime militar > economia"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""artefato_visual""
+}
+```"
+2016_CH_002,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2016_CH_002"", ""enunciado"": ""Batizado por Tancredo Neves de “Nova República”, \no período que marca o reencontro do Brasil com os \ngovernos civis e a democracia ainda não completou \nseu quinto ano e já viveu dias de grande comoção. \nComeçou com a tragédia de Tancredo, seguiu pela \neuforia do Plano Cruzado, conheceu as depressões da \ninflação e das ameaças da hiperinflação e desembocou \nna movimentação que antecede as primeiras eleições \ndiretas para presidente em 29 anos.\n\nO álbum dos presidentes: a história vista pelo JB. Jornal do Brasil, 15 nov. 1989.\n\nO período descrito apresenta continuidades e rupturas \nem relação à conjuntura histórica anterior. Uma dessas \ncontinuidades consistiu na"", ""alternativas"": {""A"": ""representação do legislativo com a fórmula do bipartidarismo."", ""B"": ""detenção de lideranças populares por crimes de subversão."", ""C"": ""presença de políticos com trajetórias no regime autoritário."", ""D"": ""prorrogação das restrições advindas dos atos institucionais."", ""E"": ""estabilidade da economia com o congelamento anual de preços.""}, ""gabarito"": ""C""}","{""id"": ""2016_CH_002"", ""disciplina_principal"": ""historia"", ""disciplinas_secundarias"": [], ""tema_principal"": ""Historia do Brasil Contemporânea > Redemocratização"", ""tema_secundario"": ""Continuidade e Ruptura no Pós-Ditadura"", ""tipo_cognitivo"": ""analise"", ""competencia"": 1, ""habilidade"": ""H1"", ""ancoragem"": ""evento_narrativo""}"
+2016_CH_012,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2016_CH_012"", ""enunciado"": ""No início de maio de 2014, a instalação da \nplataforma petrolífera de perfuração HYSY-981 nas \náguas contestadas do Mar da China Meridional \nsuscitou especulações sobre as motivações chinesas. \nNa avaliação de diversos observadores ocidentais, \nPequim pretendeu, com esse gesto, demonstrar que \npode impor seu controle e dissuadir outros países de \nseguir com suas reivindicações de direito de exploração \ndessas águas, como é o caso do Vietnã e das Filipinas.\n\nKLARE, M.T. A guerra pelo petróleo se joga no mar. Le Monde Diplomatique Brasil, abr. 2015.\n\nA ação da China em relação à situação descrita no texto \nevidencia um conflito que tem como foco o(a):"", ""alternativas"": {""A"": ""Distribuição das zonas econômicas especiais."", ""B"": ""Monopólio das inovações tecnológicas extrativas."", ""C"": ""Dinamização da atividade comercial."", ""D"": ""Jurisdição da soberania territorial."", ""E"": ""Embargo da produção industrial.""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2016_CH_012"",
+  ""disciplina_principal"": ""geografia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""geopolitica > conflitos territoriais e recursos naturais"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 6,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2016_CH_026,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2016_CH_026"", ""enunciado"": ""TEXTO I\n\nImagem de São Benedito. Disponível em: http://acervo.bndigital.bn.br. \n Acesso em: 6 jan. 2016 (adaptado).\n\nTEXTO II\nOs santos tornaram-se grandes aliados da Igreja para \natrair novos devotos, pois eram obedientes a Deus e ao \npoder clerical. Contando e estimulando o conhecimento \nsobre a vida dos santos, a Igreja transmitia aos fiéis os \nensinamentos que julgava corretos e que deviam ser \nimitados por escravos que, em geral, traziam outras \ncrenças de suas terras de origem, muito diferentes das \nque preconizava a fé católica.\n\nOLIVEIRA, A. J. Negra devoção. Revista de História da Biblioteca Nacional, \n n. 20, maio 2007 (adaptado).\n\nPosteriormente ressignificados no interior de certas \nirmandades e no contato com outra matriz religiosa, o \nícone e a prática mencionada no texto estiveram desde \no século XVII relacionados a um esforço da Igreja \nCatólica para"", ""alternativas"": {""A"": ""reduzir o poder das confrarias."", ""B"": ""cristianizar a população afro-brasileira."", ""C"": ""espoliar recursos materiais dos cativos."", ""D"": ""recrutar libertos para seu corpo eclesiástico."", ""E"": ""atender a demanda popular por padroeiros locais.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2016_CH_026"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""história do Brasil > escravidão e religião"",
+  ""tema_secundario"": ""sincretismo religioso"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H4"",
+  ""ancoragem"": ""composto""
+}
+```"
+2016_CH_033,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2016_CH_033"", ""enunciado"": ""Disponível em: www.imageforum-diffusion.afp.com. Acesso em: 6 jan. 2016.\n\nO regime do Apartheid adotado de 1948 a 1994 na \nÁfrica do Sul fundamentava-se em ações estatais de \nsegregacionismo racial. Na imagem, fuzileiros navais \nfazem valer a “lei do passe” que regulamentava o(a)"", ""alternativas"": {""A"": ""concentração fundiária, impedindo os negros de tomar posse legítima do uso da terra."", ""B"": ""boicote econômico, proibindo os negros de consumir produtos ingleses sem resistência armada."", ""C"": ""sincretismo religioso, vetando os ritos sagrados dos negros nas cerimônias oficiais do Estado."", ""D"": ""controle sobre a movimentação, desautorizando os negros a transitar em determinadas áreas das cidades."", ""E"": ""exclusão do mercado de trabalho, negando à população negra o acesso aos bens de consumo.""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2016_CH_033"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""historia > apartheid > segregacao racial"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""aplicacao"",
+  ""competencia"": 2,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""artefato_visual""
+}
+```"
+2016_CH_036,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2016_CH_036"", ""enunciado"": ""Estados Unidos\n5 653 941"", ""alternativas"": {""A"": ""pioneirismo tecnológico."", ""B"": ""condição hidropedológica."", ""C"": ""escassez de água potável."", ""D"": ""efeito das mudanças climáticas."", ""E"": ""busca da sustentabilidade ambiental. O coronelismo era fruto de alteração na relação de forças entre os proprietários rurais e o governo, e significava o fortalecimento do poder do Estado antes que o predomínio do coronel. Nessa concepção, o coronelismo é, então, um sistema político nacional, com base em barganhas entre o governo e os coronéis. O coronel tem o controle dos cargos públicos, desde o delegado de polícia até a professora primária. O coronel hipoteca seu apoio ao governo, sobretudo na forma de voto.""}, ""gabarito"": ""C""}","```json
+{
+  ""id"": ""2016_CH_036"",
+  ""disciplina_principal"": ""geografia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""geografia > recursos hídricos > escassez hídrica"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""aplicacao"",
+  ""competencia"": 4,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2017_CH_006,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2017_CH_006"", ""enunciado"": ""Romanos usavam redes sociais há  \ndois mil anos, diz livro\n\nAo tuitar ou comentar embaixo do post de um de seus \nvários amigos no Facebook, você provavelmente se sente \nprivilegiado por viver em um tempo na história em que é \npossível alcançar de forma imediata uma vasta rede de \ncontatos por meio de um simples clique no botão “enviar”. \nVocê talvez também reflita sobre como as gerações \npassadas puderam viver sem mídias sociais, desprovidas \nda capacidade de verem e serem vistas, de receber, gerar \ne interagir com uma imensa carga de informações. Mas o \nque você talvez não saiba é que os seres humanos usam \nferramentas de interação social há mais de dois mil anos. \nÉ o que afirma Tom Standage, autor do livro Writing on the \nWall — Social Media, The first 2 000 Years (Escrevendo \nno mural — mídias sociais, os primeiros 2 mil anos, em \ntradução livre).\n\nSegundo Standage, Marco Túlio Cícero, filósofo e \npolítico romano, teria sido, junto com outros membros da \nelite romana, precursor do uso de redes sociais. O autor \nrelata como Cícero usava um escravo, que posteriormente \ntornou-se seu escriba, para redigir mensagens em rolos \nde papiro que eram enviados a uma espécie de rede de \ncontatos. Estas pessoas, por sua vez, copiavam seu texto, \nacrescentavam seus próprios comentários e repassavam \nadiante. “Hoje temos computadores e banda larga, mas os \nromanos tinham escravos e escribas que transmitiam suas \nmensagens”, disse Standage à BBC Brasil. “Membros \nda elite romana escreviam entre si constantemente, \ncomentando sobre as últimas movimentações políticas e \nexpressando opiniões.”\n\nAlém do papiro, outra plataforma comumente utilizada \npelos romanos era uma tábua de cera do tamanho e da \nforma de um tablet moderno, em que escreviam recados, \nperguntas ou transmitiam os principais pontos da acta \ndiurna, um “jornal” exposto diariamente no Fórum de \nRoma. Essa tábua, o “iPad da Roma Antiga”, era levada \npor um mensageiro até o destinatário, que respondia \nembaixo da mensagem.\n\nNIDECKER, F. Disponível em: www.bbc.co.uk. Acesso em: 7 nov. 2013 (adaptado).\n\nNa reportagem, há uma comparação entre tecnologias \nde comunicação antigas e atuais. Quanto ao gênero \nmensagem, identifica-se como característica que perdura \nao longo dos tempos o(a)"", ""alternativas"": {""A"": ""imediatismo das respostas."", ""B"": ""compartilhamento de informações."", ""C"": ""interferência direta de outros no texto original."", ""D"": ""recorrência de seu uso entre membros da elite."", ""E"": ""perfil social dos envolvidos na troca comunicativa.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2017_CH_006"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""história da comunicação > evolução das mídias"",
+  ""tema_secundario"": ""cultura romana > comunicação"",
+  ""tipo_cognitivo"": ""síntese"",
+  ""competencia"": 5,
+  ""habilidade"": ""H3"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2017_CH_018,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2017_CH_018"", ""enunciado"": ""O mundo revivido\nSobre esta casa e as árvores que o tempo\nesqueceu de levar. Sobre o curral\nde pedra e paz e de outras vacas tristes\nchorando a lua e a noite sem bezerros.\n\nSobre a parede larga deste açude\nonde outras cobras verdes se arrastavam,\ne pondo o sol nos seus olhos parados\niam colhendo sua safra de sapos.\n\nSob as constelações do sul que a noite\narmava e desarmava: as Três Marias,\no Cruzeiro distante e o Sete-Estrelo.\n\nSobre este mundo revivido em vão,\na lembrança de primos, de cavalos,\nde silêncio perdido para sempre.\n\nDOBAL, H. A província deserta. Rio de Janeiro: Artenova, 1974.\n\nNo processo de reconstituição do tempo vivido, o eu \nlírico projeta um conjunto de imagens cujo lirismo se \nfundamenta no"", ""alternativas"": {""A"": ""inventário das memórias evocadas afetivamente."", ""B"": ""reflexo da saudade no desejo de voltar à infância."", ""C"": ""sentimento de inadequação com o presente vivido."", ""D"": ""ressentimento com as perdas materiais e humanas."", ""E"": ""lapso no fluxo temporal dos eventos trazidos à cena.""}, ""gabarito"": ""A""}","{""id"": ""2017_CH_018"", ""disciplina_principal"": ""filosofia"", ""disciplinas_secundarias"": [""sociologia""], ""tema_principal"": ""Experiência humana > memória e tempo vivido"", ""tema_secundario"": null, ""tipo_cognitivo"": ""sintese"", ""competencia"": 1, ""habilidade"": ""H1"", ""ancoragem"": ""texto_analitico""}"
+2017_CH_021,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2017_CH_021"", ""enunciado"": ""TEXTO I\n\nGOELDI, O. Sem título. Bico de pena, 29,4 x 24 cm. Coleção Ary \nFerreira Macedo, circa 1940.\nDisponível em: https://revistacontemporartes.blogspot.com.br. Acesso em: 10 dez. 2012.\n\nTEXTO II\nNa sua produção, Goeldi buscou refletir seu caminho \npessoal e político, sua melancolia e paixão sobre os \nintensos aspectos mais latentes em sua obra, como: \ncidades, peixes, urubus, caveiras, abandono, solidão, \ndrama e medo.\nZULIETTI, L. F. Goeldi: da melancolia ao inevitável. Revista de Arte, Mídia e Política. \nAcesso em: 24 abr. 2017 (adaptado).\nO gravador Oswaldo Goeldi recebeu fortes influências de \num movimento artístico europeu do início do século XX, \nque apresenta as características reveladas nos traços da \nobra de\n\nAlfred Kubin, \nrepresentante do \nExpressionismo."", ""alternativas"": {""A"": ""Sonho e desarranjo, Alfred Kubin. Henri Matisse, representante do Fauvismo."", ""B"": ""Bailarina deitada, Henri Matisse Diego Rivera, representante do Muralismo."", ""C"": ""Mineiro, Diego Rivera. Pablo Picasso, representante do Cubismo."", ""D"": ""Retrato de Igor Stravinsky, Pablo Picasso. René Magritte, representante do Surrealismo."", ""E"": ""Os amantes, René Magritte.""}, ""gabarito"": ""A""}","```json
+{
+  ""id"": ""2017_CH_021"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""filosofia"", ""sociologia""],
+  ""tema_principal"": ""Historia da Arte > Movimentos Artísticos do Século XX"",
+  ""tema_secundario"": ""Expressionismo"",
+  ""tipo_cognitivo"": ""aplicacao"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""composto""
+}
+```"
+2017_CH_022,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2017_CH_022"", ""enunciado"": ""TEXTO I\nA língua ticuna é o idioma mais falado entre os \nindígenas brasileiros. De acordo com o pesquisador \nAryon Rodrigues, há 40 mil índios que falam o idioma. \nA maioria mora ao longo do Rio Solimões, no Alto \nAmazonas. É a maior nação indígena do Brasil, sendo \ntambém encontrada no Peru e na Colômbia. Os ticunas \nfalam uma língua considerada isolada, que não mantém \nsemelhança com nenhuma outra língua indígena e \napresenta complexidades em sua fonologia e sintaxe. \nSua característica principal é o uso de diferentes alturas \nna voz.\n\nO uso intensivo da língua não chega a ser ameaçado \npela proximidade de cidades ou mesmo pela convivência \ncom falantes de outras línguas no interior da própria área \nticuna: nas aldeias, esses outros falantes são minoritários \ne acabam por se submeter à realidade ticuna, razão pela \nqual, talvez, não representem uma ameaça linguística.\n\nLíngua Portuguesa, n. 52, fev. 2010 (adaptado).\n\nTEXTO II\n\nRiqueza da língua\n“O inglês está destinado a ser uma língua mundial em \nsentido mais amplo do que o latim foi na era passada e o \nfrancês é na presente”, dizia o presidente americano John \nAdams no século XVIII. A profecia se cumpriu: o inglês é \nhoje a língua franca da globalização. No extremo oposto \nda economia linguística mundial, estão as línguas de \npequenas comunidades declinantes. Calcula-se que hoje \nse falem de 6 000 a 7 000 línguas no mundo todo. Quase \nmetade delas deve desaparecer nos próximos 100 anos. \nA última edição do Ethnologue — o mais abrangente \nestudo sobre as línguas mundiais —, de 2005, listava \n516 línguas em risco de extinção.\n\nVeja, n. 36, set. 2007 (adaptado).\n\nOs textos tratam de línguas de culturas completamente \ndiferentes, cujas realidades se aproximam em função do(a)"", ""alternativas"": {""A"": ""semelhança no modo de expansão."", ""B"": ""preferência de uso na modalidade falada."", ""C"": ""modo de organização das regras sintáticas."", ""D"": ""predomínio em relação às outras línguas de contato."", ""E"": ""fato de motivarem o desaparecimento de línguas minoritárias.""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2017_CH_022"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [""linguística"", ""geografia""],
+  ""tema_principal"": ""Linguagem e cultura: vitalidade e ameaça"",
+  ""tema_secundario"": ""Globalização e diversidade cultural"",
+  ""tipo_cognitivo"": ""sintese"",
+  ""competencia"": 2,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2017_CH_035,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2017_CH_035"", ""enunciado"": ""Aí pelas três da tarde\nNesta sala atulhada de mesas, máquinas e papéis, \nonde invejáveis escreventes dividiram entre si o bom-\nsenso do mundo, aplicando-se em ideias claras apesar \ndo ruído e do mormaço, seguros ao se pronunciarem \nsobre problemas que afligem o homem moderno (espécie \nda qual você, milenarmente cansado, talvez se sinta um \ntanto excluído), largue tudo de repente sob os olhares a \nsua volta, componha uma cara de louco quieto e perigoso, \nfaça os gestos mais calmos quanto os tais escribas mais \nseveros, dê um largo “ciao” ao trabalho do dia, assim \ncomo quem se despede da vida, e surpreenda pouco \nmais tarde, com sua presença em hora tão insólita, os que \nestiveram em casa ocupados na limpeza dos armários, \nque você não sabia antes como era conduzida. Convém \nnão responder aos olhares interrogativos, deixando \ncrescer, por instantes, a intensa expectativa que se \ninstala. Mas não exagere na medida e suba sem demora \nao quarto, libertando aí os pés das meias e dos sapatos, \ntirando a roupa do corpo como se retirasse a importância \ndas coisas, pondo-se enfim em vestes mínimas, quem \nsabe até em pelo, mas sem ferir o decoro (o seu decoro, \nestá claro), e aceitando ao mesmo tempo, como boa \nverdade provisória, toda mudança de comportamento.\n\nNASSAR, R. Menina a caminho. São Paulo: Cia. das Letras, 1997.\n\nEm textos de diferentes gêneros, algumas estratégias \nargumentativas \nreferem-se \na \nrecursos \nlinguístico-\ndiscursivos mobilizados para envolver o leitor. No texto, \ncaracteriza-se como estratégia de envolvimento a"", ""alternativas"": {""A"": ""prescrição de comportamentos, como em: “[...] largue tudo de repente sob os olhares a sua volta [...]”."", ""B"": ""apresentação de contraposição, como em: “Mas não exagere na medida e suba sem demora ao quarto [...]”."", ""C"": ""explicitação do interlocutor, como em: “[...] (espécie da qual você, milenarmente cansado, talvez se sinta um tanto excluído) [...]”."", ""D"": ""descrição do espaço, como em: “Nesta sala atulhada de mesas, máquinas e papéis, onde invejáveis escreventes dividiram entre si o bom-senso do mundo [...]”."", ""E"": ""construção de comparações, como em: “[...] libertando aí os pés das meias e dos sapatos, tirando a roupa do corpo como se retirasse a importância das coisas [...]”.""}, ""gabarito"": ""C""}","{""id"": ""2017_CH_035"", ""disciplina_principal"": ""filosofia"", ""disciplinas_secundarias"": [""sociologia""], ""tema_principal"": ""existência, liberdade e normatividade social"", ""tema_secundario"": ""linguagem e construção de sentido"", ""tipo_cognitivo"": ""analise"", ""competencia"": 3, ""habilidade"": ""H1"", ""ancoragem"": ""texto_analitico""}"
+2018_CH_009,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2018_CH_009"", ""enunciado"": ""Na sociologia e na literatura, o brasileiro foi por \nvezes tratado como cordial e hospitaleiro, mas não é \nisso o que acontece nas redes sociais: a democracia \nracial apregoada por Gilberto Freyre passa ao largo \ndo que acontece diariamente nas comunidades \nvirtuais do país. Levantamento inédito realizado pelo \nprojeto Comunica que Muda [...] mostra em números \na intolerância do internauta tupiniquim. Entre abril e \njunho, um algoritmo vasculhou plataformas [...] atrás \nde mensagens e textos sobre temas sensíveis, como \nracismo, posicionamento político e homofobia. Foram \nidentificadas 393 284 menções, sendo 84% delas com \nabordagem negativa, de exposição do preconceito e \nda discriminação.\nDisponível em: https://oglobo.globo.com. Acesso em: 6 dez. 2017 (adaptado).\n\nAo abordar a postura do internauta brasileiro mapeada \npor meio de uma pesquisa em plataformas virtuais, o texto"", ""alternativas"": {""A"": ""minimiza o alcance da comunicação digital."", ""B"": ""refuta ideias preconcebidas sobre o brasileiro."", ""C"": ""relativiza responsabilidades sobre a noção de respeito."", ""D"": ""exemplifica conceitos contidos na literatura e na sociologia."", ""E"": ""expõe a ineficácia dos estudos para alterar tal comportamento.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2018_CH_009"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [""literatura""],
+  ""tema_principal"": ""Comportamento social > Preconceito nas redes sociais"",
+  ""tema_secundario"": ""Democracia racial"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```
+I have completed the classification of the provided question. If you have another question for me to classify, please provide it."
+2018_CH_013,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2018_CH_013"", ""enunciado"": ""TEXTO I\n\nDisponível em: http://revistaiiqb.usac.edu.gt. Acesso em: 25 abr. 2018 (adaptado).\n\nTEXTO II\nImaginemos um cidadão, residente na periferia de \num grande centro urbano, que diariamente acorda às 5h \npara trabalhar, enfrenta em média 2 horas de transporte \npúblico, em geral lotado, para chegar às 8h ao trabalho. \nTermina o expediente às 17h e chega em casa às 19h \npara, aí sim, cuidar dos afazeres domésticos, dos filhos \netc. Como dizer a essa pessoa que ela deve praticar \nexercícios, pois é importante para sua saúde? Como ela \nirá entender a mensagem da importância do exercício \nfísico? A probabilidade de essa pessoa praticar exercícios \nregularmente é significativamente menor que a de \npessoas da classe média/alta que vivem outra realidade. \nNesse caso, a abordagem individual do problema tende \na fazer com que a pessoa se sinta impotente em não \nconseguir praticar exercícios e, consequentemente, \nculpada pelo fato de ser ou estar sedentária.\n\nFERREIRA, M. S. Aptidão física e saúde na educação física escolar: ampliando o enfoque. \nRBCE, n. 2, jan. 2001 (adaptado).\n\nO segundo texto, que propõe uma reflexão sobre o \nprimeiro acerca do impacto de mudanças no estilo de vida \nna saúde, apresenta uma visão"", ""alternativas"": {""A"": ""medicalizada, que relaciona a prática de exercícios físicos por qualquer indivíduo à promoção da saúde."", ""B"": ""ampliada, que considera aspectos sociais intervenientes na prática de exercícios no cotidiano."", ""C"": ""crítica, que associa a interferência das tarefas da casa ao sedentarismo do indivíduo."", ""D"": ""focalizada, que atribui ao indivíduo a responsabilidade pela prevenção de doenças."", ""E"": ""geracional, que preconiza a representação do culto à jovialidade.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2018_CH_013"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [""geografia""],
+  ""tema_principal"": ""determinantes sociais da saúde > desigualdade e acesso"",
+  ""tema_secundario"": ""sociologia urbana > mobilidade e trabalho"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H8"",
+  ""ancoragem"": ""composto""
+}
+```"
+2018_CH_037,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2018_CH_037"", ""enunciado"": ""“Acuenda o Pajubá”: conheça o “dialeto secreto” \nutilizado por gays e travestis\n\nCom origem no iorubá, linguagem foi adotada por \ntravestis e ganhou a comunidade\n\n“Nhaí, amapô! Não faça a loka e pague meu acué, \ndeixe de equê se não eu puxo teu picumã!” Entendeu \nas palavras dessa frase? Se sim, é porque você manja \nalguma coisa de pajubá, o “dialeto secreto” dos gays \ne travestis.\n\nAdepto do uso das expressões, mesmo nos ambientes \nmais formais, um advogado afirma: “É claro que eu não \nvou falar durante uma audiência ou numa reunião, mas \nna firma, com meus colegas de trabalho, eu falo de ‘acué’ \no tempo inteiro”, brinca. “A gente tem que ter cuidado de \nfalar outras palavras porque hoje o pessoal já entende, \nné? Tá na internet, tem até dicionário...”, comenta.\n\nO dicionário a que ele se refere é o Aurélia, a \ndicionária da língua afiada, lançado no ano de 2006 e \nescrito pelo jornalista Angelo Vip e por Fred Libi. Na obra, \nhá mais de 1 300 verbetes revelando o significado das \npalavras do pajubá.\n\nNão se sabe ao certo quando essa linguagem surgiu, \nmas sabe-se que há claramente uma relação entre o \npajubá e a cultura africana, numa costura iniciada ainda \nna época do Brasil colonial.\n\nDisponível em: www.midiamax.com.br. Acesso em: 4 abr. 2017 (adaptado).\n\nDa perspectiva do usuário, o pajubá ganha status de \ndialeto, caracterizando-se como elemento de patrimônio \nlinguístico, especialmente por"", ""alternativas"": {""A"": ""ter mais de mil palavras conhecidas."", ""B"": ""ter palavras diferentes de uma linguagem secreta."", ""C"": ""ser consolidado por objetos formais de registro."", ""D"": ""ser utilizado por advogados em situações formais."", ""E"": ""ser comum em conversas no ambiente de trabalho.""}, ""gabarito"": ""C""}","```json
+{
+  ""id"": ""2018_CH_037"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [""historia""],
+  ""tema_principal"": ""Cultura e identidade > Linguagem e patrimônio cultural"",
+  ""tema_secundario"": ""Identidade e expressão"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 2,
+  ""habilidade"": ""H2"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2019_CH_008,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2019_CH_008"", ""enunciado"": ""Meu caro Sherlock Holmes, algo horrível aconteceu \nàs três da manhã no Jardim Lauriston. Nosso homem \nque estava na vigia viu uma luz às duas da manhã \nsaindo de uma casa vazia. Quando se aproximou, \nencontrou a porta aberta e, na sala da frente, o corpo \nde um cavalheiro bem vestido. Os cartões que estavam \nem seu bolso tinham o nome de Enoch J. Drebber, \nCleveland, Ohio, EUA. Não houve assalto e nosso \nhomem não conseguiu encontrar algo que indicasse \ncomo ele morreu. Não havia marcas de sangue, nem \nferidas nele. Não sabemos como ele entrou na casa \nvazia. Na verdade, todo assunto é um quebra-cabeça \nsem fim. Se puder vir até a casa seria ótimo, se não, \neu lhe conto os detalhes e gostaria muito de saber sua \nopinião. Atenciosamente, Tobias Gregson.\n\nDOYLE, A. C. Um estudo em vermelho. Cotia: Pé de Letra, 2017.\n\nConsiderando o objetivo da carta de Tobias Gregson, \na sequência de enunciados negativos presente nesse \ntexto tem a função de"", ""alternativas"": {""A"": ""restringir a investigação, deixando-a sob a responsabilidade do autor da carta."", ""B"": ""refutar possíveis causas da morte do cavalheiro, auxiliando na investigação."", ""C"": ""identificar o local da cena do crime, localizando-o no Jardim Lauriston."", ""D"": ""introduzir o destinatário da carta, caracterizando sua personalidade."", ""E"": ""apresentar o vigia, incluindo-o entre os suspeitos do assassinato.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2019_CH_008"",
+  ""disciplina_principal"": ""filosofia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""linguagem e comunicação > estratégia argumentativa"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H2"",
+  ""ancoragem"": ""evento_narrativo""
+}
+```"
+2019_CH_014,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2019_CH_014"", ""enunciado"": ""A viagem\nQue coisas devo levar \nnesta viagem em que partes? \nAs cartas de navegação só servem \na quem fica. \nCom que mapas desvendar \num continente \nque falta? \nEstrangeira do teu corpo \ntão comum \nquantas línguas aprender \npara calar-me? \nTambém quem fica \nprocura \num oriente. \nTambém \na quem fica \ncabe uma paisagem nova \ne a travessia insone do desconhecido \ne a alegria difícil da descoberta. \nO que levas do que fica, \no que, do que levas, retiro?\n\nMARQUES, A. M. In: SANT’ANNA, A. (Org.). Rua Aribau. \nPorto Alegre: Tag, 2018.\n\nA viagem e a ausência remetem a um repertório poético \ntradicional. No poema, a voz lírica dialoga com essa \ntradição, repercutindo a"", ""alternativas"": {""A"": ""saudade como experiência de apatia."", ""B"": ""presença da fragmentação da identidade."", ""C"": ""negação do desejo como expressão de culpa."", ""D"": ""persistência da memória na valorização do passado."", ""E"": ""revelação de rumos projetada pela vivência da solidão.""}, ""gabarito"": ""E""}","```json
+{
+  ""id"": ""2019_CH_014"",
+  ""disciplina_principal"": ""filosofia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""existência humana > busca por sentido e identidade"",
+  ""tema_secundario"": ""subjetividade > solidão e autoconhecimento"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2019_CH_023,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2019_CH_023"", ""enunciado"": ""Disponível em: www.acnur.org. Acesso em: 11 dez. 2018.\nNesse cartaz, o uso da imagem do calçado aliada ao \ntexto verbal tem o objetivo de"", ""alternativas"": {""A"": ""criticar as difíceis condições de vida dos refugiados."", ""B"": ""revelar a longa trajetória percorrida pelos refugiados."", ""C"": ""incentivar a campanha de doações para os refugiados."", ""D"": ""denunciar a situação de carência vivida pelos refugiados."", ""E"": ""simbolizar a necessidade de adesão à causa dos refugiados.""}, ""gabarito"": ""E""}","```json
+{
+  ""id"": ""2019_CH_023"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [""geografia"", ""historia""],
+  ""tema_principal"": ""questão social > refugiados"",
+  ""tema_secundario"": ""mídia e conscientização"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""artefato_visual""
+}
+```"
+2019_CH_024,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2019_CH_024"", ""enunciado"": ""Blues da piedade\n\nVamos pedir piedade \nSenhor, piedade \nPra essa gente careta e covarde \nVamos pedir piedade \nSenhor, piedade \nLhes dê grandeza e um pouco de coragem\n\nCAZUZA. Cazuza: o poeta não morreu. Rio de Janeiro: \nUniversal Music, 2000 (fragmento).\n\nTodo gênero apresenta elementos constitutivos que \ncondicionam seu uso em sociedade. A letra de canção \nidentifica-se com o gênero ladainha, essencialmente, \npela utilização da sequência textual"", ""alternativas"": {""A"": ""expositiva, por discorrer sobre um dado tema."", ""B"": ""narrativa, por apresentar uma cadeia de ações."", ""C"": ""injuntiva, por chamar o interlocutor à participação."", ""D"": ""descritiva, por enumerar características de um personagem."", ""E"": ""argumentativa, por incitar o leitor a uma tomada de atitude.""}, ""gabarito"": ""C""}","```json
+{
+  ""id"": ""2019_CH_024"",
+  ""disciplina_principal"": ""filosofia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""linguagem e comunicação > gêneros textuais e discurso"",
+  ""tema_secundario"": ""ética e moral > crítica social"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2019_CH_025,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2019_CH_025"", ""enunciado"": ""Com o enredo que homenageou o centenário do \nRei do Baião, Luiz Gonzaga, a Unidos da Tijuca foi \ncoroada no Carnaval 2012.\nA penúltima escola a entrar na Sapucaí, na segunda \nnoite de desfiles, mergulhou no universo do cantor e \ncompositor brasileiro e trouxe a cultura nordestina com \ncriatividade para a Avenida, com o enredo O dia em que \ntoda a realeza desembarcou na Avenida para coroar o \nRei Luiz do Sertão.\n\nDisponível em: www.cultura.rj.gov.br. \nAcesso em: 15 maio 2012 (adaptado).\n\nA notícia relata um evento cultural que marca a"", ""alternativas"": {""A"": ""primazia do samba sobre a música nordestina."", ""B"": ""inter-relação entre dois gêneros musicais brasileiros."", ""C"": ""valorização das origens oligárquicas da cultura nordestina."", ""D"": ""proposta de resgate de antigos gêneros musicais brasileiros."", ""E"": ""criatividade em compor um samba-enredo em homenagem a uma pessoa.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2019_CH_025"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""cultura brasileira > manifestacoes culturais e generos musicais"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 2,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo""
+}
+```"
+2019_CH_028,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2019_CH_028"", ""enunciado"": ""Os subúrbios do Rio de Janeiro foram a primeira \ncoisa a aparecer no mundo, antes mesmo dos vulcões \ne dos cachalotes, antes de Portugal invadir, antes do \nGetúlio Vargas mandar construir casas populares. \nO bairro do Queím, onde nasci e cresci, é um deles. \nAconchegado entre o Engenho Novo e Andaraí, foi feito \ndaquela argila primordial, que se aglutinou em diversos \nformatos: cães soltos, moscas e morros, uma estação \nde trem, amendoeiras e barracos e sobrados, botecos \ne arsenais de guerra, armarinhos e bancas de jogo do \nbicho e um terreno enorme reservado para o cemitério. \nMas tudo ainda estava vazio: faltava gente.\nNão demorou. As ruas juntaram tanta poeira que \no homem não teve escolha a não ser passar a existir, \npara varrê-las. À tardinha, sentar na varanda das casas \ne reclamar da pobreza, falar mal dos outros e olhar para \nas calçadas encardidas de sol, os ônibus da volta do \ntrabalho sujando tudo de novo.\n\nHERINGER, V. O amor dos homens avulsos. \nSão Paulo: Cia. das Letras, 2016.\n\nTraçando a gênese simbólica de sua cidade, o narrador \nimprime ao texto um sentido estético fundamentado na"", ""alternativas"": {""A"": ""excentricidade dos bairros cariocas de sua infância."", ""B"": ""perspectiva caricata da paisagem de traços deteriorados."", ""C"": ""importância dos fatos relacionados à história dos subúrbios."", ""D"": ""diversidade dos tipos humanos identificados por seus hábitos."", ""E"": ""experiência do cotidiano marcado pelas necessidades e urgências.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2019_CH_028"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia"", ""geografia""],
+  ""tema_principal"": ""urbanização > gênese e representação de espaços urbanos"",
+  ""tema_secundario"": ""literatura > representação literária da realidade"",
+  ""tipo_cognitivo"": ""sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H2"",
+  ""ancoragem"": ""evento_narrativo""
+}
+```"
+2019_CH_042,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2019_CH_042"", ""enunciado"": ""A ciência do Homem-Aranha\n\nMuitos dos superpoderes do querido Homem- \n-Aranha de fato se assemelham às habilidades \nbiológicas das aranhas e são objeto de estudo para \nprodução de novos materiais.\nO “sentido-aranha” adquirido por Peter Parker \nfunciona quase como um sexto sentido, uma \nespécie de habilidade premonitória e, por isso, soa \ncomo um mero elemento ficcional. No entanto, as \naranhas realmente têm um sentido mais aguçado. \nNa verdade, elas têm um dos sistemas sensoriais mais \nimpressionantes da natureza.\nOs pelos sensoriais das aranhas, que estão \nespalhados por todo o corpo, funcionam como uma \nforma muito boa de perceber o mundo e captar \ninformações do ambiente. Em muitas espécies, esse \ntato por meio dos pelos tem papel mais importante \nque a própria visão, uma vez que muitas aranhas \nconseguem prender e atacar suas presas na completa \nescuridão. E por que os pelos humanos não são \ntão eficientes como órgãos sensoriais como os das \naranhas? Primeiro, porque um ser humano tem em \nmédia 60 fios de pelo em cada cm² do corpo, enquanto \nalgumas espécies de aranha podem chegar a ter \n40 mil pelos por cm²; segundo, porque cada pelo das \naranhas possui até 3 nervos para fazer a comunicação \nentre a sensação percebida e o cérebro, enquanto \nnós, seres humanos, temos apenas 1 nervo por pelo.\n\nDisponível em: http://cienciahoje.org.br. \nAcesso em: 11 dez. 2018 (adaptado).\n\nComo estratégia de progressão do texto, o autor simula \numa interlocução com o público leitor ao recorrer à"", ""alternativas"": {""A"": ""revelação do “sentido-aranha” adquirido pelo super- -herói como um sexto sentido."", ""B"": ""caracterização do afeto do público pelo super-herói marcado pela palavra “querido”."", ""C"": ""comparação entre os poderes do super-herói e as habilidades biológicas das aranhas."", ""D"": ""pergunta retórica na introdução das causas da eficiência do sistema sensorial das aranhas."", ""E"": ""comprovação das diferenças entre a constituição física do homem e da aranha por meio de dados numéricos.""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2019_CH_042"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [""filosofia""],
+  ""tema_principal"": ""retórica e estratégias de comunicação"",
+  ""tema_secundario"": ""análise de discurso"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H2"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2025_CH_003,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_003"", ""enunciado"": ""Cuando yo era chiquito\ntodo quedaba cerca, cerquita.\nPara llegar al cielo\nno más bastaba una subidita.\nEl sueño me alcanzaba\npara ir tan lejos como quería.\nCuando yo era chiquito\nyo sí podía, yo sí podía.\nLibertad, libertad,\nlibertad para mi niño.\n[...]\nCuando yo era vejigo\nme iba pa’l río porque era hermoso,\naunque estaba prohibido\npor peligroso, por peligroso.\nComo jagüey y ceiba,\ncomo la palma y la yagruma,\ncuando yo era vejigo\nyo era del monte y soñaba espuma.\nLibertad, libertad,\nlibertad para mi niño.\n\nRODRÍGUEZ, S. Cuando yo era un enano. In: Oh Melancolía. Havana: \nEmpresa de Grabaciones y Ediciones Musicales, 1988 (fragmento).\n\nO recurso que caracteriza essa letra de canção como um relato \ndas memórias do eu poético é o uso de"", ""alternativas"": {""A"": ""palavras no grau diminutivo."", ""B"": ""adjetivos na descrição da paisagem."", ""C"": ""vocábulos relacionados à fauna cubana."", ""D"": ""verbos no pretérito imperfeito do indicativo."", ""E"": ""marcas linguísticas de uma variedade caribenha. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2025_CH_003"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia""],
+  ""tema_principal"": ""memória > narração de experiências passadas"",
+  ""tema_secundario"": ""infância e identidade"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo""
+}
+```"
+2025_CH_004,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_004"", ""enunciado"": ""Na charge, a diversidade linguística está representada pelo uso de"", ""alternativas"": {""A"": ""estruturas verbais com valor de futuro próximo."", ""B"": ""expressões idiomáticas características de uma região."", ""C"": ""advérbios característicos do repertório vocabular dos jovens."", ""D"": ""marcas da oralidade expressas na representação escrita da fala."", ""E"": ""enunciados interrogativos em situação comunicativa com um interlocutor.""}, ""gabarito"": ""E""}","```json
+{
+  ""id"": ""2025_CH_004"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""linguística > diversidade linguística"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 2,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""artefato_visual""
+}
+```"
+2025_CH_011,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_011"", ""enunciado"": ""— Vejo, disse ele com algum acanhamento, que o doutor não \né nenhum pé-rapado, mas nunca é bom facilitar... Minha filha \nNocência fez 18 anos pelo Natal, e é rapariga que pela feição parece \nmoça de cidade, muito ariscazinha de modos, mas bonita e boa \ndeveras... Coitada, foi criada sem mãe, e aqui nestes fundões. [...]\n— Ora muito que bem, continuou Pereira caindo aos poucos \nna habitual garrulice, quando vi a menina tomar corpo, tratei \nlogo de casá-la.\n— Ah! é casada? perguntou Cirino.\n— Isto é, é e não é. A coisa está apalavrada. Por aqui costuma \nlabutar no costeio do gado para São Paulo um homem de mão-\ncheia, que talvez o sr. conheça... o Manecão Doca...\n— Não, respondeu Cirino abanando a cabeça.\n— Pois isso é um homem às direitas, desempenado e trabucador \ncomo ele só... fura estes sertões todos e vem tangendo pontes de \ngado que metem pasmo. Também dizem que tem bichado muito \ne ajuntado cobre grosso, o que é possível, porque não é gastador \nnem dado a mulheres. Uma feita que estava aqui de pousada... \nolhe, mesmo neste lugar onde estava mecê inda agorinha, falei-lhe \nem casamento... isto é, dei-lhe uns toques... porque os pais devem \ntomar isso a si para bem de suas famílias; não acha?\n— Boa dúvida, aprovou Cirino, dou-lhe toda a razão; era \ndo seu dever.\n\nTAUNAY, A. d’E. Inocência. Disponível em: www.dominiopublico.gov.br. \nAcesso em: 29 fev. 2024.\n\nNesse trecho, ao se referir à sua filha, o pai de Inocência reproduz \nos ideais românticos, presentes na"", ""alternativas"": {""A"": ""valorização do ambiente rural na formação moral da mulher."", ""B"": ""figura decorativa da mulher ante o protagonismo masculino."", ""C"": ""equivalência de origem social para a harmonia do casal."", ""D"": ""importância do dote como condição para o casamento."", ""E"": ""aura de mistério sobre a identidade da jovem.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2025_CH_011"",
+  ""disciplina_principal"": ""historia"",
+  ""disciplinas_secundarias"": [""sociologia"", ""filosofia""],
+  ""tema_principal"": ""romantismo > papel da mulher"",
+  ""tema_secundario"": ""patriarcado"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2025_CH_016,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_016"", ""enunciado"": ""Símbolos\n\nEu e tu, ante a noite e o amplo desdobramento\ndo mar, fero, a estourar de encontro à rocha nua...\nUm símbolo descubro aqui, neste momento\nesta rocha, este mar... a minha vida e a tua.\n\nO mar vem, o mar vai, nele há o gesto violento\nde quem maltrata e, após, se arrepende e recua.\nComo compreendo bem da rocha o sentimento!\nSão muito iguais, por certo, a minha mágoa e a sua.\n\nContemplo neste quadro a nossa triste vida;\ntu és dúbio mar que, na sua inconsciência,\ntem carinhos de amor e fúrias de demência!\n\nEu sou a dor estanque, a dor empedernida,\nsou rocha a emergir de um côncavo de areia,\nimóvel, muda, isenta e alheia ao mar, alheia.\n\nMACHADO, G. Poesia completa. Rio de Janeiro: \nCátedra/MEC, 1978.\n\nENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025\n\nENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025\n\nNesse soneto, os traços da estética simbolista são resgatados \npelo eu lírico ao"", ""alternativas"": {""A"": ""rejeitar as emoções de “amor” e “mágoa”."", ""B"": ""expressar a dubiedade do olhar sobre o outro."", ""C"": ""representar o “eu” e o “tu” como sujeitos volúveis."", ""D"": ""associar a sua inconsciência a elementos da natureza."", ""E"": ""metaforizar o conflito amoroso nas imagens de “mar” e “rocha”.""}, ""gabarito"": ""E""}","{""id"": ""2025_CH_016"", ""disciplina_principal"": ""filosofia"", ""disciplinas_secundarias"": [""sociologia""], ""tema_principal"": ""Filosofia da Arte > Estética Simbolista"", ""tema_secundario"": ""Relações Humanas > Conflito e Dualidade"", ""tipo_cognitivo"": ""analise"", ""competencia"": 5, ""habilidade"": ""H1"", ""ancoragem"": ""texto_analitico""}"
+2025_CH_028,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_028"", ""enunciado"": ""Pequenino morto\n\nTange o sino, tange, numa voz de choro,\nNuma voz de choro... tão desconsolado...\nNo caixão dourado, como em berço de ouro,\nPequenino, levam-te dormindo... Acorda!\nOlha que te levam para o mesmo lado\nDe onde o sino tange numa voz de choro...\nPequenino, acorda!\n\nQue caminho triste, e que viagem! Alas\nDe ciprestes negros a gemer no vento;\nTanta boca aberta de famintas valas\nA pedir que as fartem, a esperar que as encham...\nPequenino, acorda! Recupera o alento,\nFoge da cobiça dessas fundas valas\nA pedir que as encham.\n\nCARVALHO, V. Poemas e canções. Rio de Janeiro: \nSaraiva, 1962 (fragmento).\n\nNesse fragmento do poema, o sentimento de luto adquire \ncontornos expressivos e é intensificado pela"", ""alternativas"": {""A"": ""descrição da paisagem de um cemitério."", ""B"": ""recusa do eu lírico à irreversibilidade da morte."", ""C"": ""sonoridade dos versos produzida pela pontuação."", ""D"": ""religiosidade evocada como forma de fortalecimento."", ""E"": ""impressão de sonho na construção da estrutura poética.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2025_CH_028"",
+  ""disciplina_principal"": ""filosofia"",
+  ""disciplinas_secundarias"": [
+    ""sociologia""
+  ],
+  ""tema_principal"": ""filosofia > existencia humana > luto e morte"",
+  ""tema_secundario"": ""literatura > interpretacao poetica"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2025_CH_032,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_032"", ""enunciado"": ""Muitos pensam que narrativa curta é sinônimo de conto, \nperdendo de vista gêneros que, por tradição ruim, continuam à \nmargem da nobreza. Acontece que o conto tem uma densidade \nespecífica, centrando-se na exemplaridade de um instante da \ncondição humana, sem que essa exemplaridade se refira à valoração \nmoral, já que uma grande mazela pode muito bem exemplificar uma \ndas nossas faces. A crônica não tem essa característica. Conservou a \nmarca do registro circunstancial feito por narrador-repórter que relata \num fato para muitos leitores que formam um público determinado.\nMas que público é esse? Sendo a crônica uma soma de jornalismo \ne literatura (daí a imagem do narrador-repórter), dirige-se a uma \nclasse que tem preferência pelo jornal em que ela é publicada, o \nque significa uma espécie de censura ou, pelo menos, de limitação: a \nideologia do veículo corresponde ao interesse dos seus consumidores, \ndirecionados pelos proprietários dos periódicos e/ou pelos editores-\n-chefes da redação. Ocorre ainda o limite de espaço, uma vez que \na página comporta várias matérias, o que impõe a cada uma delas \num número restrito de laudas, obrigando o redator a explorar, da \nmaneira mais econômica possível, o pequeno espaço de que dispõe. \nÉ dessa economia que nasce sua riqueza estrutural.\n\nSÁ, J. A crônica. São Paulo: Ática, 1987 (adaptado).\n\nDe acordo com esse texto, o aspecto tecnológico que influencia \na composição do gênero crônica advém da"", ""alternativas"": {""A"": ""conexão ideológica."", ""B"": ""densidade temática."", ""C"": ""ênfase no público leitor."", ""D"": ""apresentação de uma moral."", ""E"": ""restrição espacial do suporte.""}, ""gabarito"": ""E""}","```json
+{
+  ""id"": ""2025_CH_032"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""Mídia e cultura > Crônica e jornalismo"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2025_CH_033,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_033"", ""enunciado"": ""Disponível em: www.tjdft.jus.br. Acesso em: 15 out. 2024 (adaptado).\n\nEsse texto trata de um problema social com o propósito de"", ""alternativas"": {""A"": ""divulgar campanha virtual contra casos de feminicídio."", ""B"": ""promover engajamento do setor educacional na luta contra a violência."", ""C"": ""comparar o impacto da violência na qualidade de vida de meninas e meninos."", ""D"": ""ressaltar a importância da segurança dos estudantes no ambiente escolar."", ""E"": ""dar visibilidade a estudos e pesquisas do setor de segurança. ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEN2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025ENEM2025""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2025_CH_033"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""questão social > violência"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2025_CH_036,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_036"", ""enunciado"": ""I: o nome do filme é roupa suja ... eu assisti na minha casa ... \ncom minha mãe ... tinha um ... o filme era sobre um homem que \ncolocaram ... trocaram as bolsas ... daí o homem levou uma bolsa \ncheia de dinheiro sem ele saber que na mala dele ... pensando \nque era dele mas era errada ... quando ele chegou onde ele ia \ntrabalhar ... tinha uma moça tentando abrir a porta pra fazer \nentrevista com uns cantores lá que tinham ... daí ele perguntou \n... “você tá tentando abrir a porta?”... daí ele ... “não ... não” ... \ndaí ele disse ... “ah ... tá ... sim” ... daí ela ... “é ... e quero fazer \numa entrevista” ... daí ele disse ... “você quer entrar ... então \npode entrar” ... daí entraram ... daí ficaram lá ... quando ela \nentrou e queria fazer a entrevista um homem num deixou ... daí a \nmulher pegou ... subiu onde o homem tava trabalhando ... rapaz \nné ... onde ele tava trabalhando e ficou lá e dando o show ...\n\nCUNHA, M. A. F. Corpus discurso & gramática: a língua falada e \nescrita na cidade de Natal. Disponível em: https://deg.uff.br. \nAcesso em: 4 dez. 2024 (adaptado).\n\nNesse texto, a repetição da forma “daí” revela"", ""alternativas"": {""A"": ""a necessidade de adequação ao interlocutor."", ""B"": ""a origem regional do locutor."", ""C"": ""a escolaridade do falante."", ""D"": ""uma estratégia presente na linguagem oral."", ""E"": ""uma ênfase em determinadas partes do discurso.""}, ""gabarito"": ""D""}","```json
+{
+  ""id"": ""2025_CH_036"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""linguagem oral > estratégias discursivas"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo""
+}
+```"
+2025_CH_038,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_038"", ""enunciado"": ""O mais assustador do meteoro que cruzou o céu da Sibéria e explodiu no ar como \nvárias bombas atômicas é que ele chegou sem ser anunciado. Com todas as atenções \nvoltadas para o outro asteroide, o que passou de raspão, o asteroide da Sibéria entrou pela \nporta dos fundos sem ser detectado. A desculpa é que era pequeno demais para chamar a \natenção e por isso os alarmes não funcionaram. Nossa ilusão, até agora, era que qualquer \ndetrito espacial que se aproximasse de nós seria identificado e rotulado, e sua trajetória \ncalculada até o último milímetro com grande antecedência, o que nos daria tempo para \npreparar o espírito — ou usar nossos cartões de crédito até o limite — no caso da colisão \ncom a Terra ser inevitável.\n\nCom base na organização coesiva desse texto, o(a)"", ""alternativas"": {""A"": ""oração “que passou de raspão” (l. 3) refere-se ao “meteoro que cruzou o céu da Sibéria” (l. 1)."", ""B"": ""expressão “sua trajetória” (l. 6) refere-se ao elemento textual “qualquer detrito espacial” (l. 5-6)."", ""C"": ""palavra “isso” (l. 5) remete ao segmento textual posterior “os alarmes não funcionaram” (l. 5)."", ""D"": ""pronome “o” em “o que nos daria tempo” (l. 7) remete a “ou usar nossos cartões de crédito” (l. 8)."", ""E"": ""fragmento “o asteroide da Sibéria” (l. 3) introduz um elemento novo no texto.""}, ""gabarito"": ""B""}","```json
+{
+  ""id"": ""2025_CH_038"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [],
+  ""tema_principal"": ""sociedade e natureza > percepção e impacto de eventos naturais"",
+  ""tema_secundario"": ""linguagem > coesão textual"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2025_CH_042,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_042"", ""enunciado"": ""TRADUZINDO O JURIDIQUÊS\n“Denego a liminar pleiteada na exordial, inobstante \napós a oitiva da parte adversa e da dilação probatória \npossa lograr alcançar um outro epílogo para o deslinde \nda quaestio sub examine.”\n\nTRADUÇãO\n\nNão atendo, por ora, a liminar requerida na petição \ninicial, ainda que possa chegar a uma outra conclusão \napós ouvir a outra parte e avaliar as  provas produzidas."", ""alternativas"": {""A"": ""padrão, que alcança o público em geral."", ""B"": ""histórica, que registra a evolução das leis."", ""C"": ""coloquial, que reproduz as relações sociais cotidianas."", ""D"": ""erudita, que resgata a origem latina da língua portuguesa."", ""E"": ""técnica, que facilita a circulação de informações no sistema judiciário. Origem, tradição e resistência Foi sentada em seu banco de quartzo que a avó do universo, moradora da Maloca do Céu, criou os homens, os animais, a terra e as águas. O banco foi entregue aos ancestrais dos atuais Tukano, que passaram a reproduzi-lo em madeira. O mito Tukano — povo do noroeste da Amazônia que ainda hoje fabrica os bancos em seu estilo tradicional — indica o lugar dos bancos entre os objetos sagrados, ao mesmo tempo parte do universo primitivo e fonte do poder de criação. A presença nos mitos de orige""}, ""gabarito"": ""A""}","```json
+{
+  ""id"": ""2025_CH_042"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [""filosofia""],
+  ""tema_principal"": ""Linguagem e sociedade > Linguagem jurídica"",
+  ""tema_secundario"": null,
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}
+```"
+2025_CH_045,"Você é um classificador de questões ENEM Ciências Humanas.
+Receberá uma questão em JSON e devolverá APENAS um JSON de classificação.
+Sem explicação, sem markdown, sem texto fora do JSON.
+
+CAMPOS OBRIGATÓRIOS DE SAÍDA:
+{
+  ""id"": ""(copiar do input)"",
+  ""disciplina_principal"": ""geografia|historia|sociologia|filosofia"",
+  ""disciplinas_secundarias"": [""lista"", ""pode"", ""ser"", ""vazia""],
+  ""tema_principal"": ""string livre, ex: geopolitica > blocos economicos"",
+  ""tema_secundario"": ""string livre ou null"",
+  ""tipo_cognitivo"": ""recuperacao|aplicacao|analise|sintese"",
+  ""competencia"": 1,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""evento_narrativo|artefato_visual|texto_analitico|composto""
+}
+
+DEFINIÇÕES PARA `ancoragem`:
+- evento_narrativo: questão centrada em personagem, acontecimento datado
+  ou conflito localizado. Ex.: charge histórica com figura política,
+  relato de evento específico.
+- artefato_visual: mapa, gráfico, tabela ou charge como âncora central
+  da questão (sem o artefato, a questão não faz sentido).
+- texto_analitico: fragmento teórico, conceito explícito, definição
+  abstrata como porta de entrada. Ex.: trecho de autor + interpretação
+  conceitual.
+- composto: combina dois ou mais dos anteriores sem um dominante claro.
+
+REGRA: quando houver dúvida entre artefato_visual e composto, preferir
+artefato_visual se o artefato for citado no enunciado mesmo sem ser
+reproduzido (ex.: ""Observe o mapa..."" ou ""Segundo o gráfico abaixo..."").
+
+COMPETÊNCIAS CH (Matriz ENEM 2009 — usar o número correto):
+1: Espaço/tempo em diferentes linguagens
+2: Território e diversidade cultural
+3: Autonomia e projeto de vida
+4: Produção e apropriação do espaço
+5: Indivíduo/sociedade/natureza/cultura
+6: Geopolítica e mundialização
+
+HABILIDADES: H1 a H30. Usar a que melhor descreve a operação cognitiva
+exigida. Se incerto, usar H1.
+
+INPUT: uma questão em JSON com campos id, enunciado, alternativas, gabarito.
+
+
+INPUT:
+{""id"": ""2025_CH_045"", ""enunciado"": ""A artista Marija Tiurina criou uma série chamada Palavras \nintraduzíveis, com diversas ilustrações detalhadas que \ntransmitem o sentido desses vocábulos, que nenhuma palavra \núnica em outras línguas pode descrever.\n\nROMANZOTI, N. 9 desenhos que ilustram palavras sem tradução \npara o português. Disponível em: https://hypescience.com. \nAcesso em: 10 jun. 2019 (adaptado).\n\nO uso do texto verbal nesse desenho assume a função de"", ""alternativas"": {""A"": ""descrever de forma técnica a ilustração."", ""B"": ""destacar os múltiplos sentidos do verbete."", ""C"": ""explicar o significado da expressão ilustrada."", ""D"": ""apresentar termos equivalentes em outras línguas."", ""E"": ""apontar para a dificuldade de compreensão do termo.""}, ""gabarito"": ""C""}","{
+  ""id"": ""2025_CH_045"",
+  ""disciplina_principal"": ""sociologia"",
+  ""disciplinas_secundarias"": [""filosofia""],
+  ""tema_principal"": ""linguagem e cultura > expressão e significado"",
+  ""tema_secundario"": ""arte e comunicação"",
+  ""tipo_cognitivo"": ""analise"",
+  ""competencia"": 5,
+  ""habilidade"": ""H1"",
+  ""ancoragem"": ""texto_analitico""
+}"

@@ -1,0 +1,144 @@
+/* Tema do deck "Quem paga pelo impacto?" (Pro Enem • Geografia).
+   Anexado depois de theme/theme.css do framework. Só tokens do framework; nada de rede. */
+
+/* Fontes embutidas (a sala pode não ter internet nem as fontes instaladas) */
+@font-face { font-family: "Inter"; src: url("assets/fonts/Inter-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Inter"; src: url("assets/fonts/Inter-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Inter"; src: url("assets/fonts/Inter-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("assets/fonts/SourceSerif4-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("assets/fonts/SourceSerif4-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("assets/fonts/SourceSerif4-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url("assets/fonts/SourceSerif4-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; }
+
+/* Rodapé discreto: logo + rótulo do curso, em todo passo de conteúdo menos o título */
+.step:not(.frame):not(#titulo)::after {
+  content: "Pro Enem • Geografia";
+  position: absolute; right: 48px; bottom: 28px;
+  padding-right: 60px; line-height: 64px;
+  background: url("assets/img/logo-pro-enem.png") no-repeat right center / auto 64px;
+  font-family: var(--font-head); font-size: var(--fs-source); color: var(--fg-soft);
+}
+
+/* Título */
+.logo-titulo { height: 280px; width: auto; }
+.rotulo-curso { font-family: var(--font-head); font-size: var(--fs-small); color: var(--fg-soft); letter-spacing: 0.04em; }
+
+/* Passo de questão: recorte da prova grande à esquerda, comando à direita */
+.questao { display: grid; grid-template-columns: 3fr 2fr; gap: 64px; align-items: center; }
+.questao figure img { max-height: 880px; }
+
+/* Mapas e figuras que pedem mais altura */
+.figura-alta img { max-height: 780px; }
+
+/* Tabela (ficha de lugar) */
+table.ficha { border-collapse: collapse; font-size: var(--fs-small); width: 100%; }
+table.ficha th, table.ficha td { text-align: left; vertical-align: top; padding: 10px 20px; border-bottom: 2px solid var(--rule); }
+table.ficha thead th { font-family: var(--font-head); color: var(--accent-2); border-bottom: 4px solid var(--accent-2); }
+table.ficha tbody th { font-family: var(--font-head); color: var(--fg-soft); font-weight: 600; white-space: nowrap; }
+
+/* Listas em duas colunas de cartões (fatores, três perguntas) */
+.grupos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.grupos > div { border-top: 8px solid var(--accent-2); padding-top: 16px; }
+.grupos h3 { font-family: var(--font-head); font-size: var(--fs-small); color: var(--accent-2); margin: 0 0 12px; }
+.grupos p { font-size: var(--fs-small); margin: 0; }
+
+/* Número em destaque */
+.numero { font-family: var(--font-head); font-size: var(--fs-h1); font-weight: 700; color: var(--accent); line-height: 1; }
+
+/* Figura grande à esquerda, texto à direita (mapas) */
+.lado { display: grid; grid-template-columns: 3fr 2fr; gap: 64px; align-items: center; }
+.lado > div > * + * { margin-top: 24px; }
+
+/* Dois mapas lado a lado (atividade) */
+.mapa-par img { max-height: 520px; }
+
+/* Lista em duas colunas (fatores locacionais) */
+.lista-2 { columns: 2; column-gap: 64px; margin: 0; }
+.lista-2 li { font-size: var(--fs-small); break-inside: avoid; }
+.lista-2 li + li { margin-top: 12px; }
+
+/* Lista menor herda o corpo menor; ênfase curta não quebra linha (evita medição errada no lint) */
+.pequeno li { font-size: inherit; }
+.pequeno li + li { margin-top: 12px; }
+.step em, .step strong { display: inline-block; }
+
+/* Deck "Quem paga pelo impacto?" (ementa Geografia e Natureza) */
+.subtitulo { font-family: var(--font-head); font-size: var(--fs-h2); color: var(--accent-2); margin: 0; }
+.grupos-4 { grid-template-columns: repeat(4, 1fr); }
+.grupos-4 p { font-size: var(--fs-body); }
+.par-imagens { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+.par-imagens img { width: auto; max-width: 100%; height: auto; max-height: 640px; }
+.etapas { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin: 0; padding: 0; list-style: none; counter-reset: etapa; }
+.etapas li { margin: 0; counter-increment: etapa; border-top: 8px solid var(--accent-2); padding-top: 12px; font-size: var(--fs-small); }
+.etapas li::before { content: counter(etapa); display: block; font-family: var(--font-head); font-size: var(--fs-h2); font-weight: 700; color: var(--accent-2); line-height: 1; }
+.etapas strong { display: block; color: var(--fg); }
+.etapas span { display: block; color: var(--fg-soft); }
+.cadeia { display: flex; align-items: center; gap: 64px; margin: 0; padding: 0; list-style: none; }
+.cadeia li { position: relative; margin: 0; border: 3px solid var(--accent-2); border-radius: 12px; padding: 8px 20px; }
+.cadeia li + li::before { content: "→"; position: absolute; left: -50px; color: var(--fg-soft); }
+.pergunta { font-family: var(--font-head); font-size: var(--fs-h2); color: var(--accent); margin: 0; }
+.alternativas { list-style: upper-alpha; margin: 0; padding-left: 64px; }
+.alternativas li + li { margin-top: 8px; }
+.autoral > * + * { margin-top: 24px; }
+
+/* Mergulho: passo de detalhe sobre a imagem do passo pai. Transparente; some quando não está ativo. */
+.step.mergulho { background: transparent; }
+.step.mergulho:not(.active) { opacity: 0; }
+.step.mergulho:not(#titulo)::after { content: none; }
+.mergulho .step-inner { justify-content: flex-end; align-items: flex-start; padding: 48px; }
+.rotulo-mergulho {
+  background: rgba(246, 243, 236, 0.92); padding: 16px 28px; border-radius: 8px;
+  font-family: var(--font-head); font-size: var(--fs-small); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+.rotulo-mergulho strong { color: var(--accent); }
+
+/* Último passo: o "ponto" no mapa que vira o QR do material on-line */
+.step.ponto-qr { outline: 24px solid var(--accent); outline-offset: -24px; }
+.step.ponto-qr:not(#titulo)::after { content: none; }
+.qr-unico { display: flex; flex-direction: column; align-items: center; margin: 0; }
+.qr-unico img { width: 640px; height: 640px; max-height: none; image-rendering: pixelated; background: #fff; padding: 24px; box-sizing: border-box; margin: 0; }
+.qr-unico figcaption { max-width: 1100px; text-align: center; font-family: var(--font-head); font-size: var(--fs-small); line-height: 1.3; margin-top: 20px; }
+.qr-unico figcaption strong { font-size: var(--fs-body); }
+.centro-texto { text-align: center; }
+
+/* Cor por eixo, tirada da ilustração DK de cada abertura: a faixa do topo (--c-barra) usa a cor viva da imagem; nome
+   do eixo e títulos (--c-eixo) usam a mesma cor escurecida (contraste ≥ 5,5 com o fundo). Em Impactos, faixa verde-limão
+   e texto cinza da fumaça. A classe vem do layout.json (eixo-ecologia, eixo-impactos…). */
+.eixo-ecologia { --c-barra: #db831b; --c-eixo: #895211; --n-eixo: "Ecologia"; }
+.eixo-impactos { --c-barra: #9fd47f; --c-eixo: #43534e; --n-eixo: "Impactos ambientais"; }
+.eixo-sustentabilidade { --c-barra: #01b0f5; --c-eixo: #01678f; --n-eixo: "Sustentabilidade"; }
+.eixo-residuos { --c-barra: #b8366e; --c-eixo: #9c2f5d; --n-eixo: "Resíduos sólidos"; }
+.eixo-caso { --c-barra: #49a540; --c-eixo: #316e2b; --n-eixo: "O caso: data centers"; }
+.bloco-questoes { --c-eixo: var(--fg-soft); --n-eixo: "Questões"; }
+.step[class*="eixo-"], .step.bloco-questoes { box-shadow: inset 0 14px 0 var(--c-barra, var(--c-eixo)); }
+.step[class*="eixo-"]::before, .step.bloco-questoes::before {
+  content: var(--n-eixo); position: absolute; left: 96px; top: 34px;
+  font-family: var(--font-head); font-size: var(--fs-source); font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--c-eixo);
+}
+.step[class*="eixo-"] .grupos > div { border-top-color: var(--c-eixo); }
+.step[class*="eixo-"] .grupos h3, .step[class*="eixo-"] h2 { color: var(--c-eixo); }
+.step[class*="eixo-"] blockquote { border-left-color: var(--c-eixo); }
+
+/* Abertura de tópico: ilustração à esquerda, nome do eixo à direita */
+.abertura { display: grid; grid-template-columns: auto 1fr; gap: 96px; align-items: center; }
+.abertura img { height: 820px; width: auto; max-height: none; }
+.abertura .kicker { font-family: var(--font-head); font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--c-eixo, var(--fg-soft)); }
+.abertura h1 { color: var(--c-eixo, var(--fg)); margin: 16px 0 32px; }
+.abertura div > p:last-child { font-size: var(--fs-h2); font-family: var(--font-head); line-height: 1.15; }
+
+/* Título do passo com uma ilustração ao lado (subtópicos) */
+.cabeca { display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+.cabeca img { height: 300px; width: auto; max-height: none; }
+.credito { margin-top: 8px; text-align: right; }
+
+/* Figuras: moldura leve */
+.abertura img, .cabeca img, .par-imagens img, .lado figure img, .questao figure img {
+  border: 2px solid var(--rule); box-shadow: 0 6px 24px rgba(29, 29, 31, 0.12);
+}
+
+/* Resíduos (v3): figura grande à esquerda; lista numerada vertical da ordem de prioridade */
+.lado-figura figure img { max-height: 760px; width: auto; }
+.ordem { margin: 0; padding-left: 56px; }
+.ordem li + li { margin-top: 6px; }

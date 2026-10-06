@@ -1,0 +1,24 @@
+# Configuração local do Claude Code — nunca versionar
+.claude/settings.local.json
+
+# Segredos
+.env
+**/.env
+
+# Áudio de reunião (gravação de terceiros; fica só no disco local)
+*.mp3
+
+# Sistema / editor / LaTeX auxiliares
+*~
+.DS_Store
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Artefatos gerados
+*.zip
+latex/main.pdf

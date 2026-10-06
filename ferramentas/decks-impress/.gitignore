@@ -1,0 +1,8 @@
+node_modules/
+decks/*/dist/
+decks/*/shots/
+# decks/ é área de conteúdo: o framework só versiona o exemplo.
+# Cada deck real se versiona no repositório do projeto dele (ver README).
+decks/*
+!decks/demo/
+!decks/modelo/

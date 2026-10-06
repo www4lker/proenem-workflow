@@ -1,0 +1,29 @@
+# Ambiente virtual Python
+.venv/
+__pycache__/
+*.pyc
+
+# Backups de editor
+*~
+
+# Segredos (chaves de API) — nunca versionar
+.env
+**/.env
+
+# Dados de origem (baixados, redownloadáveis — não versionar)
+*.pdf
+*.html
+
+# Saídas do pipeline (regeráveis); questoes_raw.csv será versionado explicitamente
+corpus_enem/imagens/
+corpus_enem/*.csv
+!corpus_enem/questoes_raw.csv
+!corpus_enem/batch_completo_raw.csv
+!corpus_enem/batch_completo_clean.csv
+!corpus_enem/retry40_raw.csv
+
+# Exceção: PDFs de produção própria (análise da prova diagnóstica 2026)
+!Resultado_Analise_PROENEM_2026/*.pdf
+
+# Configuração local do Claude Code (contém chave de API) — nunca versionar
+.claude/settings.local.json

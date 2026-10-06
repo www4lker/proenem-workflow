@@ -1,0 +1,307 @@
+% !TeX program = lualatex
+% Plano de aula — versão para a coordenação, a dupla docente e o arquivo.
+% Esqueleto comum com o deck: aula/03-slides/argumento.md.
+% Compila com pdfLaTeX ou LuaLaTeX. A opção [final] faz qualquer pendência virar erro.
+\documentclass[11pt]{article}
+\usepackage[final]{aula-geo}
+\graphicspath{{../../../fontes/provas-recortes/}}
+\input{metadados}
+\definir\tipodocumento{Plano de aula}
+\definir\versao{v4}
+
+\begin{document}
+\blocotitulo
+
+\section*{Identificação}
+\begin{tabularx}{\linewidth}{@{}>{\sffamily\small\color{fgsoft}}l X@{}}
+Curso & Pro Enem (pré-vestibular para o ENEM) \\
+Área e disciplina & Ciências Humanas e suas Tecnologias; Geografia, com interface com Ciências da Natureza \\
+Turma & Cuiabá/MT \\
+Data & 3 de outubro de 2026 \\
+Duração & 50 minutos \\
+Docentes & Aula dada em dupla (Professor A e Professora B), com alternância combinada no dia. \\
+Tema & Geografia e Natureza: questões e impactos ambientais; sustentabilidade; resíduos sólidos; ecologia \\
+Pergunta norteadora & Quem paga pelo impacto? \\
+Modalidade & Aula expositiva dialogada, com leitura de imagens de satélite, estudo de caso e questões do ENEM resolvidas com a turma \\
+\end{tabularx}
+
+\section{Apresentação e justificativa}
+A aula cobre os quatro eixos da ementa do curso para o tema Geografia e Natureza: ecologia, questões e impactos
+ambientais, sustentabilidade e resíduos sólidos. Em vez de tratá-los como uma lista, a aula os amarra por uma
+pergunta: \emph{quem paga pelo impacto?} O impacto ambiental tem lugar e tem gente; a sustentabilidade pergunta
+\enquote{para quem}; o resíduo sempre vai para algum lugar; e o ecossistema não termina na cerca de uma propriedade.
+
+Os exemplos vêm de três escalas. O lugar da turma, Cuiabá, com o Córrego do Barbado, já estudado no curso. Um
+assentamento rural no Vale do Paraíba (SP), estudado em campo num relatório de planejamento ambiental da UFMT
+(OLIVEIRA; DANTAS, 2024), que fornece as imagens de satélite e a ideia de que a intervenção humana também pode
+recuperar o ambiente. E, como estudo de caso que reúne os quatro eixos, a chegada dos data centers ao Brasil:
+a \enquote{nuvem} da internet usa água, energia e terra num lugar concreto e deixa lixo eletrônico na saída.
+O caso ocupa cerca de um sétimo da aula.
+
+\begin{destaque}[title={Tese da aula}]
+Todo impacto ambiental cai em algum lugar e sobre alguém; perguntar quem paga é a forma geográfica de ler
+ecologia, impacto, sustentabilidade e resíduos.
+\end{destaque}
+
+A tabela relaciona cada eixo ao que a turma já estudou nas aulas anteriores do curso e ao que a aula acrescenta.
+
+\begin{small}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{4.2cm}X@{}}
+\toprule
+\textsf{\bfseries Eixo} & \textsf{\bfseries Aulas anteriores} & \textsf{\bfseries O que esta aula acrescenta} \\\midrule
+Ecologia & Domínios morfoclimáticos (biomas e suas características) & Ecossistema, biodiversidade e a bacia hidrográfica como unidade de análise; leitura de imagens de satélite de datas diferentes \\
+Impactos & Domínios (desmatamento, queimadas); Água e Solo (Córrego do Barbado) & O conceito de impacto, sua classificação e sua avaliação (AIA e EIA); impacto positivo; quem recebe, quem decide, quem resiste \\
+Sustentabilidade & Domínios (definição do Relatório Brundtland); Climatologia (efeito estufa) & As etapas do planejamento ambiental; a matriz elétrica renovável e as emissões do desmatamento \\
+Resíduos sólidos & Sem aula própria & A Política Nacional de Resíduos Sólidos; o lixo eletrônico \\
+\bottomrule
+\end{tabularx}
+\end{small}
+
+\section{Objetivos}
+\textbf{Objetivo geral:} analisar questões ambientais como relações entre sociedade e natureza que acontecem em
+lugares concretos e afetam grupos sociais de modo desigual.
+
+\textbf{Objetivos específicos.} Ao final da aula, o aluno deve ser capaz de:
+\begin{enumerate}
+  \item definir ecossistema, biodiversidade e bacia hidrográfica, e explicar por que a bacia serve de unidade de análise;
+  \item comparar imagens de satélite de datas diferentes e descrever o que mudou na paisagem;
+  \item definir impacto ambiental, classificá-lo por sinal, escala e duração, e reconhecer a AIA e o EIA como instrumentos de avaliação;
+  \item explicar o conceito de desenvolvimento sustentável e as etapas do planejamento ambiental;
+  \item reconhecer a Política Nacional de Resíduos Sólidos e o princípio da gestão integrada dos resíduos;
+  \item identificar, num caso concreto, quem recebe o impacto, quem decide e quem resiste;
+  \item resolver questões do ENEM sobre os quatro eixos.
+\end{enumerate}
+
+\section{Habilidades da Matriz de Referência do ENEM}
+Ciências Humanas e suas Tecnologias (INEP, pp.~14--16):
+\begin{itemize}
+  \item \textbf{H6} (competência 2): \enquote{Interpretar diferentes representações gráficas e cartográficas dos
+    espaços geográficos.}
+  \item \textbf{H27} (competência 6): \enquote{Analisar de maneira crítica as interações da sociedade com o meio
+    físico, levando em consideração aspectos históricos e(ou) geográficos.}
+  \item \textbf{H28} (competência 6): \enquote{Relacionar o uso das tecnologias com os impactos sócio-ambientais
+    em diferentes contextos histórico-geográficos.}
+  \item \textbf{H29} (competência 6): \enquote{Reconhecer a função dos recursos naturais na produção do espaço
+    geográfico, relacionando-os com as mudanças provocadas pelas ações humanas.}
+  \item \textbf{H30} (competência 6): \enquote{Avaliar as relações entre preservação e degradação da vida no
+    planeta nas diferentes escalas.}
+\end{itemize}
+
+\section{Conteúdos}
+\begin{itemize}
+  \item Ecologia: ecossistema, biodiversidade, bacia hidrográfica.
+  \item Impacto ambiental: conceito; sinal, escala e duração; Avaliação de Impacto Ambiental (AIA) e Estudo de
+        Impacto Ambiental (EIA); intervenção humana benéfica (agroecologia e sistemas agroflorestais).
+  \item Justiça ambiental: quem recebe, quem decide e quem resiste; consulta livre, prévia e informada; racismo ambiental.
+  \item Sustentabilidade: o conceito do Relatório Brundtland; as seis etapas do planejamento ambiental;
+        matriz elétrica e emissões.
+  \item Resíduos sólidos: a Política Nacional de Resíduos Sólidos (Lei 12.305/2010); lixo eletrônico.
+  \item Estudo de caso: data centers, da extração de materiais ao lixo eletrônico; o caso de Eldorado do Sul (RS).
+\end{itemize}
+
+\section{Metodologia}
+Aula expositiva dialogada, conduzida por perguntas à turma (\enquote{o que mudou?}, \enquote{para onde vai o lixo
+de Cuiabá?}, \enquote{necessidades de quem?}). Os slides trazem poucas palavras, imagens para interpretar, um mapa
+e citações de autores identificados. A abertura apresenta os quatro eixos como mapa da aula, e o fechamento volta
+a eles com a pergunta norteadora respondida em uma linha por eixo.
+
+O estudo de caso dos data centers ocupa sete minutos e funciona como síntese: a \enquote{nuvem} tem impacto na
+entrada (água, energia, terra) e resíduo na saída (lixo eletrônico). Nele entra uma questão autoral curta sobre
+resíduos sólidos, elaborada para a aula.
+
+Os últimos dez minutos são reservados a quatro questões reais do ENEM (provas de 2014 a 2016), uma ou duas por
+eixo, chamadas neste plano de \emph{questões 1 a 4} e reproduzidas na seção~\ref{sec:questoes}: a turma lê e marca
+em dois minutos, e a dupla docente comenta. As falas de especialistas aparecem sempre com autoria. Três delas vêm
+do curso on-line \emph{Data Center e Desenvolvimento Nacional}, do ITS Rio (2026): Fabro Steibel, do ITS Rio;
+Francisco Victer, da Empresa de Pesquisa Energética (EPE); e Larissa Vila Nova e Domênica Falcadi, do
+Observatório Data Center Brasil.
+
+\section{Roteiro}
+\begin{roteiro}
+0--3 & Abertura & A pergunta norteadora e os quatro eixos da aula. & Slides \\
+3--10 & Ecologia & Ecossistema, biodiversidade e bacia hidrográfica; imagens de satélite de 2004 e 2023 de um assentamento rural: \enquote{o que mudou?} & Slides; imagens do Google Earth \\
+10--20 & Impactos & Conceito e classificação; AIA e EIA; impacto positivo (agroecologia e agroflorestas); quem recebe, quem decide, quem resiste. & Slides \\
+20--28 & Sustentabilidade & Relatório Brundtland: \enquote{necessidades de quem?}; seis etapas do planejamento ambiental; energia \enquote{limpa} em relação a quê? & Slides \\
+28--33 & Resíduos sólidos & Política Nacional de Resíduos Sólidos; o Córrego do Barbado; \enquote{para onde vai o lixo de Cuiabá?} & Slides \\
+33--40 & Estudo de caso: data centers & A nuvem é material; a cadeia da IA e o lixo eletrônico, com a questão autoral (2 min); Eldorado do Sul (RS), os quatro eixos num lugar só. & Slides; mapa da EPE \\
+40--48 & Questões do ENEM & Questões 1 a 4, dois minutos cada: leitura, marcação e comentário. & Recortes projetados \\
+48--50 & Fechamento & Volta aos quatro eixos com a pergunta norteadora; avisos do Estuda.com e do Google Sala de Aula. & Slides \\
+\end{roteiro}
+
+\begin{destaque}[title={Se o tempo não couber}]
+Dois ajustes devolvem três minutos sem tocar no núcleo. A hipótese da intervenção benéfica deixa de ser momento
+próprio e vira uma frase durante a leitura das imagens de satélite (um minuto). A questão autoral passa a ser lida
+e respondida oralmente, sem tempo de marcação (um minuto). As seis etapas do planejamento ambiental são
+apresentadas como ciclo, sem comentar cada uma (um minuto). Não se cortam: a leitura das imagens, o conceito de
+impacto, a pergunta \enquote{quem paga?}, a Política Nacional de Resíduos Sólidos e as quatro questões finais.
+\end{destaque}
+
+\section{Desenvolvimento}
+
+\subsection{Abertura (0--3 min)}
+A pergunta norteadora, \enquote{quem paga pelo impacto?}, e os quatro eixos em uma linha cada: o ambiente é um
+sistema (ecologia); toda ação humana muda o ambiente (impactos); atender ao presente sem tirar do futuro
+(sustentabilidade); o lixo não some (resíduos sólidos). Esse quadro é o mapa da aula e volta no fechamento.
+
+\subsection{Ecologia (3--10 min)}
+\textbf{Conceitos (3 min).} Ecossistema: seres vivos e meio físico (água, solo, clima) trocando matéria e energia.
+Biodiversidade: a variedade da vida, em espécies, genes e ecossistemas. Bacia hidrográfica: a área que drena para
+um mesmo rio; o que acontece rio acima chega rio abaixo, e por isso o planejamento ambiental a usa como unidade de
+estudo (OLIVEIRA; DANTAS, 2024).
+
+\textbf{Imagens de satélite (4 min).} Duas imagens do Google Earth, de 2004 e de 2023, lado a lado, do
+Assentamento Egídio Brunetto, do MST, em Lagoinha (SP), na bacia do rio Paraitinga (OLIVEIRA; DANTAS, 2024).
+Pergunta à turma: \emph{o que mudou?} A leitura é feita pela turma, sem número na tela: vegetação, margens do rio,
+uso da terra.
+
+\subsection{Questões e impactos ambientais (10--20 min)}
+\textbf{O que é impacto (3 min).} Alteração do ambiente causada pela ação humana, classificada pelo sinal
+(negativo ou positivo), pela escala (local, regional ou global) e pela duração (reversível ou irreversível). Antes
+de uma obra grande, faz-se a Avaliação de Impacto Ambiental (AIA), com o Estudo de Impacto Ambiental (EIA)
+(OLIVEIRA; DANTAS, 2024).
+
+\textbf{Impacto não é só destruição (2 min).} A hipótese do estudo no assentamento é a da \emph{intervenção
+antrópica benéfica}: a agroecologia e os sistemas agroflorestais ajudam a recuperar áreas degradadas e a proteger
+rios e matas ciliares (OLIVEIRA; DANTAS, 2024). A turma volta às imagens: as margens do rio mudaram de 2004 para 2023?
+
+\textbf{Quem paga pelo impacto? (5 min).} Três perguntas lado a lado.
+\begin{enumerate}
+  \item \textbf{Quem recebe?} Em Cuiabá, a foz poluída do Córrego do Barbado alimenta famílias ribeirinhas, como a
+        turma viu na aula de Água e Solo.
+  \item \textbf{Quem decide?} Onde vai a obra, a represa, o lixão: raramente quem mora ao lado.
+  \item \textbf{Quem resiste?} Os Anacé, em Caucaia (CE), exigem consulta livre, prévia e informada diante de um
+        projeto de data center (VILA NOVA; FALCADI, 2026).
+\end{enumerate}
+Quando o impacto cai sempre sobre os mesmos grupos, fala-se em \emph{racismo ambiental} (OLIVEIRA; DANTAS, 2024).
+
+\subsection{Sustentabilidade (20--28 min)}
+\textbf{O conceito (2 min).} \enquote{O desenvolvimento sustentável é aquele que atende às necessidades do presente
+sem comprometer a capacidade de as gerações futuras atenderem às suas próprias necessidades} (COMISSÃO, 1988). A
+turma já viu a definição na aula de Domínios; a aula acrescenta a pergunta geográfica: necessidades de quem, em que
+lugar?
+
+\textbf{Planejamento ambiental (3 min).} As seis etapas de Santos (2004): inventário (levantar os dados),
+diagnóstico (problemas e potenciais), prognóstico (cenários futuros), planejamento (propor ações), implementação
+(executar) e monitoramento (conferir e corrigir). O monitoramento realimenta o inventário: o planejamento é um ciclo.
+
+\textbf{Energia \enquote{limpa} em relação a quê? (3 min).} Renováveis são 88,2\% da matriz elétrica brasileira
+em 2024 (EPE, 2025, p.~38); ao mesmo tempo, segundo Victer (2026), as maiores emissões brasileiras vêm do
+desmatamento, não da energia. Sustentável não é só a fonte da energia: é também o uso da terra.
+
+\subsection{Resíduos sólidos (28--33 min)}
+A Política Nacional de Resíduos Sólidos (BRASIL, 2010) pede gestão integrada e destinação ambientalmente adequada
+dos resíduos, também nas áreas rurais. O exemplo vem do lugar da turma: no Córrego do Barbado, sacolas e garrafas
+entopem canais e matam peixes (aula de Água e Solo). A pergunta \emph{para onde vai o lixo de Cuiabá?} fica com a
+turma, como tarefa de observação do próprio bairro.
+
+\subsection{Estudo de caso: data centers (33--40 min)}
+\textbf{Na entrada, impacto (2 min).} \enquote{A nuvem, que é a espinha dorsal da indústria da inteligência
+artificial, é formada por pedras, salmouras de lítio e petróleo bruto} (CRAWFORD, 2025, p.~43). A nuvem fica no
+chão: usa água, energia e terra num lugar concreto.
+
+\textbf{Na saída, resíduo (3 min).} A cadeia material da inteligência artificial, como a apresenta Steibel (2026):
+energia, chips, data centers, modelos, aplicações. Os chips têm vida útil curta, e a camada física também vira
+lixo eletrônico. A questão autoral (seção~\ref{sec:questoes}) aplica a Política Nacional de Resíduos Sólidos ao
+caso: a resposta é a devolução ao fabricante, que reaproveita e recicla.
+
+\textbf{Os quatro eixos num lugar só (2 min).} Eldorado do Sul (RS), sobre o mapa do setor elétrico (EPE, WebMap):
+a empresa Scala anunciou ali um complexo de data centers, com investimento inicial de R\$~3 bilhões, segundo a
+própria empresa; o data center anterior da empresa em Porto Alegre ficou 68 dias fora do ar na enchente de 2024
+(SETTI, 2024). Cerca de 8 em cada 10 moradores do município foram diretamente atingidos pela enchente (IPEA, 2024).
+A aldeia Tekoa Pekuruty, do povo Mbyá-Guarani, vizinha ao terreno, não foi consultada sobre o empreendimento
+(MARTINS, 2025). Pergunta à turma: quem paga?
+
+\subsection{Questões do ENEM (40--48 min)}
+As quatro questões, na ordem dos eixos: Mar de Aral, irrigação e um novo deserto (impactos); o Cerrado como
+\emph{hotspot} de biodiversidade, o bioma da turma (ecologia); as veredas como \enquote{caixa-d'água} do Cerrado
+(ecologia); o Protocolo de Quioto e os créditos de carbono (sustentabilidade). Dois minutos para cada uma: a turma
+lê e marca, e a dupla docente comenta a alternativa correta e a que mais atrai quem erra.
+
+\subsection{Fechamento (48--50 min)}
+A volta aos quatro eixos, agora com a pergunta norteadora respondida em uma linha por eixo: o rio liga quem está
+acima a quem está abaixo (ecologia); quem mora ao lado sente primeiro (impactos); necessidades de quem, em que lugar?
+(sustentabilidade); o lixo sempre vai para algum lugar (resíduos). Avisos: questionário da aula no Estuda.com;
+datas e material no Google Sala de Aula.
+
+\begin{redacao}[Para a redação]
+Se um tema ambiental cair na redação, a aula oferece um eixo de tese (\emph{quem paga pelo impacto?}) e repertório
+legitimado: o conceito de desenvolvimento sustentável do Relatório Brundtland (COMISSÃO, 1988); a Política Nacional
+de Resíduos Sólidos (BRASIL, 2010); a materialidade da \enquote{nuvem} (CRAWFORD, 2025); a consulta livre, prévia e
+informada dos povos afetados. A proposta de intervenção segue os cinco elementos exigidos pelo ENEM: agente, ação,
+meio, finalidade e detalhamento.
+\end{redacao}
+
+\clearpage
+\section{Questões usadas em aula}\label{sec:questoes}
+Questões 1 a 4: ENEM, caderno azul, 1º dia (Ciências Humanas), com gabarito conferido com o oficial do INEP.
+Questão 5: autoral, usada no estudo de caso.
+
+\begin{multicols}{2}
+\questaoenem{2014_CH_003}{2014}{3}{B}
+\questaoenem{2016_CH_030}{2016}{30}{E}
+\questaoenem{2015_CH_032}{2015}{32}{E}
+\questaoenem{2016_CH_018}{2016}{18}{D}
+\end{multicols}
+
+\begin{questaoautoral}{B}
+Chips e servidores de data centers têm vida útil curta e viram lixo eletrônico. Uma ação de acordo com a gestão
+integrada de resíduos, proposta pela Política Nacional de Resíduos Sólidos, é
+\alternativas
+  \item queimar os equipamentos velhos em terrenos longe das cidades.
+  \item devolver os equipamentos ao fabricante, que reaproveita e recicla as peças.
+  \item depositar os equipamentos em lixões e cobri-los com terra.
+  \item exportar o lixo eletrônico para países mais pobres.
+  \item guardar os equipamentos velhos no próprio data center.
+\fimalternativas
+\end{questaoautoral}
+
+\subsection*{Gabarito}
+\imprimirgabarito
+
+\section{Recursos}
+\begin{itemize}
+  \item Projetor e computador; apresentação em navegador (impress.js), com versão impressa em PDF.
+  \item Imagens do Google Earth de 2004 e 2023 (OLIVEIRA; DANTAS, 2024); mapa do WebMap EPE.
+  \item Recortes das questões do ENEM, projetados.
+\end{itemize}
+
+\section{Avaliação}
+\begin{itemize}
+  \item \textbf{Durante a aula (formativa):} as respostas às perguntas abertas. Critérios: a turma descreve
+        mudanças concretas nas imagens de satélite? Reconhece quem recebe o impacto nos exemplos? Distingue o
+        destino adequado do inadequado para os resíduos?
+  \item \textbf{Questões em aula:} participação na resolução comentada das quatro questões do ENEM e da questão autoral.
+  \item \textbf{Depois da aula:} o questionário da aula no Estuda.com.
+\end{itemize}
+
+\section*{Referências}
+\begin{itemize}
+  \item BRASIL. Lei nº 12.305, de 2 de agosto de 2010. Institui a Política Nacional de Resíduos Sólidos.
+        \emph{Diário Oficial da União}, Brasília, 3 ago. 2010.
+  \item COMISSÃO das Nações Unidas sobre Meio Ambiente e Desenvolvimento. \emph{Nosso futuro comum} [Relatório
+        Brundtland]. Rio de Janeiro: Fundação Getúlio Vargas, 1988.
+  \item CRAWFORD, Kate. \emph{Atlas da I.\,A.}: poder, política e os custos planetários da inteligência artificial. Tradução de
+        Humberto do Amaral. São Paulo: Edições Sesc São Paulo, 2025.
+  \item EPE -- EMPRESA DE PESQUISA ENERGÉTICA. \emph{Balanço Energético Nacional 2025}: relatório síntese, ano-base 2024.
+        Rio de Janeiro: EPE, 2025.
+  \item EPE -- EMPRESA DE PESQUISA ENERGÉTICA. \emph{WebMap EPE}: sistema de informações geográficas do setor energético
+        brasileiro. Rio de Janeiro: EPE. Acesso em: 30 set. 2026.
+  \item INEP. \emph{Exame Nacional do Ensino Médio}: provas de 2014 a 2016, caderno azul, 1º dia, e gabaritos oficiais. Brasília: INEP.
+  \item INEP. \emph{Matriz de Referência do ENEM}. Brasília: INEP. Ciências Humanas e suas Tecnologias, pp.~14--16.
+  \item IPEA. \emph{Uma estimativa da população atingida pelas enchentes do Rio Grande do Sul em 2024}. Brasília: Ipea, 2024.
+        (Nota Técnica CGDTI, n.~2). DOI 10.38116/ntcgdti2.
+  \item MARTINS, Laís. Eldorado do Sul abre portas para projeto bilionário de data center que esconde impactos e ignora
+        população. \emph{Intercept Brasil}, 23 jun. 2025.
+  \item OLIVEIRA, Heder Arruda de; DANTAS, Professor A. \emph{A luta nunca acaba}: ensaio de um planejamento ambiental no
+        microcosmo do Vale do Paraíba (SP). Relatório (Planejamento Ambiental II) -- Universidade Federal de Mato
+        Grosso, Cuiabá, 2024.
+  \item SANTOS, Rozely Ferreira dos. \emph{Planejamento ambiental}: teoria e prática. São Paulo: Oficina de Textos, 2004.
+  \item SETTI, Rennan. Depois da tragédia, a inteligência artificial: Scala terá \enquote{cidade de data centers} no RS, com
+        investimento inicial de R\$~3 bilhões. \emph{O Globo}, Rio de Janeiro, 11 set. 2024. Blog Capital.
+  \item STEIBEL, Fabro. Aula 1. In: ITS RIO. \emph{Data Center e Desenvolvimento Nacional}. Rio de Janeiro: ITS Rio, 14 set. 2026. Curso on-line.
+  \item VICTER, Francisco Abreu. Aula 1. In: ITS RIO. \emph{Data Center e Desenvolvimento Nacional}. Rio de Janeiro: ITS Rio, 14 set. 2026. Curso on-line.
+  \item VILA NOVA, Larissa; FALCADI, Domênica. Data center e sociedade. Aula 2. In: ITS RIO. \emph{Data Center e Desenvolvimento Nacional}.
+        Rio de Janeiro: ITS Rio, 2026. Curso on-line.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,14 @@
+/* Versão impressa (dist/impresso.html). Um passo por folha A4 paisagem.
+   Folha útil: 277 × 190 mm; o passo 1920×1080 é reduzido com zoom a 1047 px de largura (≈ 0,545; transform é cortado pelo PDF do Chromium).
+   Corpo de 44 px sai com ≈ 18 pt; .fonte de 24 px, com ≈ 10 pt. */
+@page { size: A4 landscape; margin: 10mm; }
+html, body { background: #fff; height: auto; }
+body.impresso { overflow: visible; }
+.folha { width: 1047px; height: 700px; position: relative; break-after: page; overflow: hidden; }
+.folha:last-child { break-after: auto; }
+.folha .step {
+  background: #fff; opacity: 1; transition: none; zoom: 0.5453; outline: 3px solid var(--rule);
+}
+.rodape { position: absolute; bottom: 0; right: 0; font: 12px var(--font-head); color: var(--fg-soft); }
+/* Conteúdo só de uma das versões: <p class="so-tela"> some no papel; <p class="so-impresso"> só no papel. */
+.so-tela, video, audio { display: none !important; }

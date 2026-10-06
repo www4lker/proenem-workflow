@@ -1,0 +1,32 @@
+origem	motivo
+proenem-enem/relatorios	cópia idêntica (md5) de aula-04-07/
+proenem-enem/continue-essa-conversa.md	ID de sessão de agente; sem valor para terceiros
+proenem-enem/CLAUDE.md	desatualizado e contraditório (descreve pastas inexistentes)
+proenem-enem/poc_extracao.py	prova de conceito superada por extrair_prova.py
+proenem-apostilas/docs/transcricao-reuniao-proenem-geografia.md	transcrição de reunião com nomes e avaliações de colegas e estudantes
+proenem-apostilas/docs/handoff-apostila-proenem-geografia.xml	leituras interpessoais da reunião, escritas para uma IA
+proenem-apostilas/docs/kit-prototipo-proenem.zip	artefato gerado (empacota arquivos já versionados)
+proenem-apostilas/proenem-reuniao/LaTeX-apostila/projeto-overleaf-proenem.zip	artefato gerado por empacotar-overleaf.sh
+proenem-apostilas/proenem-reuniao/LaTeX-apostila/prototipo-apostila-compilado.pdf	artefato gerado (compilar latex/)
+aula-geo-natureza/impar-aulas	transcrição integral de webinar de terceiros
+aula-geo-natureza/fontes/aulas-texto	texto de aulas de colegas (material de terceiros sem permissão registrada)
+aula-geo-natureza/fontes/base-geo-fisica.md	síntese das aulas de colegas (deriva de material de terceiros)
+aula-geo-natureza/fontes/plano-leitura-geo-fisica.md	plano de leitura das aulas de colegas, com nomes
+aula-geo-natureza/fontes/aulas-atlas.md	ligado à pesquisa pessoal do autor (acervo fora do repositório)
+aula-geo-natureza/fontes/ponte-atlas-ia.md	ligado à pesquisa pessoal do autor (acervo fora do repositório)
+aula-geo-natureza/fontes/crawford-exemplar	fotos de páginas de livro (direito autoral); fica só a referência
+aula-geo-natureza/fontes/CRONOGRAMA - APOSTILA GEOGRAFIA PROENEM.md	cronograma interno da equipe, com nomes de colegas
+aula-geo-natureza/aula/roteiro-de-ensaio.docx	cópia do roteiro com nomes; regenerável a partir do .md (pandoc)
+aula-geo-natureza/CLAUDE.md	regras do projeto reescritas em docs/protocolo-de-fontes.md (o original cita acervo pessoal)
+aula-geo-natureza/logs	registro de sessões com nomes de colegas e acervo pessoal; o processo está em docs/HANDOFF-kit-de-aula.md
+aula-geo-natureza/aula/03-slides/assets/img/dk/4r.jpeg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/dk/brundtland.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/dk/caso.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/dk/ecologia.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/dk/impactos.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/dk/quem-paga.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/dk/residuos.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/dk/sustentabilidade.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/charge-habitos-gilmar.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/ge-2004.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho
+aula-geo-natureza/aula/03-slides/assets/img/ge-2023.jpg	imagem de terceiro sem permissão registrada: trocada por aviso do mesmo tamanho

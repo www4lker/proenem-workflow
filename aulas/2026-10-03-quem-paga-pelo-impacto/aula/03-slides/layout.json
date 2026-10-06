@@ -1,0 +1,360 @@
+{
+ "meta": {
+  "title": "Quem paga pelo impacto?",
+  "scales": [
+   0.25,
+   0.35,
+   1,
+   2,
+   4,
+   8
+  ]
+ },
+ "steps": [
+  {
+   "id": "titulo",
+   "scale": 2,
+   "why": "centro do octógono: a pergunta-guia abre a aula e fica no meio de tudo",
+   "y": -650,
+   "rotateX": 90
+  },
+  {
+   "id": "quatro-eixos",
+   "scale": 1,
+   "why": "1º lado: a câmera desce do centro para a borda; os quatro cartões anunciam os lados que vêm",
+   "transicao": 1800,
+   "z": 2700
+  },
+  {
+   "id": "abertura-ecologia",
+   "scale": 1,
+   "why": "2º lado: troca de tópico = o octógono rola 45°",
+   "transicao": 1600,
+   "class": "eixo-ecologia",
+   "x": 1909,
+   "z": 1909,
+   "rotateY": 45
+  },
+  {
+   "id": "ecossistema",
+   "scale": 1,
+   "why": "conceito do eixo",
+   "class": "eixo-ecologia",
+   "x": 1909,
+   "y": 1300,
+   "z": 1909,
+   "rotateY": 45
+  },
+  {
+   "id": "serie-historica",
+   "scale": 1,
+   "why": "deriva do conceito: a bacia vista de cima, 2004 × 2023",
+   "class": "eixo-ecologia",
+   "x": 1909,
+   "y": 2600,
+   "z": 1909,
+   "rotateY": 45
+  },
+  {
+   "id": "rio-2004",
+   "scale": 0.35,
+   "sobre": "serie-historica",
+   "class": "mergulho",
+   "transicao": 1400,
+   "why": "mergulho (b): a câmera desce até as margens do rio na imagem de 2004",
+   "x": 1600,
+   "y": 2620,
+   "z": 2222,
+   "rotateY": 45
+  },
+  {
+   "id": "rio-2023",
+   "scale": 0.35,
+   "sobre": "serie-historica",
+   "class": "mergulho",
+   "transicao": 1200,
+   "why": "mergulho (b): no mesmo zoom, a câmera desliza para o mesmo trecho em 2023; a comparação é o movimento",
+   "x": 2251,
+   "y": 2620,
+   "z": 1572,
+   "rotateY": 45
+  },
+  {
+   "id": "abertura-impactos",
+   "scale": 1,
+   "why": "3º lado: impactos",
+   "transicao": 1600,
+   "class": "eixo-impactos",
+   "x": 2700,
+   "rotateY": 90
+  },
+  {
+   "id": "impacto",
+   "scale": 1,
+   "why": "conceito do eixo",
+   "class": "eixo-impactos",
+   "x": 2700,
+   "y": 1300,
+   "rotateY": 90
+  },
+  {
+   "id": "intervencao-benefica",
+   "scale": 1,
+   "why": "deriva do conceito e volta à série histórica: impacto positivo",
+   "class": "eixo-impactos",
+   "x": 2700,
+   "y": 2600,
+   "rotateY": 90
+  },
+  {
+   "id": "safs-2023",
+   "scale": 0.25,
+   "sobre": "serie-historica",
+   "class": "mergulho",
+   "transicao": 1800,
+   "why": "mergulho (b), volta: depois da hipótese, o octógono rola de volta ao lado da ecologia e entra nos SAFs de 2023",
+   "x": 2201,
+   "y": 2600,
+   "z": 1621,
+   "rotateY": 45
+  },
+  {
+   "id": "quem-paga",
+   "scale": 1,
+   "why": "a pergunta-guia aplicada ao impacto: justiça ambiental",
+   "transicao": 1800,
+   "class": "eixo-impactos",
+   "x": 2700,
+   "y": 3900,
+   "rotateY": 90
+  },
+  {
+   "id": "abertura-sustentabilidade",
+   "scale": 1,
+   "why": "4º lado: sustentabilidade",
+   "transicao": 1600,
+   "class": "eixo-sustentabilidade",
+   "x": 1909,
+   "z": -1909,
+   "rotateY": 135
+  },
+  {
+   "id": "sustentavel",
+   "scale": 1,
+   "why": "conceito do eixo (Brundtland, já visto em Domínios)",
+   "class": "eixo-sustentabilidade",
+   "x": 1909,
+   "y": 1300,
+   "z": -1909,
+   "rotateY": 135
+  },
+  {
+   "id": "planejamento",
+   "scale": 1,
+   "why": "deriva do conceito: como se planeja",
+   "class": "eixo-sustentabilidade",
+   "x": 1909,
+   "y": 2600,
+   "z": -1909,
+   "rotateY": 135
+  },
+  {
+   "id": "limpa-para-quem",
+   "scale": 1,
+   "why": "opõe-se ao senso comum da energia limpa",
+   "class": "eixo-sustentabilidade",
+   "x": 1909,
+   "y": 3900,
+   "z": -1909,
+   "rotateY": 135
+  },
+  {
+   "id": "abertura-residuos",
+   "scale": 1,
+   "why": "5º lado: resíduos sólidos",
+   "transicao": 1600,
+   "class": "eixo-residuos",
+   "z": -2700,
+   "rotateY": 180
+  },
+  {
+   "id": "residuos",
+   "scale": 1,
+   "why": "conceito do eixo: lixo, resíduo, rejeito (art. 3º)",
+   "class": "eixo-residuos",
+   "y": 1300,
+   "z": -2700,
+   "rotateY": 180
+  },
+  {
+   "id": "residuos-4r",
+   "scale": 1,
+   "why": "4R do DK e ordem de prioridade (art. 9º)",
+   "class": "eixo-residuos",
+   "y": 2600,
+   "z": -2700,
+   "rotateY": 180
+  },
+  {
+   "id": "residuos-charge",
+   "scale": 1,
+   "why": "charge: a ordem de cima (mudar os hábitos) contra quem de fato suja e quem paga",
+   "class": "eixo-residuos",
+   "y": 3900,
+   "z": -2700,
+   "rotateY": 180
+  },
+  {
+   "id": "residuos-mapa",
+   "scale": 1,
+   "why": "mapa IBGE MUNIC 2023: lixão 13 anos depois da lei",
+   "class": "eixo-residuos",
+   "y": 5200,
+   "z": -2700,
+   "rotateY": 180
+  },
+  {
+   "id": "residuos-logistica",
+   "scale": 1,
+   "why": "logística reversa (art. 33); ponte para o caso",
+   "class": "eixo-residuos",
+   "y": 6500,
+   "z": -2700,
+   "rotateY": 180
+  },
+  {
+   "id": "abertura-caso",
+   "scale": 1,
+   "why": "6º lado: o caso que amarra os quatro eixos",
+   "transicao": 1600,
+   "class": "eixo-caso",
+   "x": -1909,
+   "z": -1909,
+   "rotateY": 225
+  },
+  {
+   "id": "nuvem",
+   "scale": 1,
+   "why": "entrada do caso: impacto",
+   "class": "eixo-caso",
+   "x": -1909,
+   "y": 1300,
+   "z": -1909,
+   "rotateY": 225
+  },
+  {
+   "id": "lixo-eletronico",
+   "scale": 1,
+   "why": "saída do caso: resíduo",
+   "class": "eixo-caso",
+   "x": -1909,
+   "y": 2600,
+   "z": -1909,
+   "rotateY": 225
+  },
+  {
+   "id": "questao-autoral",
+   "scale": 1,
+   "why": "logo depois do lixo eletrônico: a questão que o cobra",
+   "class": "eixo-caso",
+   "x": -1909,
+   "y": 3900,
+   "z": -1909,
+   "rotateY": 225
+  },
+  {
+   "id": "eldorado",
+   "scale": 1,
+   "why": "o caso num lugar: os quatro eixos juntos",
+   "class": "eixo-caso",
+   "x": -1909,
+   "y": 5200,
+   "z": -1909,
+   "rotateY": 225
+  },
+  {
+   "id": "entroncamento",
+   "scale": 0.35,
+   "sobre": "eldorado",
+   "class": "mergulho",
+   "transicao": 1400,
+   "why": "mergulho (c): no mapa da EPE, o entroncamento onde rodovias, linhas de transmissão e a subestação se cruzam",
+   "x": -1572,
+   "y": 5130,
+   "z": -2251,
+   "rotateY": 225
+  },
+  {
+   "id": "questao-aral",
+   "scale": 1,
+   "why": "7º lado, os 10 minutos finais: questão de impactos",
+   "transicao": 1600,
+   "class": "bloco-questoes",
+   "x": -2700,
+   "rotateY": 270
+  },
+  {
+   "id": "questao-cerrado",
+   "scale": 1,
+   "why": "questão de ecologia",
+   "class": "bloco-questoes",
+   "x": -2700,
+   "y": 1300,
+   "rotateY": 270
+  },
+  {
+   "id": "questao-veredas",
+   "scale": 1,
+   "why": "questão de ecologia",
+   "class": "bloco-questoes",
+   "x": -2700,
+   "y": 2600,
+   "rotateY": 270
+  },
+  {
+   "id": "questao-quioto",
+   "scale": 1,
+   "why": "questão de sustentabilidade",
+   "class": "bloco-questoes",
+   "x": -2700,
+   "y": 3900,
+   "rotateY": 270
+  },
+  {
+   "id": "fechamento",
+   "scale": 1,
+   "why": "8º lado, rotação 0: volta à pergunta-guia e fecha o octógono",
+   "transicao": 1600,
+   "x": -1909,
+   "z": 1909,
+   "rotateY": 315
+  },
+  {
+   "id": "mapa-final",
+   "fit": "*",
+   "pad": 400,
+   "transicao": 1800,
+   "why": "a única visão geral: o octógono inteiro com a pergunta no centro",
+   "scale": 1,
+   "camera": {
+    "x": 0,
+    "y": 1800,
+    "z": 0,
+    "scale": 7,
+    "rotateX": 40,
+    "rotateY": 360
+   }
+  },
+  {
+   "id": "material-online",
+   "scale": 0.25,
+   "class": "ponto-qr",
+   "transicao": 2400,
+   "why": "mergulho (d): no mapa inteiro, um ponto pequeno logo abaixo da pergunta, no centro; a câmera desce até ele e ele vira os QRs",
+   "y": -654,
+   "z": 1600,
+   "rotateX": 90,
+   "rotateY": 360
+  }
+ ]
+}
