@@ -20,6 +20,8 @@ jobs:
         run: |
           find . -name '*.py' -not -path './.git/*' -not -path '*/node_modules/*' -print0 \
             | xargs -0 python3 -m py_compile
+      - name: Links internos da documentação
+        run: python3 scripts/checar-links.py
       - name: Checagem de ambiente (só informativa)
         run: bash scripts/checar-ambiente.sh || true
 

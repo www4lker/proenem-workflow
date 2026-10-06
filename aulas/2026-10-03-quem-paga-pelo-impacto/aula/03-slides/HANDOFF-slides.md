@@ -102,6 +102,6 @@ ferramentas/decks-impress/deck impresso aula/03-slides   # shots/impresso.pdf
 ## Identidade do curso (30/09/2026)
 
 - Rótulo: "Pro Enem • Geografia" (não "Pré-vestibular ENEM").
-- Logo: `aula/02-LaTeX/estilo/logo-pro-enem.png` (fundo limpo a partir de `fontes/asset1.jpeg`; o `asset2.jpeg` tem o
+- Logo: `identidade/logo/logo-pro-enem-versao-latex.png` (desde 06/10/2026; antes, `aula/02-LaTeX/estilo/logo-pro-enem.png`) (fundo limpo a partir de `fontes/asset1.jpeg`; o `asset2.jpeg` tem o
   xadrez de transparência gravado na imagem e não serve). Entra no título e, discreto, no rodapé dos slides e da versão imprimível.
 - O deck tem de rodar sem internet e sem áudio: mapas como capturas locais, nada carregado de CDN na hora da aula.

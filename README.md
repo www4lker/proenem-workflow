@@ -27,7 +27,8 @@ diagnóstico da turma → corpus ENEM (seleção de questões) → plano de aula
 
 ## Por onde começar
 
-0. **O que falta fazer:** [`docs/FILA.md`](docs/FILA.md), a fonte única das tarefas abertas.
+0. **O que falta fazer:** [`docs/FILA.md`](docs/FILA.md), a fonte única das tarefas abertas. **O workflow ponta a
+   ponta**, etapa por etapa, com "como adicionar uma área": [`docs/workflow.md`](docs/workflow.md).
 1. **Professor de outra área** (Física, Biologia…): leia [`docs/HANDOFF-kit-de-aula.md`](docs/HANDOFF-kit-de-aula.md)
    e abra a aula modelo. O processo vale para qualquer disciplina; o pipeline do corpus ainda não.
 2. **Quem vai construir o projeto unificado** (pessoa ou agente): leia [`CLAUDE.md`](CLAUDE.md) e

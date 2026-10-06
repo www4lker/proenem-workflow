@@ -55,6 +55,6 @@ O travamento que ocorreu só na T1 pode não existir na T2 — ou pode existir n
 
 ## ARMAZENAMENTO
 
-Salvar em: `PROENEM/ENEM/logs-handoffs/logs/` com nome `feedback_aula_YYYY-MM-DD.md`  
+Salvar na pasta da aula (`aulas/AAAA-MM-DD-tema/`) com nome `feedback-aula.md`  
 Ou copiar para este arquivo preenchido e renomear.
 

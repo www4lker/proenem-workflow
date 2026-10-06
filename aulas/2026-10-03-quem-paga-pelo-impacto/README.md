@@ -1,6 +1,8 @@
 # Aula: data centers no Brasil, uma leitura geográfica (ENEM)
 
-> Retomada: ver `HANDOFF.md`. Registro da sessão de 02/10/2026: `logs/2026-10-02-sessao.md`.
+> Retomada: ver `HANDOFF.md`. **Registro (06/10/2026):** esta pasta é a cópia higienizada do projeto `aula-geo-natureza`.
+> Ficaram fora, de propósito, os logs de sessão (`logs/`), as aulas de colegas (`impar-aulas/`, `fontes/aulas-texto/`) e
+> o `.docx` do roteiro (regenerável com pandoc): ver `docs/higienizacao.md`. As tarefas abertas estão em `docs/FILA.md`.
 >
 > **Branch `ementa-geo-natureza` (02/10/2026):** a aula foi refeita para a ementa Geografia e Natureza ("Quem paga pelo
 > impacto?"), com data centers como estudo de caso de ~14% do tempo. A versão data centers está no `master` e na tag `v3-data-centers`.
