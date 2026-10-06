@@ -16,7 +16,8 @@ import unicodedata
 from datetime import date
 from pathlib import Path
 
-CORPUS = Path(__file__).resolve().parents[3] / "pipeline/analise/corpus_mestre.csv"
+REPO = Path(__file__).resolve().parents[3]
+CORPUS = REPO / "pipeline/analise/corpus_mestre.csv"
 SAIDA = Path(__file__).resolve().parent / "candidatas-enem-proenem.md"
 
 # Grupos ligados aos ganchos da aula (base-geo-fisica.md, seção 6).
@@ -86,7 +87,7 @@ def montar(linhas):
     saida = [
         "---",
         f"gerado: {date.today().isoformat()}",
-        f"origem: {CORPUS} (sha256 {sha}…; repositório com árvore suja, versão de trabalho)",
+        f"origem: {CORPUS.relative_to(REPO)} (sha256 {sha}…; repositório com árvore suja, versão de trabalho)",
         "script: fontes/filtrar_corpus_proenem.py",
         "status: TRIAGEM. Nenhuma questão conferida. Não citar, não usar em slide.",
         "---",

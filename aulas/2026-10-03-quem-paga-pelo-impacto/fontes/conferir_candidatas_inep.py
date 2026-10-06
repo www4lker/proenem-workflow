@@ -106,7 +106,18 @@ def eh_geografia(linha):
     return linha["disciplina_principal"] == "geografia" or "geografia" in (linha["disciplinas_secundarias"] or "")
 
 
+def exigir_pdfs():
+    """Os PDFs do INEP não são versionados (pipeline/.gitignore). Sem eles, parar com mensagem clara."""
+    faltam = sorted({str(c) for par in ARQUIVOS.values() for c in par if not (RAIZ / c).exists()})
+    if faltam:
+        raise SystemExit(
+            "faltam PDFs do INEP em pipeline/ (precisa de F9, manifesto e download das provas; ver docs/FILA.md):\n  "
+            + "\n  ".join(faltam)
+        )
+
+
 def main():
+    exigir_pdfs()
     with CORPUS.open(encoding="utf-8", newline="") as f:
         linhas = list(csv.DictReader(f))
     oficiais = {a: gabarito_oficial(a) for a in ARQUIVOS}
