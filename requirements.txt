@@ -3,3 +3,4 @@
 pymupdf>=1.24      # extrair_prova.py (import fitz): texto e imagens dos PDFs do INEP
 pandas>=2.0        # analise_corpus.py, strip_and_parse.py, ask_batch.py
 pillow>=10.0       # recortar_questoes_inep.py (recortes PNG das questões)
+pyyaml>=6.0       # areas.py (config/areas.yaml)

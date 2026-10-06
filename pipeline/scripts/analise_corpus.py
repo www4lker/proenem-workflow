@@ -1,6 +1,6 @@
 """Junta a extração (Pass 1) e a classificação (Pass 2) em analise/corpus_mestre.csv e imprime as análises.
 
-Uso (de dentro de pipeline/): python scripts/analise_corpus.py [--incluir-nao-confiaveis]
+Uso (de dentro de pipeline/): python scripts/analise_corpus.py [--area CH] [--incluir-nao-confiaveis]
 
 Marcação de qualidade (tarefa F6 de docs/FILA.md): cada linha recebe `area_confiavel` e `observacao`.
 Por padrão as análises usam só as linhas classificadas E confiáveis; o CSV completo sai sempre inteiro.
@@ -12,7 +12,15 @@ import sys
 from pathlib import Path
 from collections import Counter
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import areas  # noqa: E402  (config/areas.yaml: disciplinas e competências da área)
+
 INCLUIR_NAO_CONFIAVEIS = '--incluir-nao-confiaveis' in sys.argv[1:]
+AREA = 'CH'
+if '--area' in sys.argv[1:]:
+    AREA = sys.argv[sys.argv.index('--area') + 1]
+DISCIPLINAS = areas.disciplinas(AREA)
+COMPETENCIAS = areas.competencias(AREA)
 
 # A partir de 2017 a faixa 1–45 do caderno 1 (dia 1) é Linguagens; CH passou a ser 46–90. O extrator tomou
 # sempre 1–45, então as linhas "CH" de 2017+ são Linguagens classificadas como se fossem Humanas
@@ -96,7 +104,7 @@ for anc, n in anc_global.items():
 
 # Por disciplina
 print("\nPor disciplina:")
-for disc in ['geografia','historia','sociologia','filosofia']:
+for disc in DISCIPLINAS:
     sub = df[df['disciplina_principal']==disc]
     if sub.empty:
         continue
@@ -140,14 +148,7 @@ print(pivot.to_string())
 print("\nTotal por competência (todos os anos):")
 for comp in sorted(df['comp_num'].dropna().unique()):
     n = (df['comp_num'] == comp).sum()
-    desc = {
-        1: "Linguagens/espaço-tempo",
-        2: "Território/diversidade cultural",
-        3: "Autonomia/projeto de vida",
-        4: "Produção/apropriação do espaço",
-        5: "Indivíduo/sociedade/natureza",
-        6: "Geopolítica/mundialização"
-    }.get(int(comp), "?")
+    desc = COMPETENCIAS.get(int(comp), "?")
     print(f"  C{int(comp)} ({desc}): {n}")
 
 
@@ -245,7 +246,7 @@ print(f"\n{'='*60}")
 print("ANÁLISE D — TEMAS MAIS FREQUENTES POR DISCIPLINA")
 print(f"{'='*60}")
 
-for disc in ['geografia','historia','sociologia','filosofia']:
+for disc in DISCIPLINAS:
     sub = df[df['disciplina_principal']==disc]
     if sub.empty:
         continue

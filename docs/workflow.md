@@ -38,9 +38,11 @@ python processar_recorte.py                                # todas as provas do 
 
 `extrair_prova.py` lê a camada de texto com PyMuPDF (duas colunas, calha detectada por página), separa as
 questões por título, limpa o ruído do cabeçalho e junta o gabarito oficial (`pdftotext`). É idempotente pelo `id`
-(`AAAA_CH_NNN`). **Limites conhecidos:** só texto (fórmulas, gráficos e figuras não entram); a área está fixa em
-CH e a faixa de questões em 1–45, o que está errado a partir de 2017 (ver 2c). `processar_recorte.py` escolhe o
-PDF por heurística de nome e tamanho e só procura o dia 1.
+(`AAAA_<área>_NNN`). A área é parâmetro (`--area CH|CN|LC|MT`, padrão CH): o dia da prova e a faixa de questões
+por ano vêm de `pipeline/config/areas.yaml`, lido por `pipeline/areas.py` (testes em `pipeline/tests/`). Isso
+corrige no código o erro de 2017+ (ver 2c), mas o corpus atual ainda é o extraído antes da correção.
+**Limites conhecidos:** só texto (fórmulas, gráficos e figuras não entram); `processar_recorte.py` escolhe o PDF
+por heurística de nome e tamanho.
 
 ### 2b. Classificação (Pass 2): questão → JSON de classificação (Gemini, pago)
 
@@ -111,8 +113,8 @@ equipe. A ponte corpus → apostila (uma questão curada vira `questao`/`resoluc
 O que já vale sem mudança: o diagnóstico (etapa 1), o método da aula (etapa 3, salvo o prisma, as cores e os
 eixos, que são da aula de Geografia) e a apostila (etapa 4). O que precisa mudar está no pipeline:
 
-1. **Dia e faixa de questões por ano e área.** Hoje fixos no código. Tarefa F7: `pipeline/config/areas.yaml`,
-   lido por `extrair_prova.py`, `processar_recorte.py` e `analise_corpus.py`. Numeração do caderno 1 azul:
+1. **Dia e faixa de questões por ano e área.** Em `pipeline/config/areas.yaml`, lido por `extrair_prova.py`,
+   `processar_recorte.py` e `analise_corpus.py` (F7, feita). Numeração do caderno regular:
 
    | Área | 2009–2016 | 2017 em diante |
    |---|---|---|
@@ -121,15 +123,16 @@ eixos, que são da aula de Geografia) e a apostila (etapa 4). O que precisa muda
    | LC | dia 2, Q91–135 | dia 1, Q1–45 |
    | MT | dia 2, Q136–180 | dia 2, Q136–180 |
 
-   (Tabela a conferir contra os cadernos oficiais antes de virar código; ver `protocolo-de-fontes.md`.)
+   Só as linhas de CH foram conferidas contra os PDFs oficiais; as demais estão marcadas "a conferir" no YAML e
+   precisam da conferência antes de uma questão virar aula (`protocolo-de-fontes.md`).
 2. **Provas.** Acrescentar ao manifesto (F9) as provas do dia certo e baixá-las para `pipeline/<ano>/`.
 3. **Prompt e matriz da área.** Um prompt por área em `pipeline/prompts/` (F10), com a matriz oficial de
    competências e habilidades (CN: C1–C8, H1–H30) só de fonte conferida.
 4. **Figuras e fórmulas.** Em CN muitas questões dependem delas e o Pass 1 só extrai texto. Antes de escalar,
    rodar um piloto de um ano e medir quantas questões perdem informação; avaliar uma variante com visão ou marcar
    `tem_imagem_obrigatoria`. Decisão de custo do professor.
-5. **Análise.** `analise_corpus.py` ainda tem a lista de disciplinas de CH em código; a lista passa a vir de
-   `areas.yaml` (F7).
+5. **Análise.** `analise_corpus.py --area CN` lê as disciplinas e os rótulos de competência de `areas.yaml`
+   (para CN, preencher junto com F10).
 6. **Aula.** Copiar o modelo vazio (F11) e seguir a cadeia da etapa 3.
 
 ## Registros
