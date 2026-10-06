@@ -64,7 +64,9 @@ class FaixaPorAnoEArea(unittest.TestCase):
         self.assertEqual(areas.disciplinas("CH"), ["geografia", "historia", "sociologia", "filosofia"])
         self.assertEqual(areas.competencias("CH")[6], "Geopolítica/mundialização")
         self.assertTrue(areas.prompt("CH").exists())
-        self.assertIsNone(areas.prompt("CN"))
+        self.assertTrue(areas.prompt("CN").exists())
+        self.assertEqual(sorted(areas.competencias("CN")), list(range(1, 9)))
+        self.assertIsNone(areas.prompt("LC"))
 
 
 class DiaNoNomeDoPdf(unittest.TestCase):

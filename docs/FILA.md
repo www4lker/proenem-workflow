@@ -80,9 +80,9 @@ Fazer na ordem, pulando o que estiver bloqueado. Cada tarefa tem **critério de 
 - **F9 · Manifesto das provas.** `pipeline/fontes/MANIFESTO.csv` (ano, dia, caderno, cor, URL oficial do INEP, nome
   esperado, sha256) e `pipeline/scripts/baixar_provas.py`. Se a nuvem não tiver acesso ao site do INEP, deixar as URLs
   com status "a verificar" e a tarefa de baixar para **Local**. *Pronto:* manifesto cobre os anos do corpus atual.
-  Estado: feita na parte da nuvem (f13b22d, 06/10/2026); **Local**: conferir URLs, baixar e registrar sha256 (`pipeline/fontes/LEIAME.md`).
+  Estado: feita (nuvem f13b22d; local 5ed249d, 06/10/2026). As URLs presumidas estavam erradas (dia 2 é o caderno 7); 32 arquivos conferidos com sha256 e faixas de área conferidas nos cadernos.
 - **F10 · Prompt e matriz de Ciências da Natureza.** `pipeline/prompts/` por área; matriz de CN (C1–C8, H1–H30) só com
-  fonte oficial conferida (ver `docs/protocolo-de-fontes.md`). Sem executar o Gemini. Estado: esqueleto feito (66b37cf, 06/10/2026); **Local**: preencher a matriz da fonte oficial (`pipeline/prompts/LEIAME.md`), sem acesso ao INEP na nuvem.
+  fonte oficial conferida (ver `docs/protocolo-de-fontes.md`). Sem executar o Gemini. Estado: feita (nuvem 66b37cf; local, matriz oficial INEP 2026, 06/10/2026). Executar exige autorização de custo.
 
 ### Fase 3: kit de aula (depende das decisões)
 

@@ -33,8 +33,16 @@ areas:
   CN:
     nome: Ciências da Natureza e suas Tecnologias
     disciplinas: [biologia, fisica, quimica]
-    prompt: null        # esqueleto em prompts/classificar_questao_CN.txt; vira ativo quando a matriz for preenchida da fonte oficial (prompts/LEIAME.md)
-    competencias: {}
+    prompt: prompts/classificar_questao_CN.txt   # matriz oficial preenchida em 06/10/2026 (prompts/LEIAME.md)
+    competencias:   # Matriz de Referência CN, INEP 2026 (rótulos curtos; o texto integral está no prompt)
+      1: Ciência e tecnologia como construções humanas
+      2: Tecnologias das ciências naturais em contexto
+      3: Degradação e conservação ambiental
+      4: Organismos, ambiente e saúde
+      5: Métodos e procedimentos científicos
+      6: Conhecimentos de física
+      7: Conhecimentos de química
+      8: Conhecimentos de biologia
     periodos:
       - anos: [2009, 2016]
         dia: 1
