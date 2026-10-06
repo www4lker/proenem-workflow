@@ -33,7 +33,7 @@ areas:
   CN:
     nome: Ciências da Natureza e suas Tecnologias
     disciplinas: [biologia, fisica, quimica]
-    prompt: null        # tarefa F10 (prompt e matriz C1–C8, H1–H30 só com fonte oficial)
+    prompt: null        # esqueleto em prompts/classificar_questao_CN.txt; vira ativo quando a matriz for preenchida da fonte oficial (prompts/LEIAME.md)
     competencias: {}
     periodos:
       - anos: [2009, 2016]
