@@ -64,3 +64,7 @@ do professor (custo do Gemini).
 5. Permissões de uso resolvidas (colegas e imagens).
 
 Depois do item 3, o Fable deixa de ter fila de construção: passa a receber só manutenção e tarefas pontuais.
+
+**Desfecho (10/10/2026):** o ciclo foi encerrado com só o item 1 cumprido. Os itens 2–5 ficam abertos como
+issues `lacuna`: concordância da classificação (#7), D1–D5 e F12–F17 (#2–#6), teste de transmissão (#6),
+permissões (#10).

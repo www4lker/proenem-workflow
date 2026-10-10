@@ -7,9 +7,13 @@ Orientação para agentes (Claude Code e similares) que trabalham neste reposit�
 Acervo do workflow docente do PROENEM reunido a partir de quatro projetos que nasceram separados.
 **Ainda não é um projeto unificado:** cada pasta preserva o layout de origem. A tarefa principal
 pendente é a unificação; o plano está em `docs/HANDOFF-construcao.md` (leia inteiro antes de mexer
-na estrutura).
+na estrutura). Ficou incompleta quando o ciclo com o Fable acabou: ver a issue #11.
 
 ## Protocolo de sessão
+
+> **Ciclo encerrado em 10/10/2026.** O autor não usa mais o Fable. O que ficou aberto está nas issues do GitHub
+> com o rótulo `lacuna` (#2–#11), e não em `docs/FILA.md`. O protocolo abaixo fica como registro e vale para
+> quem retomar o trabalho.
 
 O trabalho anda em rodadas: uma sessão do agente executa a fila; depois o autor (com uma sessão local)
 revisa, testa e incorpora; a próxima sessão recomeça do ponto registrado.

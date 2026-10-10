@@ -1,5 +1,11 @@
 # Fila de trabalho
 
+> **Encerrada em 10/10/2026.** O ciclo com o Fable terminou por decisão do autor, antes de cumprir os itens 2–5 do
+> critério de `docs/auditoria.md`. O que ficou aberto **não será executado por agora** e está registrado como
+> issue no GitHub com o rótulo `lacuna`: decisões D1–D5 e D8 (#2–#7), corpus CH 2017+ (#8), piloto de CN (#9),
+> permissões (#10) e verificações não feitas (#11). Esta fila fica como registro do que foi feito e do porquê;
+> as issues são onde as lacunas continuam visíveis.
+
 **Fonte única do que está aberto neste repositório.** Os handoffs antigos (`docs/HANDOFF-construcao.md`,
 `docs/HANDOFF-kit-de-aula.md`, os handoffs da aula de 03/10 e do pipeline) ficam como registro e contexto:
 o que eles tinham de aberto foi trazido para cá em 06/10/2026. Quando um handoff antigo e esta fila
@@ -25,6 +31,7 @@ Como trabalhar com ela: ver "Protocolo de sessão" em `CLAUDE.md`.
 | 2026-10-06 | **D6:** as linhas CH de 2017+ são marcadas como não confiáveis agora (F6), sem custo; a reextração fica para quando o professor autorizar o Gemini. |
 | 2026-10-06 | **D7:** aplicar a correção mínima nº 1 (texto alternativo da abertura de Ecologia), em F5. |
 | 2026-10-06 | Rodada 1 do Fable (F1–F11, PR #1) revisada localmente e incorporada em `658568a`. Registro: `docs/logs/2026-10-06-revisao.md`. |
+| 2026-10-10 | **Fim do ciclo com o Fable.** Pendências viram issues `lacuna` (#2–#11); nada mais é executado por fila. |
 | 2026-10-06 | **Política de auditoria** (`docs/auditoria.md`): quatro classes de erro, cada uma com seu auditor (CI; agente com prova anexada; professor por amostra cega; colegas e PROENEM). A profundidade da revisão de um PR segue o risco. Critério de quando o ciclo com o Fable vira manutenção. |
 
 ## Decisões pendentes do professor
@@ -38,7 +45,7 @@ Cada uma traz a recomendação. O Fable **não** decide por elas: pula as tarefa
 | D3 | LaTeX da aula e da apostila | Um estilo base comum com uma camada por disciplina · estilos separados | F12 |
 | D4 | Hospedagem das aulas | Um site do PROENEM com todas as aulas (médio prazo) · um site Netlify por aula (como hoje) | F16 |
 | D5 | Teste de transmissão | Qual disciplina e qual professor adaptam o kit primeiro? | F17 |
-| D8 | Competências de CH: o prompt e `areas.yaml` usam rótulos que não são os da matriz oficial (ver `docs/auditoria.md`) | Esperar o resultado da amostra CH nº 1, então corrigir o prompt e reclassificar (custo do Gemini) · corrigir o prompt já e reclassificar junto com a reextração de 2017+ · manter e anotar a ressalva | Uso das colunas de competência e habilidade |
+| D8 | Competências de CH: o prompt e `areas.yaml` usam rótulos que não são os da matriz oficial (ver `docs/auditoria.md`) | Esperar o resultado da amostra CH nº 1, então corrigir o prompt e reclassificar (custo do Gemini) · corrigir o prompt já e reclassificar junto com a reextração de 2017+ · manter e anotar a ressalva | Uso das colunas de competência e habilidade (#7) |
 
 ## Tarefas do Fable
 
@@ -91,14 +98,14 @@ Fazer na ordem, pulando o que estiver bloqueado. Cada tarefa tem **critério de 
 - **F11 · Modelo vazio de aula.** `aulas/_modelo/` com as pastas da aula de 03/10 e um `LEIAME.md` que explica a
   cadeia (fontes e checagem → argumento → plano → roteiro → slides → complementar → página). Estado: feita (6fbda81, 06/10/2026).
 - **F12 · Identidade única.** Um pacote LaTeX base e um `theme.css` derivados da mesma paleta e do logo canônico,
-  consumidos por aula, apostila e slides. Estado: bloqueada (D3).
+  consumidos por aula, apostila e slides. Estado: bloqueada (D3); lacuna aberta em #4, sem execução prevista.
 - **F13 · Método.** `docs/metodo/` a partir do §2 de `docs/HANDOFF-kit-de-aula.md` e do histórico: etapas, vistos,
-  onde houve retrabalho. Estado: bloqueada (D1).
+  onde houve retrabalho. Estado: bloqueada (D1); lacuna aberta em #2, sem execução prevista.
 - **F14 · Exportador corpus → apostila.** Uma questão curada de `corpus_mestre.csv` vira ambiente `questao`/`resolucao`
-  de `estilo-proenem.sty`. Estado: bloqueada (D1).
-- **F15 · Portas de entrada para agentes.** `AGENTS.md` e skills. Estado: bloqueada (D2).
-- **F16 · Publicação das aulas.** Estado: bloqueada (D4).
-- **F17 · Teste de transmissão.** Estado: bloqueada (D5).
+  de `estilo-proenem.sty`. Estado: bloqueada (D1); lacuna aberta em #2, sem execução prevista.
+- **F15 · Portas de entrada para agentes.** `AGENTS.md` e skills. Estado: bloqueada (D2); lacuna aberta em #3, sem execução prevista.
+- **F16 · Publicação das aulas.** Estado: bloqueada (D4); lacuna aberta em #5, sem execução prevista.
+- **F17 · Teste de transmissão.** Estado: bloqueada (D5); lacuna aberta em #6, sem execução prevista.
 
 ## Ações do professor (fora do alcance do Fable)
 
