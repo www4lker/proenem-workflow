@@ -27,7 +27,10 @@ diagnóstico da turma → corpus ENEM (seleção de questões) → plano de aula
 
 ## Por onde começar
 
-0. **O que falta fazer:** [`docs/FILA.md`](docs/FILA.md), a fonte única das tarefas abertas. **O workflow ponta a
+0. **O que não está pronto:** as [issues com o rótulo `lacuna`](https://github.com/www4lker/proenem-workflow/issues?q=is%3Aissue+label%3Alacuna).
+   O ciclo de construção foi encerrado em 10/10/2026 com essas pendências abertas; [`docs/FILA.md`](docs/FILA.md)
+   fica como registro. **Amostras para baixar** (PDFs e o modelo de aula em LaTeX):
+   [amostras-2026-10](https://github.com/www4lker/proenem-workflow/releases/tag/amostras-2026-10). **O workflow ponta a
    ponta**, etapa por etapa, com "como adicionar uma área": [`docs/workflow.md`](docs/workflow.md).
 1. **Professor de outra área** (Física, Biologia…): leia [`docs/HANDOFF-kit-de-aula.md`](docs/HANDOFF-kit-de-aula.md)
    e abra a aula modelo. O processo vale para qualquer disciplina; o pipeline do corpus ainda não.
