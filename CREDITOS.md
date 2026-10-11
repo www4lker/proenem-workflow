@@ -2,6 +2,8 @@
 
 ## Autoria
 
+Licença do repositório: MIT (`LICENSE`), salvo os itens de terceiros abaixo e o logo do PROENEM.
+
 Material produzido de forma voluntária por **Walker** (professor de Geografia do PROENEM), com apoio
 de assistentes de IA (Claude, Gemini) sob sua revisão. Contribuições de colegas da equipe aparecem
 pseudonimizadas (ver `docs/higienizacao.md`); os nomes reais podem ser restaurados com o

@@ -93,3 +93,9 @@ O logo que os três usam é o de `identidade/` (ver `identidade/LEIAME.md`). O p
 Este repositório passou por higienização antes do primeiro commit: nomes de colegas pseudonimizados,
 material de terceiros sem permissão registrada removido ou substituído por aviso, caminhos de máquina
 retirados. O que saiu e por quê: [`docs/higienizacao.md`](docs/higienizacao.md).
+
+## Licença
+
+[MIT](LICENSE): pode usar, copiar, adaptar e redistribuir, mantendo o aviso de copyright. Os itens de terceiros
+listados em [`CREDITOS.md`](CREDITOS.md) (questões do ENEM, fontes, impress.js, capturas) seguem as próprias
+condições, e a licença não cobre o logo do PROENEM.

@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Modelos, scripts e registros para preparar aulas do ProENEM, do diagnóstico da turma à aula pronta. Projeto aberto e incompleto.">
+<title>ProENEM Workflow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: uma coluna de leitura (~66ch), com a cadeia do workflow como lista ordenada e os downloads em grade de duas colunas. Acento = azul do caderno 1 do ENEM. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --fg: #1c2230;
+  --muted: #5a6274;
+  --line: #d9dde5;
+  --accent: #1f4fa3;
+  --accent-soft: #e6edf8;
+  --ok: #2f6b3c;
+  --ok-soft: #e4f0e6;
+  --warn: #8a5a00;
+  --warn-soft: #f6ecd6;
+  --gap: #8b2e2e;
+  --gap-soft: #f5e3e1;
+  --font-display: "Literata", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12151c; --surface: #1a1e27; --fg: #e6e9ef; --muted: #9aa2b3; --line: #2c3240;
+    --accent: #8fb0ee; --accent-soft: #1d2a42;
+    --ok: #8cc79a; --ok-soft: #1b2b20; --warn: #e2b866; --warn-soft: #2e2615; --gap: #e79a92; --gap-soft: #321d1c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12151c; --surface: #1a1e27; --fg: #e6e9ef; --muted: #9aa2b3; --line: #2c3240;
+  --accent: #8fb0ee; --accent-soft: #1d2a42;
+  --ok: #8cc79a; --ok-soft: #1b2b20; --warn: #e2b866; --warn-soft: #2e2615; --gap: #e79a92; --gap-soft: #321d1c;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img { max-width: 100%; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 1rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 0 4rem;
+}
+.wrap { max-width: 46rem; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.2; }
+h2 { font-size: 1.45rem; font-weight: 600; }
+h3 { font-size: 1.05rem; font-weight: 600; }
+p { margin: 0; max-width: 66ch; }
+.eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+section { display: flex; flex-direction: column; gap: 1rem; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* Abertura */
+header { padding-block: 3.5rem 0; display: flex; flex-direction: column; gap: 1.1rem; border-bottom: 1px solid var(--line); padding-bottom: 2.25rem; }
+header h1 { font-size: clamp(2.1rem, 6vw, 3rem); font-weight: 700; letter-spacing: -0.01em; }
+.lede { font-size: 1.15rem; color: var(--fg); }
+.status {
+  display: flex; gap: 0.75rem; align-items: baseline; flex-wrap: wrap;
+  background: var(--warn-soft); color: var(--fg); border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.95rem;
+}
+.status strong { color: var(--warn); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-radius: 6px;
+  font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid var(--accent);
+}
+.btn.primary { background: var(--accent); color: var(--bg); }
+.btn.secondary { color: var(--accent); background: transparent; }
+
+/* Cadeia */
+.chain { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; counter-reset: etapa; }
+.chain li {
+  counter-increment: etapa; display: grid; grid-template-columns: 2.25rem 1fr; gap: 0 0.75rem;
+  padding-block: 1rem; border-top: 1px solid var(--line);
+}
+.chain li:last-child { border-bottom: 1px solid var(--line); }
+.chain li::before {
+  content: counter(etapa); grid-row: 1 / span 3;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--accent); line-height: 1.25;
+}
+.chain .head { display: flex; gap: 0.6rem; align-items: baseline; flex-wrap: wrap; }
+.chain p { color: var(--muted); font-size: 0.95rem; min-width: 0; }
+.chain .facts { font-family: var(--font-mono); font-size: 0.8rem; color: var(--fg); margin-top: 0.35rem; }
+.chip { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; padding: 0.1rem 0.5rem; border-radius: 999px; white-space: nowrap; }
+.chip.ok { color: var(--ok); background: var(--ok-soft); }
+.chip.part { color: var(--warn); background: var(--warn-soft); }
+.chip.proto { color: var(--accent); background: var(--accent-soft); }
+
+/* Downloads */
+.files { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 0.75rem; }
+.file {
+  display: flex; flex-direction: column; gap: 0.35rem; padding: 1rem; border: 1px solid var(--line);
+  border-radius: 6px; background: var(--surface); text-decoration: none; color: var(--fg); min-width: 0;
+}
+.file:hover { border-color: var(--accent); }
+.file .name { font-weight: 600; color: var(--accent); }
+.file .desc { font-size: 0.9rem; color: var(--muted); }
+.file .meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); margin-top: auto; padding-top: 0.25rem; }
+.note { font-size: 0.9rem; color: var(--muted); }
+
+/* Lacunas */
+.gaps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.gaps li { display: grid; grid-template-columns: 3.25rem 1fr; gap: 0.75rem; padding-block: 0.6rem; border-top: 1px solid var(--line); font-size: 0.95rem; }
+.gaps li:last-child { border-bottom: 1px solid var(--line); }
+.gaps a.num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--gap); text-decoration: none; padding-top: 0.1rem; }
+.gaps a.num:hover { text-decoration: underline; }
+.gaps span { min-width: 0; }
+
+/* Requisitos */
+.req { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 0.75rem; }
+.req div { padding: 0.9rem 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.req p { font-size: 0.9rem; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); padding-top: 1.5rem; font-size: 0.85rem; color: var(--muted); display: flex; flex-direction: column; gap: 0.5rem; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Projeto aberto · Walker, professor voluntário de Geografia</span>
+  <h1>ProENEM Workflow</h1>
+  <p class="lede">Um conjunto de modelos, scripts e registros para preparar aulas do ProENEM: do diagnóstico da turma à aula pronta, passando pelas questões do ENEM e pela apostila. Começou como uso de IA para agilizar tarefas soltas e virou uma tentativa de ligar essas tarefas num só processo, que outras pessoas possam usar e continuar.</p>
+  <div class="status"><strong>Estado</strong><span>Incompleto. Funciona em partes e está aquém do que se propôs. O que falta está listado abaixo, sem disfarce.</span></div>
+  <div class="actions">
+    <a class="btn primary" href="https://github.com/www4lker/proenem-workflow" target="_blank" rel="noopener">Abrir no GitHub</a>
+    <a class="btn secondary" href="#amostras">Ver amostras</a>
+  </div>
+</header>
+
+<section>
+  <h2>A que se destina</h2>
+  <p>A professores e coordenadores do ProENEM que queiram aproveitar alguma parte para o próximo ano: um modelo de aula em LaTeX, a seleção de questões do ENEM por área, a apostila convertida do Word. Ninguém precisa adotar o conjunto inteiro. Cada parte serve sozinha.</p>
+</section>
+
+<section>
+  <h2>O que ele faz</h2>
+  <ol class="chain">
+    <li>
+      <div class="head"><h3>Diagnóstico da turma</h3><span class="chip ok">pronto</span></div>
+      <p>Resultado agregado da prova diagnóstica de 2026, por disciplina e tópico. Só percentuais, sem dados de alunos.</p>
+      <div class="facts">28 relatórios em PDF · de Biologia a Matemática</div>
+    </li>
+    <li>
+      <div class="head"><h3>Questões do ENEM</h3><span class="chip part">parcial</span></div>
+      <p>Extrai as questões das provas oficiais e classifica por competência e habilidade. Só Ciências Humanas tem questões classificadas, e essa classificação ainda não foi conferida por uma pessoa.</p>
+      <div class="facts">32 cadernos oficiais do INEP com conferência de integridade · 355 questões de CH, 171 utilizáveis hoje</div>
+    </li>
+    <li>
+      <div class="head"><h3>Aula</h3><span class="chip ok">uma aula completa</span></div>
+      <p>Plano de aula, material complementar e slides, com a mesma identidade, e uma página publicada. Uma aula de Geografia de 03/10 percorreu o caminho inteiro e serve de exemplo. Há também um modelo vazio para começar outra.</p>
+      <div class="facts">plano 9 pp. · complementar 12 pp. · slides com 35 passos · <a href="https://geografia-e-natureza-proenem-2026.netlify.app/" target="_blank" rel="noopener">página da aula</a></div>
+    </li>
+    <li>
+      <div class="head"><h3>Apostila</h3><span class="chip proto">protótipo</span></div>
+      <p>Conversão de capítulos escritos no Word para uma apostila padronizada em LaTeX, que pode ser editada no Overleaf. Os autores continuam escrevendo no Word.</p>
+      <div class="facts">capítulo de exemplo com 4 pp. · modelos Word vazio e preenchido</div>
+    </li>
+  </ol>
+</section>
+
+<section id="amostras">
+  <h2>Amostras para baixar</h2>
+  <div class="files">
+    <a class="file" href="https://github.com/www4lker/proenem-workflow/releases/download/amostras-2026-10/modelo-de-aula-latex.zip" target="_blank" rel="noopener">
+      <span class="name">Modelo de aula em LaTeX</span>
+      <span class="desc">Código-fonte do plano e do material complementar, com estilo e logo. Compila sozinho, também no Overleaf (LuaLaTeX).</span>
+      <span class="meta">ZIP · 0,3 MB</span>
+    </a>
+    <a class="file" href="https://github.com/www4lker/proenem-workflow/releases/download/amostras-2026-10/modelo-plano-de-aula.pdf" target="_blank" rel="noopener">
+      <span class="name">Plano de aula, modelo vazio</span>
+      <span class="desc">Como o modelo sai antes de preencher. Os campos pendentes aparecem marcados em vermelho.</span>
+      <span class="meta">PDF · 2 pp. · 0,3 MB</span>
+    </a>
+    <a class="file" href="https://github.com/www4lker/proenem-workflow/releases/download/amostras-2026-10/exemplo-aula-03-10-material-complementar.pdf" target="_blank" rel="noopener">
+      <span class="name">Material complementar de uma aula real</span>
+      <span class="desc">Geografia, 03/10/2026: questões do ENEM selecionadas e organizadas por tema, com gabarito.</span>
+      <span class="meta">PDF · 12 pp. · 4,9 MB</span>
+    </a>
+    <a class="file" href="https://github.com/www4lker/proenem-workflow/releases/download/amostras-2026-10/apostila-prototipo.pdf" target="_blank" rel="noopener">
+      <span class="name">Apostila, protótipo</span>
+      <span class="desc">Um capítulo convertido do Word para o padrão LaTeX da apostila.</span>
+      <span class="meta">PDF · 4 pp. · 0,2 MB</span>
+    </a>
+  </div>
+  <p class="note">Todos os arquivos, inclusive o material complementar do modelo vazio, estão na <a href="https://github.com/www4lker/proenem-workflow/releases/tag/amostras-2026-10" target="_blank" rel="noopener">página de amostras do GitHub</a>.</p>
+</section>
+
+<section>
+  <h2>O que não está pronto</h2>
+  <p>Cada item tem uma página no GitHub explicando o que falta e por quê. Hoje ninguém está trabalhando neles.</p>
+  <ul class="gaps">
+    <li><a class="num" href="https://github.com/www4lker/proenem-workflow/issues/7" target="_blank" rel="noopener">#7</a><span>A classificação das questões de Humanas foi feita por IA e nunca foi conferida por um professor.</span></li>
+    <li><a class="num" href="https://github.com/www4lker/proenem-workflow/issues/8" target="_blank" rel="noopener">#8</a><span>As questões de Humanas de 2017, 2018, 2019 e 2025 foram extraídas da faixa errada da prova e estão fora das análises.</span></li>
+    <li><a class="num" href="https://github.com/www4lker/proenem-workflow/issues/9" target="_blank" rel="noopener">#9</a><span>Ciências da Natureza está preparada, mas nenhuma questão foi classificada.</span></li>
+    <li><a class="num" href="https://github.com/www4lker/proenem-workflow/issues/6" target="_blank" rel="noopener">#6</a><span>Nenhum outro professor usou o processo. Não se sabe se ele funciona fora da Geografia.</span></li>
+    <li><a class="num" href="https://github.com/www4lker/proenem-workflow/issues/4" target="_blank" rel="noopener">#4</a><span>Aula, apostila e slides ainda não têm uma identidade visual única.</span></li>
+    <li><a class="num" href="https://github.com/www4lker/proenem-workflow/issues/10" target="_blank" rel="noopener">#10</a><span>Algumas imagens de terceiros foram retiradas até haver permissão, e os nomes dos colegas aparecem trocados por pseudônimos.</span></li>
+    <li><a class="num" href="https://github.com/www4lker/proenem-workflow/issues/11" target="_blank" rel="noopener">#11</a><span>Partes que funcionam, mas não foram conferidas a fundo.</span></li>
+  </ul>
+  <p class="note"><a href="https://github.com/www4lker/proenem-workflow/issues?q=is%3Aissue+label%3Alacuna" target="_blank" rel="noopener">Ver todas as lacunas</a>, inclusive as decisões em aberto sobre público, formato e publicação.</p>
+</section>
+
+<section>
+  <h2>Para usar ou continuar</h2>
+  <div class="req">
+    <div><h3>Só ler e reaproveitar</h3><p>Baixe os PDFs e o modelo. O modelo em LaTeX abre no Overleaf, sem instalar nada.</p></div>
+    <div><h3>Usar os scripts</h3><p>Exige terminal ou um assistente de IA que o opere: Python, LaTeX e Node. As instruções estão no README.</p></div>
+    <div><h3>Comentar ou sugerir</h3><p>Pelo grupo, comigo, ou abrindo uma issue no GitHub, se você tiver conta.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>Material produzido de forma voluntária por Walker, com apoio de assistentes de IA sob sua revisão. As questões do ENEM são provas públicas do INEP.</p>
+  <p>Licença <a href="https://github.com/www4lker/proenem-workflow/blob/main/LICENSE" target="_blank" rel="noopener">MIT</a>: pode usar, copiar e adaptar, mantendo o crédito. Não cobre o logo do PROENEM nem os itens de terceiros listados em <a href="https://github.com/www4lker/proenem-workflow/blob/main/CREDITOS.md" target="_blank" rel="noopener">CREDITOS.md</a>.</p>
+  <p>Atualizado em 11/10/2026.</p>
+</footer>
+
+</div>
+</body>
+</html>
